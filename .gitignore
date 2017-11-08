@@ -63,5 +63,4 @@ typings/
 .atom
 .idea
 .vscode
-lib/
 es/

@@ -2,10 +2,11 @@
   "name": "react-dates-light",
   "version": "0.0.1",
   "description": "React calendar component for selecting dates",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot"
+    "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
+    "build": "webpack --config etc/webpack.build.js"
   },
   "author": "Dominik Chrastek",
   "license": "MIT",

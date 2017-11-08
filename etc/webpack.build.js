@@ -4,21 +4,15 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const shared = require('./webpack.shared.js');
 
-const plugins = [
-  new ExtractText({ filename: 'styles.css', allChunks: true }),
-  new CopyWebpackPlugin([
-    {
-      from: path.resolve(__dirname, './src/static'),
-      to: path.resolve(__dirname, './dist/static'),
-    },
-  ]),
-];
+const plugins = [new ExtractText({ filename: 'styles.css', allChunks: true })];
 
 module.exports = {
-  entry: shared.entry,
+  entry: {
+    bundle: path.resolve(__dirname, '../src/index.js'),
+  },
   output: {
-    path: path.resolve(__dirname, './dist/static/'),
-    filename: 'output.js',
+    path: path.resolve(__dirname, '../lib/'),
+    filename: 'index.js',
     publicPath: '/',
   },
   resolve: shared.resolve,
