@@ -1,0 +1,33 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["prettier", "flowtype", "jsx-a11y"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "plugin:flowtype/recommended",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "rules": {
+    "no-console": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
+    "prettier/prettier": [
+      "error",
+      { "singleQuote": true, "trailingComma": "all" }
+    ]
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}
