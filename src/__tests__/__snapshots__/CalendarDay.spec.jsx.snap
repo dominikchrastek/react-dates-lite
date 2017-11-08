@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#CalendarDay should render correctly 1`] = `
+<styled.div
+  isHidden={false}
+>
+  <styled.button
+    colors={undefined}
+    data-test="CalendarDay"
+    disabled={true}
+    isHidden={false}
+    isHovered={undefined}
+    isPast={true}
+    isSelected={false}
+    onClick={[Function]}
+    onMouseOver={[Function]}
+  >
+    29
+  </styled.button>
+</styled.div>
+`;

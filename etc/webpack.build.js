@@ -1,6 +1,5 @@
 const path = require('path');
 const ExtractText = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const shared = require('./webpack.shared.js');
 

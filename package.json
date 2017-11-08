@@ -1,12 +1,15 @@
 {
-  "name": "react-dates-light",
+  "name": "react-datez",
   "version": "0.0.1",
   "description": "React calendar component for selecting dates",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
-    "build": "webpack --config etc/webpack.build.js"
+    "build": "babel src/ --out-dir lib/",
+    "test:update": "jest -u",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "author": "Dominik Chrastek",
   "license": "MIT",
@@ -39,9 +42,11 @@
     "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "flow-bin": "^0.58.0",
+    "jest": "^21.2.1",
     "prettier": "^1.8.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "regenerator-runtime": "^0.11.0",
     "styled-components": "^2.2.3",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
@@ -49,5 +54,8 @@
   "dependencies": {
     "date-fns": "~2.0.0-alpha.1",
     "ramda": "^0.25.0"
+  },
+  "jest": {
+    "setupFiles": ["./etc/jestSetup.js"]
   }
 }
