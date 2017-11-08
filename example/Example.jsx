@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import R from 'ramda';
-import Calendar from '../src';
+import Calendar from '../lib/';
 
 export default class Example extends PureComponent {
   state = {

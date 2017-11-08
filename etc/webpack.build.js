@@ -13,6 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, '../lib/'),
     filename: 'index.js',
     publicPath: '/',
+    libraryTarget: 'commonjs2',
   },
   resolve: shared.resolve,
   module: {
