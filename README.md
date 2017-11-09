@@ -1,4 +1,4 @@
-# react-dates-light
+# react-dates-lite
 
 **Calendar** component for maintaining selecting dates. Works with native Date API (no `Moment.js`)
 
@@ -32,7 +32,7 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
      * `selected` - background-color of selected date
      * `hovered` - background-color of hovered date (range-pick)
      * `borders` - borders color
-     * `hover` - background-coler of hovered date
+     * `hover` - background-color of hovered date
      * example color object:
      ```js
     colors={{
