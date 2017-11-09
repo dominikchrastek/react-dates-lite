@@ -64,6 +64,7 @@ type Props = {|
   numberOfPastMonths: number,
   selectedDays: Date[],
   colors: { [string]: string },
+  className: string,
 |};
 
 type State = {|
@@ -98,6 +99,7 @@ export default class Calendar extends PureComponent<Props, State> {
     visibleMonths: 1,
     numberOfPastMonths: 0,
     colors: defaultColors,
+    className: '',
   };
 
   constructor(props: Props) {
@@ -182,6 +184,7 @@ export default class Calendar extends PureComponent<Props, State> {
       numberOfPastMonths,
       selectedDays,
       colors,
+      className,
     } = this.props;
 
     const { currentMonth, hoveredDates } = this.state;
@@ -191,7 +194,7 @@ export default class Calendar extends PureComponent<Props, State> {
       months,
     );
     return (
-      <CalendarWrapper>
+      <CalendarWrapper className={className}>
         <PrevBtn
           onClick={this.handlePrev}
           disabled={currentMonth === 0}
