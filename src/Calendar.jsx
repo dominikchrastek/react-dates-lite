@@ -187,6 +187,8 @@ export default class Calendar extends PureComponent<Props, State> {
       className,
     } = this.props;
 
+    const mergedColors = R.merge(defaultColors, colors);
+
     const { currentMonth, hoveredDates } = this.state;
 
     const months = RgetMonths(numberOfPastMonths, numberOfMonths);
@@ -198,7 +200,7 @@ export default class Calendar extends PureComponent<Props, State> {
         <PrevBtn
           onClick={this.handlePrev}
           disabled={currentMonth === 0}
-          colors={colors}
+          colors={mergedColors}
         >
           left
         </PrevBtn>
@@ -208,7 +210,7 @@ export default class Calendar extends PureComponent<Props, State> {
           disabled={
             currentMonth === R.subtract(R.length(months), visibleMonths)
           }
-          colors={colors}
+          colors={mergedColors}
         >
           right
         </NextBtn>
@@ -223,7 +225,7 @@ export default class Calendar extends PureComponent<Props, State> {
               onHover={this.handleHover}
               hoveredDates={hoveredDates}
               allowedPastDates={numberOfPastMonths >= 1}
-              colors={colors}
+              colors={mergedColors}
             />
           ),
           toRender,
