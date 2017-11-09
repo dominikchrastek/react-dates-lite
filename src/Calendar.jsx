@@ -12,6 +12,9 @@ import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
 
+import ArrowLeft from './arrowLeft';
+import ArrowRight from './arrowRight';
+
 const defaultColors = {
   selected: 'rgb(244, 114, 49)',
   hovered: 'rgba(244, 114, 49, 0.75)',
@@ -19,6 +22,22 @@ const defaultColors = {
   background: 'white',
   hover: '#D3D6DC',
 };
+
+const StyledArrowLeft = styled(ArrowLeft)`
+  position: absolute;
+  top: 5px;
+  left: 12.5px;
+  fill: #82888a;
+  width: 18px;
+`;
+
+const StyledArrowRight = styled(ArrowRight)`
+  position: absolute;
+  top: 5px;
+  left: 12.5px;
+  fill: #82888a;
+  width: 18px;
+`;
 
 const CalendarWrapper = styled.div`
   position: relative;
@@ -202,7 +221,7 @@ export default class Calendar extends PureComponent<Props, State> {
           disabled={currentMonth === 0}
           colors={mergedColors}
         >
-          left
+          <StyledArrowLeft />
         </PrevBtn>
 
         <NextBtn
@@ -212,7 +231,7 @@ export default class Calendar extends PureComponent<Props, State> {
           }
           colors={mergedColors}
         >
-          right
+          <StyledArrowRight />
         </NextBtn>
 
         {R.map(
