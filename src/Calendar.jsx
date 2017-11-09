@@ -34,7 +34,7 @@ const StyledArrowLeft = styled(ArrowLeft)`
 const StyledArrowRight = styled(ArrowRight)`
   position: absolute;
   top: 5px;
-  left: 12.5px;
+  right: 12.5px;
   fill: #82888a;
   width: 18px;
 `;
