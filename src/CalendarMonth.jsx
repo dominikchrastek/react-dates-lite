@@ -13,8 +13,10 @@ import subDays from 'date-fns/sub_days';
 import isSameMonth from 'date-fns/is_same_month';
 import isBefore from 'date-fns/is_before';
 import startOfDay from 'date-fns/start_of_day';
+import getDay from 'date-fns/getDay';
 import R from 'ramda';
 import styled from 'styled-components';
+
 import CalendarDay from './CalendarDay';
 
 type Props = {|
@@ -74,10 +76,10 @@ const CalendarMonth = (props: Props) => {
   const monthBefore = subMonths(month, 1);
   const lastDayPrevMonth = lastDayOfMonth(monthBefore);
   const toPrepend =
-    getDate(start) === 0
+    getDay(start) === 0
       ? []
       : eachDayOfInterval({
-          start: subDays(lastDayPrevMonth, getDate(start) - 1),
+          start: subDays(lastDayPrevMonth, getDay(start) - 1),
           end: lastDayPrevMonth,
         });
 
