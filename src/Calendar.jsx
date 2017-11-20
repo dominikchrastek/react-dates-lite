@@ -12,8 +12,8 @@ import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
 
-import ArrowLeft from './arrowLeft';
-import ArrowRight from './arrowRight';
+import ArrowLeft from './ArrowLeft';
+import ArrowRight from './ArrowRight';
 
 const defaultColors = {
   selected: 'rgb(244, 114, 49)',
