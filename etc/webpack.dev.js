@@ -19,7 +19,9 @@ const config = {
     historyApiFallback: true,
   },
   devtool: 'eval-source-map',
-  plugins: [new ExtractText({ disable: true })],
+  plugins: [
+    new ExtractText({ disable: true })
+  ],
 };
 
 module.exports = config;
