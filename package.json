@@ -1,16 +1,17 @@
 {
   "name": "react-dates-lite",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "React calendar component for selecting dates",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
-    "build": "webpack --config etc/webpack.build.js -p",
+    "build:webpack": "webpack --config etc/webpack.build.js -p",
+    "build:babel": "babel src/ --out-dir lib/",
     "test:update": "jest -u",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "prepare": "npm run clean && npm run build"
+    "prepare": "npm run clean && npm run build:babel"
   },
   "author": "Dominik Chrastek",
   "license": "MIT",
@@ -23,10 +24,12 @@
     "react dates component"
   ],
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-ramda": "^1.4.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
@@ -47,7 +50,6 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "regenerator-runtime": "^0.11.0",
-    "styled-components": "^2.2.3",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
@@ -56,8 +58,8 @@
   },
   "dependencies": {
     "date-fns": "~2.0.0-alpha.1",
-    "styled-components": "^2.2.3",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "styled-components": "^2.2.3"
   },
   "files": ["lib", "README.md"],
   "jest": {
