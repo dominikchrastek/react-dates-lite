@@ -21,6 +21,11 @@ export default class Example extends PureComponent {
           borders: '#D3D6DC',
           hover: '#D3D6DC',
         }}
+        classes={{
+          button: 'button',
+          selected: 'selected',
+          past: 'hovered',
+        }}
         visibleMonths={2}
         numberOfMonths={2}
         numberOfPastMonths={2}

@@ -27,6 +27,7 @@ type Props = {|
   hoveredDates: Date[],
   allowedPastDates: boolean,
   colors: { [string]: string },
+  classes: { [string]: string },
 |};
 
 const Week = styled.div`
@@ -66,6 +67,7 @@ const CalendarMonth = (props: Props) => {
     hoveredDates,
     allowedPastDates,
     colors,
+    classes,
   } = props;
 
   // TODO: standalone function
@@ -122,6 +124,7 @@ const CalendarMonth = (props: Props) => {
                       isBefore(day, startOfDay(new Date())) && !allowedPastDates
                     }
                     colors={colors}
+                    classes={classes}
                   />
                 ),
                 week,

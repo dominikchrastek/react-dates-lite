@@ -83,6 +83,7 @@ type Props = {|
   numberOfPastMonths: number,
   selectedDays: Date[],
   colors: { [string]: string },
+  classes: { [string]: string },
   className: string,
 |};
 
@@ -204,6 +205,7 @@ export default class Calendar extends PureComponent<Props, State> {
       selectedDays,
       colors,
       className,
+      classes,
     } = this.props;
 
     const mergedColors = R.merge(defaultColors, colors);
@@ -217,6 +219,7 @@ export default class Calendar extends PureComponent<Props, State> {
     return (
       <CalendarWrapper className={className}>
         <PrevBtn
+          className={classes.button}
           onClick={this.handlePrev}
           disabled={currentMonth === 0}
           colors={mergedColors}
@@ -225,6 +228,7 @@ export default class Calendar extends PureComponent<Props, State> {
         </PrevBtn>
 
         <NextBtn
+          className={classes.button}
           onClick={this.handleNext}
           disabled={
             currentMonth === R.subtract(R.length(months), visibleMonths)
@@ -245,6 +249,7 @@ export default class Calendar extends PureComponent<Props, State> {
               hoveredDates={hoveredDates}
               allowedPastDates={numberOfPastMonths >= 1}
               colors={mergedColors}
+              classes={classes}
             />
           ),
           toRender,
