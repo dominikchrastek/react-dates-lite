@@ -26,7 +26,7 @@ export const getClasses = props => {
     return props.classes.selected;
   }
 
-  return ''
+  return props.classes.date
 }
 
 export const buttonColor = (props: ButtonProps) => {
@@ -80,7 +80,6 @@ export const Button = styled.button`
     background: ${props => (props.isHovered ? props.colors.hovered : props.colors.hover)};
   }
   :disabled {
-    color: black;
     cursor: default;
     :hover {
       background: inherit;

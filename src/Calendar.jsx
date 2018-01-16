@@ -20,7 +20,7 @@ const defaultColors = {
   hovered: 'rgba(244, 114, 49, 0.75)',
   borders: '#D3D6DC',
   background: 'white',
-  hover: '#D3D6DC',
+  hover: '#D3D6DC'
 };
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -84,7 +84,7 @@ type Props = {|
   selectedDays: Date[],
   colors: { [string]: string },
   classes: { [string]: string },
-  className: string,
+  className: string
 |};
 
 type State = {|
@@ -93,25 +93,25 @@ type State = {|
   isFocused: false,
   start: null,
   end: null,
-  hoveredDates: [],
+  hoveredDates: []
 |};
 
 const RgetMonths = (pastMonths, futureMonths) => [
   ...R.compose(
     R.map(month => subMonths(startOfDay(new Date()), month + 1)),
     R.sort((a, b) => b - a),
-    R.times(R.identity),
+    R.times(R.identity)
   )(pastMonths),
   ...R.compose(
     R.map(month => addMonths(startOfDay(new Date()), month)),
-    R.times(R.identity),
-  )(futureMonths),
+    R.times(R.identity)
+  )(futureMonths)
 ];
 
 const currentMonthIndex = (pastMonths, futureMonths) =>
   R.findIndex(
     month => isSameMonth(month, new Date()),
-    RgetMonths(pastMonths, futureMonths),
+    RgetMonths(pastMonths, futureMonths)
   );
 
 export default class Calendar extends PureComponent<Props, State> {
@@ -119,7 +119,7 @@ export default class Calendar extends PureComponent<Props, State> {
     visibleMonths: 1,
     numberOfPastMonths: 0,
     colors: defaultColors,
-    className: '',
+    className: ''
   };
 
   constructor(props: Props) {
@@ -130,10 +130,10 @@ export default class Calendar extends PureComponent<Props, State> {
       hoveredDates: [],
       currentMonth: currentMonthIndex(
         props.numberOfPastMonths,
-        props.numberOfMonths,
+        props.numberOfMonths
       ),
       isFocused: false,
-      start: null,
+      start: null
     };
   }
 
@@ -171,7 +171,7 @@ export default class Calendar extends PureComponent<Props, State> {
       this.setState({
         start: null,
         end: null,
-        isFocused: false,
+        isFocused: false
       });
       this.props.selectDays([]);
     } else {
@@ -190,8 +190,8 @@ export default class Calendar extends PureComponent<Props, State> {
         this.setState({
           hoveredDates: eachDayOfInterval({
             start,
-            end: date,
-          }),
+            end: date
+          })
         });
       }
     }
@@ -205,7 +205,7 @@ export default class Calendar extends PureComponent<Props, State> {
       selectedDays,
       colors,
       className,
-      classes,
+      classes
     } = this.props;
 
     const mergedColors = R.merge(defaultColors, colors);
@@ -214,7 +214,7 @@ export default class Calendar extends PureComponent<Props, State> {
 
     const months = RgetMonths(numberOfPastMonths, numberOfMonths);
     const toRender = R.compose(R.take(visibleMonths), R.drop(currentMonth))(
-      months,
+      months
     );
     return (
       <CalendarWrapper className={className}>
@@ -222,8 +222,7 @@ export default class Calendar extends PureComponent<Props, State> {
           className={classes.button}
           onClick={this.handlePrev}
           disabled={currentMonth === 0}
-          colors={mergedColors}
-        >
+          colors={mergedColors}>
           <StyledArrowLeft />
         </PrevBtn>
 
@@ -233,27 +232,29 @@ export default class Calendar extends PureComponent<Props, State> {
           disabled={
             currentMonth === R.subtract(R.length(months), visibleMonths)
           }
-          colors={mergedColors}
-        >
+          colors={mergedColors}>
           <StyledArrowRight />
         </NextBtn>
 
-        {R.map(
-          month => (
-            <CalendarMonth
-              key={month}
-              month={month}
-              selectedDays={selectedDays}
-              selectDate={this.handleSelect}
-              onHover={this.handleHover}
-              hoveredDates={hoveredDates}
-              allowedPastDates={numberOfPastMonths >= 1}
-              colors={mergedColors}
-              classes={classes}
-            />
-          ),
-          toRender,
-        )}
+        <div className={classes.calendarWrapper}>
+          {R.map(
+            month => (
+              <CalendarMonth
+                className={classes.calendar}
+                key={month}
+                month={month}
+                selectedDays={selectedDays}
+                selectDate={this.handleSelect}
+                onHover={this.handleHover}
+                hoveredDates={hoveredDates}
+                allowedPastDates={numberOfPastMonths >= 1}
+                colors={mergedColors}
+                classes={classes}
+              />
+            ),
+            toRender
+          )}
+        </div>
       </CalendarWrapper>
     );
   }

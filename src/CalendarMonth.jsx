@@ -27,7 +27,7 @@ type Props = {|
   hoveredDates: Date[],
   allowedPastDates: boolean,
   colors: { [string]: string },
-  classes: { [string]: string },
+  classes: { [string]: string }
 |};
 
 const Week = styled.div`
@@ -67,7 +67,7 @@ const CalendarMonth = (props: Props) => {
     hoveredDates,
     allowedPastDates,
     colors,
-    classes,
+    classes
   } = props;
 
   // TODO: standalone function
@@ -82,7 +82,7 @@ const CalendarMonth = (props: Props) => {
       ? []
       : eachDayOfInterval({
           start: subDays(lastDayPrevMonth, getDay(start) - 1),
-          end: lastDayPrevMonth,
+          end: lastDayPrevMonth
         });
 
   const toRender = R.concat(toPrepend, listOfDays);
@@ -95,7 +95,7 @@ const CalendarMonth = (props: Props) => {
       <DayNameList>
         {R.map(
           day => <DayName key={day}>{format(day, 'dd')}</DayName>,
-          dayNames,
+          dayNames
         )}
       </DayNameList>
 
@@ -114,11 +114,11 @@ const CalendarMonth = (props: Props) => {
                     onHover={onHover}
                     isHovered={R.find(
                       selected => isSameDay(selected, day),
-                      R.drop(1, hoveredDates),
+                      R.drop(1, hoveredDates)
                     )}
                     isSelected={R.find(
                       selected => isSameDay(selected, day),
-                      selectedDays,
+                      selectedDays
                     )}
                     isPast={
                       isBefore(day, startOfDay(new Date())) && !allowedPastDates
@@ -127,11 +127,11 @@ const CalendarMonth = (props: Props) => {
                     classes={classes}
                   />
                 ),
-                week,
+                week
               )}
             </Week>
           ),
-          R.splitEvery(7, toRender),
+          R.splitEvery(7, toRender)
         )}
       </Month>
     </div>
