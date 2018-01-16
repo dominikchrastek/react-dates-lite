@@ -89,7 +89,7 @@ const CalendarMonth = (props: Props) => {
   const dayNames = R.take(7, toRender);
 
   return (
-    <div>
+    <div className={classes.month}>
       <MonthName>{monthName}</MonthName>
 
       <DayNameList>

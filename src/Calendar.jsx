@@ -240,7 +240,6 @@ export default class Calendar extends PureComponent<Props, State> {
           {R.map(
             month => (
               <CalendarMonth
-                className={classes.calendar}
                 key={month}
                 month={month}
                 selectedDays={selectedDays}
