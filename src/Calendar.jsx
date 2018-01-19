@@ -93,7 +93,8 @@ type State = {|
   isFocused: false,
   start: null,
   end: null,
-  hoveredDates: []
+  hoveredDates: [],
+  selectedInternally: boolean
 |};
 
 const RgetMonths = (pastMonths, futureMonths) => [
@@ -133,8 +134,22 @@ export default class Calendar extends PureComponent<Props, State> {
         props.numberOfMonths
       ),
       isFocused: false,
-      start: null
+      start: null,
+      // eslint-disable-next-line react/no-unused-state
+      selectedInternally: false
     };
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    // when selectedDays came as a props, we need to know if they were changed
+    // if they were, then we have to determine if they were changed internally
+    // or externaly (from parent component)
+    if (nextProps.selectedDays !== this.props.selectedDays) {
+      this.handleSetCurrentMonth(
+        nextProps.selectedDays,
+        nextState.selectedInternally
+      );
+    }
   }
 
   handleSelect;
@@ -147,10 +162,35 @@ export default class Calendar extends PureComponent<Props, State> {
     this.setState({ currentMonth: R.dec(this.state.currentMonth) });
   };
 
-  //  test it !!!
+  // TODO: test it
+  handleSetCurrentMonth = (selectedDays, selectedInternally) => {
+    // if date wasn't selected internally (it means that selectedDays
+    // was changed from parent component ) then calculate current month and set it
+    // also set selectedInternally to false
+    if (!selectedInternally) {
+      // get index of current month in array of months (past months + future months)
+      // length of array is numberOfPastMonths + numberOfMonths
+      const currentMonth = R.findIndex(
+        month => isSameMonth(month, R.head(selectedDays)),
+        RgetMonths(this.props.numberOfPastMonths, this.props.numberOfMonths)
+      );
+      // eslint-disable-next-line react/no-unused-state
+      this.setState({ selectedInternally: false, currentMonth });
+      // otherwise just set selectedInternally to false, so we can determine if next
+      // date select will be done in this component or in parent component
+    } else {
+      // eslint-disable-next-line react/no-unused-state
+      this.setState({ selectedInternally: false });
+    }
+  };
+
+  // TODO: test it !!!
+  // TODO: write comments
   handleSetSelected = date => {
     const { start } = this.state;
     if (date && start) {
+      // eslint-disable-next-line react/no-unused-state
+      this.setState({ selectedInternally: true });
       if (isBefore(date, start)) {
         const range = eachDayOfInterval({ start: date, end: start });
         this.props.selectDays(range);
@@ -161,25 +201,40 @@ export default class Calendar extends PureComponent<Props, State> {
     }
   };
 
-  //  test it !!!
+  // TODO: test it !!!
+  // TODO: write comments
   handleSelect = date => {
     const { isFocused, end, start } = this.state;
     if (isFocused) {
-      this.setState({ end: date, isFocused: false, hoveredDates: [] });
+      this.setState({
+        end: date,
+        isFocused: false,
+        hoveredDates: [],
+        // eslint-disable-next-line react/no-unused-state
+        selectedInternally: true
+      });
       this.handleSetSelected(date);
     } else if (isSameDay(date, end) && isSameDay(end, start)) {
       this.setState({
         start: null,
         end: null,
-        isFocused: false
+        isFocused: false,
+        // eslint-disable-next-line react/no-unused-state
+        selectedInternally: true
       });
       this.props.selectDays([]);
     } else {
-      this.setState({ start: date, isFocused: true });
+      this.setState({
+        start: date,
+        isFocused: true,
+        // eslint-disable-next-line react/no-unused-state
+        selectedInternally: true
+      });
       this.props.selectDays([date]);
     }
   };
-  //  test it !!!
+  // TODO: test it !!!
+  // TODO: write comments
   handleHover = date => {
     const { isFocused, start } = this.state;
     if (start && date && isFocused) {
