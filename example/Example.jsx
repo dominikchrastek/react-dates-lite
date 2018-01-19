@@ -21,6 +21,7 @@ export default class Example extends PureComponent {
       <div>
         <button onClick={this.handleSetLast} />
         <Calendar
+          className="wrapper"
           colors={{
             selected: 'rgb(244, 114, 49)',
             hovered: 'rgba(244, 114, 49, 0.75)',
@@ -28,7 +29,7 @@ export default class Example extends PureComponent {
             hover: '#D3D6DC'
           }}
           classes={{
-            calendarWrapper: 'wrapper'
+            calendarWrapper: 'calendarWrapper'
           }}
           visibleMonths={3}
           numberOfMonths={3}

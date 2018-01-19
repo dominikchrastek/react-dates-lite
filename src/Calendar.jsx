@@ -42,7 +42,6 @@ const StyledArrowRight = styled(ArrowRight)`
 const CalendarWrapper = styled.div`
   position: relative;
   margin: 0 auto;
-  width: 300px;
   text-align: center;
 `;
 
@@ -120,7 +119,8 @@ export default class Calendar extends PureComponent<Props, State> {
     visibleMonths: 1,
     numberOfPastMonths: 0,
     colors: defaultColors,
-    className: ''
+    className: '',
+    classes: {}
   };
 
   constructor(props: Props) {
