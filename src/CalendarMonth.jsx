@@ -12,6 +12,7 @@ import getDate from 'date-fns/get_date';
 import subDays from 'date-fns/sub_days';
 import isSameMonth from 'date-fns/is_same_month';
 import isBefore from 'date-fns/is_before';
+import isAfter from 'date-fns/is_after';
 import startOfDay from 'date-fns/start_of_day';
 import getDay from 'date-fns/getDay';
 import R from 'ramda';
@@ -26,6 +27,7 @@ type Props = {|
   selectedDays: Date[],
   hoveredDates: Date[],
   allowedPastDates: boolean,
+  future: boolean,
   colors: { [string]: string },
   classes: { [string]: string }
 |};
@@ -66,6 +68,7 @@ const CalendarMonth = (props: Props) => {
     onHover,
     hoveredDates,
     allowedPastDates,
+    future,
     colors,
     classes
   } = props;
@@ -123,6 +126,7 @@ const CalendarMonth = (props: Props) => {
                     isPast={
                       isBefore(day, startOfDay(new Date())) && !allowedPastDates
                     }
+                    isFuture={isAfter(day, startOfDay(new Date())) && !future}
                     colors={colors}
                     classes={classes}
                   />

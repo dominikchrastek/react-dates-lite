@@ -80,6 +80,7 @@ type Props = {|
   visibleMonths: number,
   numberOfMonths: number,
   numberOfPastMonths: number,
+  future?: boolean,
   selectedDays: Date[],
   colors: { [string]: string },
   classes: { [string]: string },
@@ -108,9 +109,9 @@ const RgetMonths = (pastMonths, futureMonths) => [
   )(futureMonths)
 ];
 
-const currentMonthIndex = (pastMonths, futureMonths) =>
+const currentMonthIndex = (pastMonths, futureMonths, dates) =>
   R.findIndex(
-    month => isSameMonth(month, new Date()),
+    month => isSameMonth(month, R.head(dates)),
     RgetMonths(pastMonths, futureMonths)
   );
 
@@ -120,7 +121,8 @@ export default class Calendar extends PureComponent<Props, State> {
     numberOfPastMonths: 0,
     colors: defaultColors,
     className: '',
-    classes: {}
+    classes: {},
+    future: true
   };
 
   constructor(props: Props) {
@@ -131,7 +133,8 @@ export default class Calendar extends PureComponent<Props, State> {
       hoveredDates: [],
       currentMonth: currentMonthIndex(
         props.numberOfPastMonths,
-        props.numberOfMonths
+        props.numberOfMonths,
+        R.isEmpty(props.selectedDays) ? [new Date()] : props.selectedDays
       ),
       isFocused: false,
       start: null,
@@ -260,7 +263,8 @@ export default class Calendar extends PureComponent<Props, State> {
       selectedDays,
       colors,
       className,
-      classes
+      classes,
+      future
     } = this.props;
 
     const mergedColors = R.merge(defaultColors, colors);
@@ -302,6 +306,7 @@ export default class Calendar extends PureComponent<Props, State> {
                 onHover={this.handleHover}
                 hoveredDates={hoveredDates}
                 allowedPastDates={numberOfPastMonths >= 1}
+                future={future}
                 colors={mergedColors}
                 classes={classes}
               />

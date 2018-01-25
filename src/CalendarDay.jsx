@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 type ButtonProps = {
   isPast?: boolean,
+  isFuture?: boolean,
   isHidden?: boolean,
   isSelected: boolean,
   theme: typeof main,
@@ -16,8 +17,8 @@ type Props = ButtonProps & {
 };
 
 export const getClasses = props => {
-  if (props.isPast) {
-    return props.classes.past;
+  if (props.isPast || props.isFuture) {
+    return props.classes.disabled;
   }
   if (props.isHovered) {
     return props.classes.hovered;
@@ -33,7 +34,7 @@ export const buttonColor = (props: ButtonProps) => {
   if (props.className) {
     return 'inherit'
   }
-  if (props.isPast) {
+  if (props.isPast || props.isFuture) {
     return 'inherit';
   }
   if (props.isHovered) {
@@ -50,7 +51,7 @@ export const buttonBg = (props: ButtonProps) => {
   if (props.className) {
     return 'inherit'
   }
-  if (props.isPast) {
+  if (props.isPast || props.isFuture) {
     return 'white';
   }
 
@@ -112,7 +113,7 @@ export default class CalendarDay extends PureComponent<Props> {
   };
 
   render() {
-    const { isHidden, number, isPast, isSelected, isHovered, colors } = this.props;
+    const { isHidden, number, isPast, isFuture, isSelected, isHovered, colors } = this.props;
 
     return (
       <Td isHidden={isHidden}>
@@ -121,10 +122,11 @@ export default class CalendarDay extends PureComponent<Props> {
           data-test="CalendarDay"
           onClick={this.handleClick}
           onMouseOver={this.handleHover}
-          disabled={isPast}
+          disabled={isPast || isFuture}
           isSelected={isSelected}
           isHidden={isHidden}
           isPast={isPast}
+          isFuture={isFuture}
           isHovered={isHovered}
           colors={colors}
 
