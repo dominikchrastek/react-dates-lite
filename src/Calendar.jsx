@@ -109,11 +109,22 @@ const RgetMonths = (pastMonths, futureMonths) => [
   )(futureMonths)
 ];
 
-const currentMonthIndex = (pastMonths, futureMonths, dates) =>
-  R.findIndex(
+const currentMonthIndex = (
+  pastMonths,
+  futureMonths,
+  dates,
+  future,
+  visibleMonths
+) => {
+  const index = R.findIndex(
     month => isSameMonth(month, R.head(dates)),
     RgetMonths(pastMonths, futureMonths)
   );
+  if (!future) {
+    return index - (visibleMonths - 1);
+  }
+  return index;
+};
 
 export default class Calendar extends PureComponent<Props, State> {
   static defaultProps = {
@@ -134,7 +145,9 @@ export default class Calendar extends PureComponent<Props, State> {
       currentMonth: currentMonthIndex(
         props.numberOfPastMonths,
         props.numberOfMonths,
-        R.isEmpty(props.selectedDays) ? [new Date()] : props.selectedDays
+        R.isEmpty(props.selectedDays) ? [new Date()] : props.selectedDays,
+        props.future,
+        props.visibleMonths
       ),
       isFocused: false,
       start: null,
@@ -270,8 +283,15 @@ export default class Calendar extends PureComponent<Props, State> {
     const mergedColors = R.merge(defaultColors, colors);
 
     const { currentMonth, hoveredDates } = this.state;
-
-    const months = RgetMonths(numberOfPastMonths, numberOfMonths);
+    let months;
+    if (!future) {
+      months = RgetMonths(
+        numberOfPastMonths,
+        numberOfMonths - (visibleMonths - 1)
+      );
+    } else {
+      months = RgetMonths(numberOfPastMonths, numberOfMonths);
+    }
     const toRender = R.compose(R.take(visibleMonths), R.drop(currentMonth))(
       months
     );
