@@ -12,7 +12,7 @@ export default class Example extends PureComponent {
   };
 
   handleSetLast = () => {
-    this.setState({ selected: [new Date(2017, 11, 5)] });
+    this.setState({ selected: [new Date(2017, 12, 5)] });
   };
 
   render() {
@@ -33,7 +33,7 @@ export default class Example extends PureComponent {
           }}
           visibleMonths={3}
           numberOfMonths={3}
-          numberOfPastMonths={2}
+          numberOfPastMonths={10}
           selectedDays={selected}
           selectDays={this.handleSelectDates}
         />

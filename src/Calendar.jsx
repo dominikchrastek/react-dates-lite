@@ -109,6 +109,8 @@ const RgetMonths = (pastMonths, futureMonths) => [
   )(futureMonths)
 ];
 
+const getFutureMonths = (future, futureMonths) => (future ? futureMonths : 1);
+
 const currentMonthIndex = (
   pastMonths,
   futureMonths,
@@ -116,12 +118,22 @@ const currentMonthIndex = (
   future,
   visibleMonths
 ) => {
+  const datesOrToday = R.isEmpty(dates) ? [new Date()] : dates;
+  const months = RgetMonths(pastMonths, getFutureMonths(future, futureMonths));
   const index = R.findIndex(
-    month => isSameMonth(month, R.head(dates)),
-    RgetMonths(pastMonths, futureMonths)
+    month => isSameMonth(month, R.head(datesOrToday)),
+    months
   );
-  if (!future) {
+  // without future and without preselect
+  if (!future && R.isEmpty(dates)) {
     return index - (visibleMonths - 1);
+  }
+  // with preselect
+  if (!R.isEmpty(dates)) {
+    const toSubstract = index + visibleMonths - R.length(months);
+    if (toSubstract >= 0) {
+      return index - toSubstract;
+    }
   }
   return index;
 };
@@ -145,7 +157,7 @@ export default class Calendar extends PureComponent<Props, State> {
       currentMonth: currentMonthIndex(
         props.numberOfPastMonths,
         props.numberOfMonths,
-        R.isEmpty(props.selectedDays) ? [new Date()] : props.selectedDays,
+        props.selectedDays,
         props.future,
         props.visibleMonths
       ),
