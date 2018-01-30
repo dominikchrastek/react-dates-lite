@@ -1,24 +1,16 @@
 /* @flow */
-import React from 'react';
-
-import isSameDay from 'date-fns/is_same_day';
-import startOfMonth from 'date-fns/start_of_month';
-import endOfMonth from 'date-fns/end_of_month';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import format from 'date-fns/format';
-import subMonths from 'date-fns/sub_months';
-import lastDayOfMonth from 'date-fns/last_day_of_month';
-import getDate from 'date-fns/get_date';
-import subDays from 'date-fns/sub_days';
-import isSameMonth from 'date-fns/is_same_month';
-import isBefore from 'date-fns/is_before';
-import isAfter from 'date-fns/is_after';
-import startOfDay from 'date-fns/start_of_day';
-import getDay from 'date-fns/getDay';
-import R from 'ramda';
+import * as React from 'react';
+import * as R from 'ramda';
 import styled from 'styled-components';
 
+import format from 'date-fns/format';
+import getDate from 'date-fns/get_date';
+import isSameMonth from 'date-fns/is_same_month';
+
 import CalendarDay from './CalendarDay';
+
+import * as utils from './utils';
+import * as dayHelpers from './utils/dayHelpers';
 
 type Props = {|
   selectDate: Date => void,
@@ -60,45 +52,26 @@ const MonthName = styled.span`
   justify-content: center;
 `;
 
-const CalendarMonth = (props: Props) => {
-  const {
-    month,
-    selectedDays,
-    selectDate,
-    onHover,
-    hoveredDates,
-    allowedPastDates,
-    future,
-    colors,
-    classes
-  } = props;
-
-  // TODO: standalone function
-  const start = startOfMonth(month);
-  const end = endOfMonth(month);
-  const listOfDays = eachDayOfInterval({ start, end });
-  const monthName = format(month, 'MMMM YYYY');
-  const monthBefore = subMonths(month, 1);
-  const lastDayPrevMonth = lastDayOfMonth(monthBefore);
-  const toPrepend =
-    getDay(start) === 0
-      ? []
-      : eachDayOfInterval({
-          start: subDays(lastDayPrevMonth, getDay(start) - 1),
-          end: lastDayPrevMonth
-        });
-
-  const toRender = R.concat(toPrepend, listOfDays);
-  const dayNames = R.take(7, toRender);
-
+const CalendarMonth = ({
+  month,
+  selectedDays,
+  selectDate,
+  onHover,
+  hoveredDates,
+  allowedPastDates,
+  future,
+  colors,
+  classes
+}: Props) => {
+  const toRender = utils.calendarDaysToRender(month);
   return (
     <div className={classes.month}>
-      <MonthName>{monthName}</MonthName>
+      <MonthName>{format(month, 'MMMM YYYY')}</MonthName>
 
       <DayNameList>
         {R.map(
           day => <DayName key={day}>{format(day, 'dd')}</DayName>,
-          dayNames
+          utils.calendarDayNames(toRender)
         )}
       </DayNameList>
 
@@ -115,18 +88,12 @@ const CalendarMonth = (props: Props) => {
                     value={day}
                     selectDate={selectDate}
                     onHover={onHover}
-                    isHovered={R.find(
-                      selected => isSameDay(selected, day),
-                      R.drop(1, hoveredDates)
-                    )}
-                    isSelected={R.find(
-                      selected => isSameDay(selected, day),
-                      selectedDays
-                    )}
+                    isHovered={dayHelpers.isHovered(day, hoveredDates)}
+                    isSelected={dayHelpers.isSelected(day, selectedDays)}
                     isPast={
-                      isBefore(day, startOfDay(new Date())) && !allowedPastDates
+                      dayHelpers.isPast(day, new Date()) && !allowedPastDates
                     }
-                    isFuture={isAfter(day, startOfDay(new Date())) && !future}
+                    isFuture={dayHelpers.isFuture(day, new Date()) && !future}
                     colors={colors}
                     classes={classes}
                   />

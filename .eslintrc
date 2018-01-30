@@ -18,6 +18,13 @@
     "prettier/react"
   ],
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off"
   }
 }

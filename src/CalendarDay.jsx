@@ -1,19 +1,21 @@
 /* @flow */
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 type ButtonProps = {
-  isPast?: boolean,
-  isFuture?: boolean,
-  isHidden?: boolean,
+  isPast: boolean,
+  isFuture: boolean,
+  isHidden: boolean,
+  isHovered: boolena,
   isSelected: boolean,
-  theme: typeof main,
+  colors: {| [string]: string |}
 };
 
 type Props = ButtonProps & {
   value: Date,
   number: number,
   selectDate: Date => void,
+  onHover: Date => void
 };
 
 export const getClasses = props => {
@@ -27,12 +29,12 @@ export const getClasses = props => {
     return props.classes.selected;
   }
 
-  return props.classes.date
-}
+  return props.classes.date;
+};
 
 export const buttonColor = (props: ButtonProps) => {
   if (props.className) {
-    return 'inherit'
+    return 'inherit';
   }
   if (props.isPast || props.isFuture) {
     return 'inherit';
@@ -47,9 +49,9 @@ export const buttonColor = (props: ButtonProps) => {
   return 'inherit';
 };
 
-export const buttonBg = (props: ButtonProps) => {
+const buttonBg = (props: ButtonProps) => {
   if (props.className) {
-    return 'inherit'
+    return 'inherit';
   }
   if (props.isPast || props.isFuture) {
     return 'white';
@@ -65,7 +67,7 @@ export const buttonBg = (props: ButtonProps) => {
   return 'white';
 };
 
-export const Button = styled.button`
+const Button = styled.button`
   width: 100%;
   height: 40px;
   display: flex;
@@ -78,7 +80,8 @@ export const Button = styled.button`
   cursor: pointer;
   border-radius: 0;
   :hover {
-    background: ${props => (props.isHovered ? props.colors.hovered : props.colors.hover)};
+    background: ${props =>
+      props.isHovered ? props.colors.hovered : props.colors.hover};
   }
   :disabled {
     cursor: default;
@@ -97,11 +100,7 @@ const Td = styled.div`
   box-sizing: border-box;
 `;
 
-export default class CalendarDay extends PureComponent<Props> {
-  static defaultProps = {
-    isPast: false,
-    isHidden: false,
-  };
+export default class CalendarDay extends React.PureComponent<Props> {
   props: Props;
 
   handleClick = () => {
@@ -113,7 +112,15 @@ export default class CalendarDay extends PureComponent<Props> {
   };
 
   render() {
-    const { isHidden, number, isPast, isFuture, isSelected, isHovered, colors } = this.props;
+    const {
+      isHidden,
+      number,
+      isPast,
+      isFuture,
+      isSelected,
+      isHovered,
+      colors
+    } = this.props;
 
     return (
       <Td isHidden={isHidden}>
@@ -122,15 +129,14 @@ export default class CalendarDay extends PureComponent<Props> {
           data-test="CalendarDay"
           onClick={this.handleClick}
           onMouseOver={this.handleHover}
+          onFocus={this.handleHover}
           disabled={isPast || isFuture}
           isSelected={isSelected}
           isHidden={isHidden}
           isPast={isPast}
           isFuture={isFuture}
           isHovered={isHovered}
-          colors={colors}
-
-        >
+          colors={colors}>
           {number}
         </Button>
       </Td>

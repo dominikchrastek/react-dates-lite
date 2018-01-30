@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react';
-import R from 'ramda';
+import * as React from 'react';
 import Calendar from '../src';
 
-export default class Example extends PureComponent {
+export default class Example extends React.PureComponent {
   state = {
     selected: []
   };
@@ -12,7 +11,7 @@ export default class Example extends PureComponent {
   };
 
   handleSetLast = () => {
-    this.setState({ selected: [new Date(2017, 12, 5)] });
+    this.setState({ selected: [new Date(2017, 11, 5)] });
   };
 
   render() {

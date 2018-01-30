@@ -5,17 +5,43 @@ exports[`#CalendarDay should render correctly 1`] = `
   isHidden={false}
 >
   <styled.button
-    colors={undefined}
+    className={undefined}
+    colors={Object {}}
     data-test="CalendarDay"
-    disabled={true}
+    disabled={false}
+    isFuture={false}
     isHidden={false}
-    isHovered={undefined}
-    isPast={true}
+    isHovered={false}
+    isPast={false}
     isSelected={false}
     onClick={[Function]}
+    onFocus={[Function]}
     onMouseOver={[Function]}
   >
-    29
+    1
+  </styled.button>
+</styled.div>
+`;
+
+exports[`#CalendarDay should render hidden 1`] = `
+<styled.div
+  isHidden={true}
+>
+  <styled.button
+    className={undefined}
+    colors={Object {}}
+    data-test="CalendarDay"
+    disabled={false}
+    isFuture={false}
+    isHidden={true}
+    isHovered={false}
+    isPast={false}
+    isSelected={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    1
   </styled.button>
 </styled.div>
 `;

@@ -3,25 +3,25 @@ const ExtractText = require('extract-text-webpack-plugin'); // eslint-disable-li
 
 const babelOptions = {
   presets: ['react', ['es2015', { modules: false, loose: true }], 'stage-2'],
-  plugins: ['ramda'],
+  plugins: ['ramda']
 };
 
 module.exports = {
   entry: {
-    bundle: path.resolve(__dirname, '../example/index.js'),
+    bundle: path.resolve(__dirname, '../example/')
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css'],
+    extensions: ['.js', '.jsx', '.css']
   },
   jsClient: {
     test: /\.jsx?$/,
     use: [
       {
         loader: 'babel-loader',
-        options: babelOptions,
-      },
+        options: babelOptions
+      }
     ],
-    exclude: /node_modules/,
+    exclude: /node_modules/
   },
   cssShared: {
     test: /\.css$/,
@@ -31,13 +31,13 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            modules: true,
-          },
+            modules: true
+          }
         },
         {
-          loader: 'postcss-loader',
-        },
-      ],
-    }),
-  },
+          loader: 'postcss-loader'
+        }
+      ]
+    })
+  }
 };

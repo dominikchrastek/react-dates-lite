@@ -1,4 +1,5 @@
-import React from 'react';
+/* @flow */
+import * as React from 'react';
 import { render } from 'react-dom';
 
 import Example from './Example';

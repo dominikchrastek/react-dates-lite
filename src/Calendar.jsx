@@ -1,19 +1,17 @@
 /* @flow */
-import React, { PureComponent } from 'react';
-import R from 'ramda';
+import * as React from 'react';
+import * as R from 'ramda';
 import styled from 'styled-components';
 
-import subMonths from 'date-fns/sub_months';
-import startOfDay from 'date-fns/start_of_day';
-import addMonths from 'date-fns/addMonths';
-import isSameMonth from 'date-fns/is_same_month';
-import CalendarMonth from './CalendarMonth';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import isSameDay from 'date-fns/is_same_day';
 import isBefore from 'date-fns/is_before';
 
+import CalendarMonth from './CalendarMonth';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
+
+import * as utils from './utils';
 
 const defaultColors = {
   selected: 'rgb(244, 114, 49)',
@@ -97,48 +95,7 @@ type State = {|
   selectedInternally: boolean
 |};
 
-const RgetMonths = (pastMonths, futureMonths) => [
-  ...R.compose(
-    R.map(month => subMonths(startOfDay(new Date()), month + 1)),
-    R.sort((a, b) => b - a),
-    R.times(R.identity)
-  )(pastMonths),
-  ...R.compose(
-    R.map(month => addMonths(startOfDay(new Date()), month)),
-    R.times(R.identity)
-  )(futureMonths)
-];
-
-const getFutureMonths = (future, futureMonths) => (future ? futureMonths : 1);
-
-const currentMonthIndex = (
-  pastMonths,
-  futureMonths,
-  dates,
-  future,
-  visibleMonths
-) => {
-  const datesOrToday = R.isEmpty(dates) ? [new Date()] : dates;
-  const months = RgetMonths(pastMonths, getFutureMonths(future, futureMonths));
-  const index = R.findIndex(
-    month => isSameMonth(month, R.head(datesOrToday)),
-    months
-  );
-  // without future and without preselect
-  if (!future && R.isEmpty(dates)) {
-    return index - (visibleMonths - 1);
-  }
-  // with preselect
-  if (!R.isEmpty(dates)) {
-    const toSubstract = index + visibleMonths - R.length(months);
-    if (toSubstract >= 0) {
-      return index - toSubstract;
-    }
-  }
-  return index;
-};
-
-export default class Calendar extends PureComponent<Props, State> {
+export default class Calendar extends React.PureComponent<Props, State> {
   static defaultProps = {
     visibleMonths: 1,
     numberOfPastMonths: 0,
@@ -154,7 +111,7 @@ export default class Calendar extends PureComponent<Props, State> {
     this.state = {
       end: null,
       hoveredDates: [],
-      currentMonth: currentMonthIndex(
+      currentMonth: utils.getCurrentMonthIndex(
         props.numberOfPastMonths,
         props.numberOfMonths,
         props.selectedDays,
@@ -173,37 +130,44 @@ export default class Calendar extends PureComponent<Props, State> {
     // if they were, then we have to determine if they were changed internally
     // or externaly (from parent component)
     if (nextProps.selectedDays !== this.props.selectedDays) {
-      this.handleSetCurrentMonth(
-        nextProps.selectedDays,
-        nextState.selectedInternally
-      );
+      this.handleSetCurrentMonth(nextProps, nextState);
     }
   }
 
-  handleSelect;
-
   handleNext = () => {
-    this.setState({ currentMonth: R.inc(this.state.currentMonth) });
+    this.setState(state => ({
+      currentMonth: R.inc(state.currentMonth)
+    }));
   };
 
   handlePrev = () => {
-    this.setState({ currentMonth: R.dec(this.state.currentMonth) });
+    this.setState(state => ({
+      currentMonth: R.dec(state.currentMonth)
+    }));
   };
 
   // TODO: test it
-  handleSetCurrentMonth = (selectedDays, selectedInternally) => {
+  handleSetCurrentMonth = (nextProps, nextState) => {
+    const {
+      numberOfPastMonths,
+      numberOfMonths,
+      future,
+      visibleMonths
+    } = this.props;
     // if date wasn't selected internally (it means that selectedDays
     // was changed from parent component ) then calculate current month and set it
     // also set selectedInternally to false
-    if (!selectedInternally) {
-      // get index of current month in array of months (past months + future months)
-      // length of array is numberOfPastMonths + numberOfMonths
-      const currentMonth = R.findIndex(
-        month => isSameMonth(month, R.head(selectedDays)),
-        RgetMonths(this.props.numberOfPastMonths, this.props.numberOfMonths)
+    if (!nextState.selectedInternally) {
+      const currentMonth = utils.getCurrentMonthIndex(
+        numberOfPastMonths,
+        numberOfMonths,
+        nextProps.selectedDays,
+        future,
+        visibleMonths
       );
       // eslint-disable-next-line react/no-unused-state
       this.setState({ selectedInternally: false, currentMonth });
+      // }
       // otherwise just set selectedInternally to false, so we can determine if next
       // date select will be done in this component or in parent component
     } else {
@@ -297,12 +261,13 @@ export default class Calendar extends PureComponent<Props, State> {
     const { currentMonth, hoveredDates } = this.state;
     let months;
     if (!future) {
-      months = RgetMonths(
+      months = utils.getMonths(
         numberOfPastMonths,
-        numberOfMonths - (visibleMonths - 1)
+        numberOfMonths - (visibleMonths - 1),
+        new Date()
       );
     } else {
-      months = RgetMonths(numberOfPastMonths, numberOfMonths);
+      months = utils.getMonths(numberOfPastMonths, numberOfMonths, new Date());
     }
     const toRender = R.compose(R.take(visibleMonths), R.drop(currentMonth))(
       months
