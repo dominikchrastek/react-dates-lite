@@ -80,6 +80,7 @@ type Props = {|
   numberOfPastMonths: number,
   future?: boolean,
   selectedDays: Date[],
+  disabledDays: Date[],
   colors: {| [string]: string |},
   classes: {| [string]: string |},
   className?: string
@@ -96,6 +97,7 @@ type State = {|
 
 export default class Calendar extends React.PureComponent<Props, State> {
   static defaultProps = {
+    disabledDays: [],
     visibleMonths: 1,
     numberOfPastMonths: 0,
     colors: defaultColors,
@@ -255,6 +257,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
       numberOfMonths,
       numberOfPastMonths,
       selectedDays,
+      disabledDays,
       colors,
       className,
       classes,
@@ -301,6 +304,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 key={month}
                 month={month}
                 selectedDays={selectedDays}
+                disabledDays={disabledDays}
                 selectDate={this.handleSelect}
                 onHover={this.handleHover}
                 hoveredDates={hoveredDates}

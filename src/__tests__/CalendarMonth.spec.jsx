@@ -11,6 +11,7 @@ describe('#CalendarMonth', () => {
       <CalendarMonth
         month={new Date(2018, 1, 1)}
         selectedDays={[]}
+        disabledDays={[]}
         selectDate={jest.fn()}
         onHover={jest.fn()}
         hoveredDates={[]}

@@ -22,6 +22,12 @@ describe('#dayHelpers', () => {
     expect(dayHelpers.isSelected(date, [])).toBe(false);
   });
 
+  it('isDisabled', () => {
+    expect(dayHelpers.isDisabled(date, [date])).toBe(true);
+    expect(dayHelpers.isDisabled(date, [futureDate])).toBe(false);
+    expect(dayHelpers.isDisabled(date, [])).toBe(false);
+  });
+
   it('isHovered', () => {
     expect(dayHelpers.isHovered(date, [pastDate, date])).toBe(true);
     expect(dayHelpers.isHovered(date, [date, futureDate])).toBe(false);

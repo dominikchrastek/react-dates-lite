@@ -53,6 +53,7 @@ exports[`#Calendar should render correctly 1`] = `
           "selected": "rgb(244, 114, 49)",
         }
       }
+      disabledDays={Array []}
       future={true}
       hoveredDates={Array []}
       month={2018-01-30T23:00:00.000Z}
@@ -72,6 +73,7 @@ exports[`#Calendar should render correctly 1`] = `
           "selected": "rgb(244, 114, 49)",
         }
       }
+      disabledDays={Array []}
       future={true}
       hoveredDates={Array []}
       month={2018-02-27T23:00:00.000Z}
@@ -91,6 +93,7 @@ exports[`#Calendar should render correctly 1`] = `
           "selected": "rgb(244, 114, 49)",
         }
       }
+      disabledDays={Array []}
       future={true}
       hoveredDates={Array []}
       month={2018-03-30T22:00:00.000Z}

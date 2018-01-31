@@ -8,6 +8,7 @@ type ButtonProps = {
   isHidden: boolean,
   isHovered: boolean,
   isSelected: boolean,
+  isDisabled: boolean,
   colors: {| [string]: string |}
 };
 
@@ -120,6 +121,7 @@ export default class CalendarDay extends React.PureComponent<Props> {
       isPast,
       isFuture,
       isSelected,
+      isDisabled,
       isHovered,
       colors
     } = this.props;
@@ -132,7 +134,7 @@ export default class CalendarDay extends React.PureComponent<Props> {
           onClick={this.handleClick}
           onMouseOver={this.handleHover}
           onFocus={this.handleHover}
-          disabled={isPast || isFuture}
+          disabled={isPast || isFuture || isDisabled}
           isSelected={isSelected}
           isHidden={isHidden}
           isPast={isPast}

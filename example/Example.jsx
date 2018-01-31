@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Calendar from '../src';
 
+import addDays from 'date-fns/add_days';
+
 export default class Example extends React.PureComponent {
   state = {
     selected: []
@@ -34,6 +36,7 @@ export default class Example extends React.PureComponent {
           numberOfMonths={3}
           numberOfPastMonths={10}
           selectedDays={selected}
+          disabledDays={[addDays(new Date(), 1)]}
           selectDays={this.handleSelectDates}
         />
       </div>
