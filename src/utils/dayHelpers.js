@@ -2,10 +2,10 @@
 /* eslint-disable import/prefer-default-export */
 import * as R from 'ramda';
 
-import isBefore from 'date-fns/is_before';
-import isAfter from 'date-fns/is_after';
-import isSameDay from 'date-fns/is_same_day';
-import startOfDay from 'date-fns/start_of_day';
+import isBefore from 'date-fns/isBefore';
+import isAfter from 'date-fns/isAfter';
+import isSameDay from 'date-fns/isSameDay';
+import startOfDay from 'date-fns/startOfDay';
 
 // return if date is in the past or not
 export const isPast = (day: Date, date: Date): boolean =>

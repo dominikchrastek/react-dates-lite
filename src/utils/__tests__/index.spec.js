@@ -1,7 +1,7 @@
 /* @flow */
-import lastDayOfMonth from 'date-fns/last_day_of_month';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import addMonths from 'date-fns/addMonths';
-import subMonths from 'date-fns/sub_months';
+import subMonths from 'date-fns/subMonths';
 
 import * as utils from '../';
 
@@ -26,13 +26,8 @@ describe('#dayHelpers', () => {
   });
 
   it('calendarDaysToRender', () => {
-    expect(
-      utils.calendarDaysToRender(month, utils.lastDayOfPrevMonth(month)).length
-    ).toEqual(35);
-    expect(
-      utils.calendarDaysToRender(prevMonth, utils.lastDayOfPrevMonth(prevMonth))
-        .length
-    ).toEqual(32);
+    expect(utils.calendarDaysToRender(month).length).toEqual(35);
+    expect(utils.calendarDaysToRender(prevMonth).length).toEqual(32);
   });
 
   it('calendarDayNames', () => {

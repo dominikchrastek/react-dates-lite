@@ -4,8 +4,8 @@ import * as R from 'ramda';
 import styled from 'styled-components';
 
 import format from 'date-fns/format';
-import getDate from 'date-fns/get_date';
-import isSameMonth from 'date-fns/is_same_month';
+import getDate from 'date-fns/getDate';
+import isSameMonth from 'date-fns/isSameMonth';
 
 import CalendarDay from './CalendarDay';
 
@@ -20,8 +20,8 @@ type Props = {|
   hoveredDates: Date[],
   allowedPastDates: boolean,
   future: boolean,
-  colors: { [string]: string },
-  classes: { [string]: string }
+  colors: {| [string]: string |},
+  classes: {| [string]: string |}
 |};
 
 const Week = styled.div`

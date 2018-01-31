@@ -4,8 +4,8 @@ import * as R from 'ramda';
 import styled from 'styled-components';
 
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import isSameDay from 'date-fns/is_same_day';
-import isBefore from 'date-fns/is_before';
+import isSameDay from 'date-fns/isSameDay';
+import isBefore from 'date-fns/isBefore';
 
 import CalendarMonth from './CalendarMonth';
 import ArrowLeft from './ArrowLeft';
@@ -74,24 +74,23 @@ const NextBtn = NavBtn.extend`
 `;
 
 type Props = {|
-  selectDays: ([Date]) => any,
+  selectDays: (Date[]) => any,
   visibleMonths: number,
   numberOfMonths: number,
   numberOfPastMonths: number,
   future?: boolean,
   selectedDays: Date[],
-  colors: { [string]: string },
-  classes: { [string]: string },
-  className: string
+  colors: {| [string]: string |},
+  classes: {| [string]: string |},
+  className?: string
 |};
 
 type State = {|
   currentMonth: number,
-  hoveredDates: [],
-  isFocused: false,
-  start: null,
-  end: null,
-  hoveredDates: [],
+  isFocused: boolean,
+  start: Date | null,
+  end: Date | null,
+  hoveredDates: Date[],
   selectedInternally: boolean
 |};
 
@@ -107,7 +106,6 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
   constructor(props: Props) {
     super(props);
-
     this.state = {
       end: null,
       hoveredDates: [],
@@ -115,7 +113,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         props.numberOfPastMonths,
         props.numberOfMonths,
         props.selectedDays,
-        props.future,
+        !!props.future,
         props.visibleMonths
       ),
       isFocused: false,
@@ -125,7 +123,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
     };
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentWillUpdate(nextProps: Props, nextState: State) {
     // when selectedDays came as a props, we need to know if they were changed
     // if they were, then we have to determine if they were changed internally
     // or externaly (from parent component)
@@ -147,7 +145,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
   };
 
   // TODO: test it
-  handleSetCurrentMonth = (nextProps, nextState) => {
+  handleSetCurrentMonth = (nextProps: Props, nextState: State) => {
     const {
       numberOfPastMonths,
       numberOfMonths,
@@ -162,7 +160,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         numberOfPastMonths,
         numberOfMonths,
         nextProps.selectedDays,
-        future,
+        !!future,
         visibleMonths
       );
       // eslint-disable-next-line react/no-unused-state
@@ -178,7 +176,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
   // TODO: test it !!!
   // TODO: write comments
-  handleSetSelected = date => {
+  handleSetSelected = (date: Date) => {
     const { start } = this.state;
     if (date && start) {
       // eslint-disable-next-line react/no-unused-state
@@ -195,7 +193,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
   // TODO: test it !!!
   // TODO: write comments
-  handleSelect = date => {
+  handleSelect = (date: Date) => {
     const { isFocused, end, start } = this.state;
     if (isFocused) {
       this.setState({
@@ -206,7 +204,12 @@ export default class Calendar extends React.PureComponent<Props, State> {
         selectedInternally: true
       });
       this.handleSetSelected(date);
-    } else if (isSameDay(date, end) && isSameDay(end, start)) {
+    } else if (
+      // $FlowFixMe
+      isSameDay(date, end) &&
+      // $FlowFixMe
+      isSameDay(end, start)
+    ) {
       this.setState({
         start: null,
         end: null,
@@ -227,7 +230,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
   };
   // TODO: test it !!!
   // TODO: write comments
-  handleHover = date => {
+  handleHover = (date: Date) => {
     const { isFocused, start } = this.state;
     if (start && date && isFocused) {
       if (isBefore(date, start)) {
@@ -303,7 +306,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 onHover={this.handleHover}
                 hoveredDates={hoveredDates}
                 allowedPastDates={numberOfPastMonths >= 1}
-                future={future}
+                future={!!future}
                 colors={mergedColors}
                 classes={classes}
               />

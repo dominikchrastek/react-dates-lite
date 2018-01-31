@@ -2,16 +2,16 @@
 /* eslint-disable import/prefer-default-export */
 import * as R from 'ramda';
 
-import startOfMonth from 'date-fns/start_of_month';
-import endOfMonth from 'date-fns/end_of_month';
+import startOfMonth from 'date-fns/startOfMonth';
+import endOfMonth from 'date-fns/endOfMonth';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import lastDayOfMonth from 'date-fns/last_day_of_month';
-import subDays from 'date-fns/sub_days';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+import subDays from 'date-fns/subDays';
 import getDay from 'date-fns/getDay';
-import startOfDay from 'date-fns/start_of_day';
+import startOfDay from 'date-fns/startOfDay';
 import addMonths from 'date-fns/addMonths';
-import subMonths from 'date-fns/sub_months';
-import isSameMonth from 'date-fns/is_same_month';
+import subMonths from 'date-fns/subMonths';
+import isSameMonth from 'date-fns/isSameMonth';
 
 // TODO: separate util files
 // CalendarMonth utils
@@ -30,7 +30,7 @@ export const daysFromPrevMonth = (
         end: lastDayOfPrevMonth
       });
 
-export const lastDayOfPrevMonth = (month: Date[]): Date[] =>
+export const lastDayOfPrevMonth = (month: Date): Date =>
   lastDayOfMonth(subMonths(month, 1));
 
 // render prepended days from previous month + days from current month
@@ -78,7 +78,7 @@ export const getCurrentMonthIndex = (
   pastMonths: number,
   futureMonths: number,
   dates: Date[],
-  future: booelan,
+  future: boolean,
   visibleMonths: number
 ): number => {
   const datesOrToday = R.isEmpty(dates) ? [new Date()] : dates;
@@ -88,7 +88,8 @@ export const getCurrentMonthIndex = (
     new Date()
   );
   const index = R.findIndex(
-    month => isSameMonth(month, R.head(datesOrToday)),
+    // $FlowExpected
+    month => isSameMonth(month, R.head([datesOrToday])),
     months
   );
   // without future and without preselect

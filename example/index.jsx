@@ -11,5 +11,6 @@ if (app) {
 }
 
 if (module.hot) {
+  // $FlowExpected
   module.hot.accept();
 }

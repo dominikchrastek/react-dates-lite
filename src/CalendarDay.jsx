@@ -6,7 +6,7 @@ type ButtonProps = {
   isPast: boolean,
   isFuture: boolean,
   isHidden: boolean,
-  isHovered: boolena,
+  isHovered: boolean,
   isSelected: boolean,
   colors: {| [string]: string |}
 };
@@ -15,10 +15,12 @@ type Props = ButtonProps & {
   value: Date,
   number: number,
   selectDate: Date => void,
-  onHover: Date => void
+  onHover: Date => void,
+  // eslint-disable-next-line react/no-unused-prop-types
+  classes: {| [string]: string |}
 };
 
-export const getClasses = props => {
+export const getClasses = (props: Props) => {
   if (props.isPast || props.isFuture) {
     return props.classes.disabled;
   }
