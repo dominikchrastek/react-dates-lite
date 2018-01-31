@@ -22,7 +22,7 @@ type Props = ButtonProps & {
 };
 
 export const getClasses = (props: Props) => {
-  if (props.isPast || props.isFuture) {
+  if (props.isPast || props.isFuture || props.isDisabled) {
     return props.classes.disabled;
   }
   if (props.isHovered) {
