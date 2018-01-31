@@ -79,13 +79,14 @@ export const getCurrentMonthIndex = (
   futureMonths: number,
   dates: Date[],
   future: boolean,
-  visibleMonths: number
+  visibleMonths: number,
+  today: Date
 ): number => {
-  const datesOrToday = R.isEmpty(dates) ? [new Date()] : dates;
+  const datesOrToday = R.isEmpty(dates) ? [today] : dates;
   const months = getMonths(
     pastMonths,
     getNumberOfFutureMonths(future, futureMonths),
-    new Date()
+    today
   );
   const index = R.findIndex(
     // $FlowExpected
@@ -105,3 +106,9 @@ export const getCurrentMonthIndex = (
   }
   return index;
 };
+
+export const calendarMonthsToRender = (
+  visibleMonths: number,
+  currentMonth: number,
+  months: Date[]
+): Date[] => R.compose(R.take(visibleMonths), R.drop(currentMonth))(months);

@@ -114,7 +114,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
         props.numberOfMonths,
         props.selectedDays,
         !!props.future,
-        props.visibleMonths
+        props.visibleMonths,
+        new Date()
       ),
       isFocused: false,
       start: null,
@@ -161,7 +162,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
         numberOfMonths,
         nextProps.selectedDays,
         !!future,
-        visibleMonths
+        visibleMonths,
+        new Date()
       );
       // eslint-disable-next-line react/no-unused-state
       this.setState({ selectedInternally: false, currentMonth });
@@ -262,22 +264,18 @@ export default class Calendar extends React.PureComponent<Props, State> {
     const mergedColors = R.merge(defaultColors, colors);
 
     const { currentMonth, hoveredDates } = this.state;
-    let months;
-    if (!future) {
-      months = utils.getMonths(
-        numberOfPastMonths,
-        numberOfMonths - (visibleMonths - 1),
-        new Date()
-      );
-    } else {
-      months = utils.getMonths(numberOfPastMonths, numberOfMonths, new Date());
-    }
-    const toRender = R.compose(R.take(visibleMonths), R.drop(currentMonth))(
-      months
-    );
+
+    const months = future
+      ? utils.getMonths(numberOfPastMonths, numberOfMonths, new Date())
+      : utils.getMonths(
+          numberOfPastMonths,
+          numberOfMonths - (visibleMonths - 1),
+          new Date()
+        );
     return (
       <CalendarWrapper className={className}>
         <PrevBtn
+          data-test="rdl-prev-button"
           className={classes.button}
           onClick={this.handlePrev}
           disabled={currentMonth === 0}
@@ -286,6 +284,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         </PrevBtn>
 
         <NextBtn
+          data-test="rdl-next-button"
           className={classes.button}
           onClick={this.handleNext}
           disabled={
@@ -311,7 +310,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 classes={classes}
               />
             ),
-            toRender
+            utils.calendarMonthsToRender(visibleMonths, currentMonth, months)
           )}
         </div>
       </CalendarWrapper>

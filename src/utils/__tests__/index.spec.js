@@ -20,6 +20,9 @@ describe('#dayHelpers', () => {
       utils.daysFromPrevMonth(month, utils.lastDayOfPrevMonth(month)).length
     ).toEqual(5);
     expect(
+      utils.daysFromPrevMonth(new Date(2017, 0, 1), new Date(2017, 0, 1)).length
+    ).toEqual(0);
+    expect(
       utils.daysFromPrevMonth(prevMonth, utils.lastDayOfPrevMonth(prevMonth))
         .length
     ).toEqual(4);
@@ -62,5 +65,48 @@ describe('#dayHelpers', () => {
     expect(utils.getNumberOfFutureMonths(false, 3)).toBe(1);
     expect(utils.getNumberOfFutureMonths(false, 0)).toBe(1);
     expect(utils.getNumberOfFutureMonths(true, 3)).toBe(3);
+  });
+
+  it('getCurrentMonthIndex', () => {
+    expect(utils.getCurrentMonthIndex(10, 10, [], false, 3, date)).toBe(8);
+    expect(utils.getCurrentMonthIndex(10, 10, [], true, 3, date)).toBe(10);
+    expect(utils.getCurrentMonthIndex(10, 10, [month], true, 3, date)).toBe(9);
+    expect(utils.getCurrentMonthIndex(10, 10, [prevMonth], true, 3, date)).toBe(
+      8
+    );
+    expect(utils.getCurrentMonthIndex(10, 10, [prevMonth], true, 3, date)).toBe(
+      8
+    );
+    expect(
+      utils.getCurrentMonthIndex(
+        10,
+        10,
+        [prevMonth],
+        true,
+        3,
+        new Date(2017, 5, 3)
+      )
+    ).toBe(17);
+  });
+
+  it('calendarMonthsToRender', () => {
+    expect(
+      utils.calendarMonthsToRender(3, 0, utils.getMonths(2, 1, month)).length
+    ).toBe(3);
+    expect(
+      utils.calendarMonthsToRender(5, 0, utils.getMonths(2, 1, month)).length
+    ).toBe(3);
+    expect(
+      utils.calendarMonthsToRender(2, 0, utils.getMonths(2, 1, month)).length
+    ).toBe(2);
+    expect(
+      utils.calendarMonthsToRender(1, 0, utils.getMonths(2, 1, month)).length
+    ).toBe(1);
+    expect(
+      utils.calendarMonthsToRender(2, 0, utils.getMonths(2, 1, month))
+    ).toEqual([subMonths(month, 2), subMonths(month, 1)]);
+    expect(
+      utils.calendarMonthsToRender(2, 1, utils.getMonths(2, 1, month))
+    ).toEqual([subMonths(month, 1), subMonths(month, 0)]);
   });
 });

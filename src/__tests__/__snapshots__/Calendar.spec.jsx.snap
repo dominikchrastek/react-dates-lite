@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Calendar should render correctly 1`] = `
+<styled.div
+  className="wrapper"
+>
+  <styled.button
+    className={undefined}
+    colors={
+      Object {
+        "background": "white",
+        "borders": "#D3D6DC",
+        "hover": "#D3D6DC",
+        "hovered": "rgba(244, 114, 49, 0.75)",
+        "selected": "rgb(244, 114, 49)",
+      }
+    }
+    data-test="rdl-prev-button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <Styled(ArrowLeft) />
+  </styled.button>
+  <styled.button
+    className={undefined}
+    colors={
+      Object {
+        "background": "white",
+        "borders": "#D3D6DC",
+        "hover": "#D3D6DC",
+        "hovered": "rgba(244, 114, 49, 0.75)",
+        "selected": "rgb(244, 114, 49)",
+      }
+    }
+    data-test="rdl-next-button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <Styled(ArrowRight) />
+  </styled.button>
+  <div
+    className={undefined}
+  >
+    <CalendarMonth
+      allowedPastDates={true}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "borders": "#D3D6DC",
+          "hover": "#D3D6DC",
+          "hovered": "rgba(244, 114, 49, 0.75)",
+          "selected": "rgb(244, 114, 49)",
+        }
+      }
+      future={true}
+      hoveredDates={Array []}
+      month={2018-01-30T23:00:00.000Z}
+      onHover={[Function]}
+      selectDate={[Function]}
+      selectedDays={Array []}
+    />
+    <CalendarMonth
+      allowedPastDates={true}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "borders": "#D3D6DC",
+          "hover": "#D3D6DC",
+          "hovered": "rgba(244, 114, 49, 0.75)",
+          "selected": "rgb(244, 114, 49)",
+        }
+      }
+      future={true}
+      hoveredDates={Array []}
+      month={2018-02-27T23:00:00.000Z}
+      onHover={[Function]}
+      selectDate={[Function]}
+      selectedDays={Array []}
+    />
+    <CalendarMonth
+      allowedPastDates={true}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "borders": "#D3D6DC",
+          "hover": "#D3D6DC",
+          "hovered": "rgba(244, 114, 49, 0.75)",
+          "selected": "rgb(244, 114, 49)",
+        }
+      }
+      future={true}
+      hoveredDates={Array []}
+      month={2018-03-30T22:00:00.000Z}
+      onHover={[Function]}
+      selectDate={[Function]}
+      selectedDays={Array []}
+    />
+  </div>
+</styled.div>
+`;
