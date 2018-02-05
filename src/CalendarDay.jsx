@@ -82,7 +82,8 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 0;
   :hover {
-    background: ${props => props.colors.hover}
+    background: ${props => props.colors.hover};
+  }
   :disabled {
     cursor: default;
     :hover {
