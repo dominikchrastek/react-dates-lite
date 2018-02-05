@@ -77,12 +77,12 @@ type Props = {|
   visibleMonths: number,
   numberOfMonths: number,
   numberOfPastMonths: number,
-  future?: boolean,
+  future: boolean,
   selectedDays: Date[],
   disabledDays: Date[],
   colors: {| [string]: string |},
   classes: {| [string]: string |},
-  className?: string
+  className: string
 |};
 
 type State = {|
@@ -114,9 +114,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
         props.numberOfPastMonths,
         props.numberOfMonths,
         props.selectedDays,
-        !!props.future,
-        props.visibleMonths,
-        new Date()
+        props.future,
+        props.visibleMonths
       ),
       isFocused: false,
       start: null,
@@ -146,7 +145,13 @@ export default class Calendar extends React.PureComponent<Props, State> {
     }));
   };
 
-  // TODO: test it
+  /**
+   * Method that will set current month
+   * atm it's called only when dates are selected externally,
+   * it means that dates were selected from parent component and pass as a
+   * @argument {Props} nextProps
+   * @argument {State} nextState
+   */
   handleSetCurrentMonth = (nextProps: Props, nextState: State) => {
     const {
       numberOfPastMonths,
@@ -162,11 +167,10 @@ export default class Calendar extends React.PureComponent<Props, State> {
         numberOfPastMonths,
         numberOfMonths,
         nextProps.selectedDays,
-        !!future,
-        visibleMonths,
-        new Date()
+        future,
+        visibleMonths
       );
-      // eslint-disable-next-line react/no-unused-state
+
       this.setState({ selectedInternally: false, currentMonth });
       // }
       // otherwise just set selectedInternally to false, so we can determine if next
@@ -177,10 +181,17 @@ export default class Calendar extends React.PureComponent<Props, State> {
     }
   };
 
-  // TODO: test it !!!
-  // TODO: write comments
-  handleSetSelected = (date: Date) => {
+  /**
+   * Method for selecting date range
+   * @argument {Date} date
+   */
+  handleSetRange = (date: Date) => {
     const { start } = this.state;
+    // when someting is already selected (start)
+    // and we clicked on some date (date)
+    // then we will set array of dates between
+    // date and start - it depends which one is first
+    // selected array of dates is sorted ascending
     if (date && start) {
       // eslint-disable-next-line react/no-unused-state
       this.setState({ selectedInternally: true });
@@ -194,10 +205,13 @@ export default class Calendar extends React.PureComponent<Props, State> {
     }
   };
 
-  // TODO: test it !!!
-  // TODO: write comments
+  /**
+   * Method for handling date select
+   * @argument {Date} date
+   */
   handleSelect = (date: Date) => {
     const { isFocused, end, start } = this.state;
+    // when something is already selected
     if (isFocused) {
       this.setState({
         end: date,
@@ -206,11 +220,12 @@ export default class Calendar extends React.PureComponent<Props, State> {
         // eslint-disable-next-line react/no-unused-state
         selectedInternally: true
       });
-      this.handleSetSelected(date);
+      this.handleSetRange(date);
+      // when unselecting date
     } else if (
-      // $FlowFixMe
+      // $FlowExpected
       isSameDay(date, end) &&
-      // $FlowFixMe
+      // $FlowExpected
       isSameDay(end, start)
     ) {
       this.setState({
@@ -221,6 +236,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         selectedInternally: true
       });
       this.props.selectDays([]);
+      // initial select case
     } else {
       this.setState({
         start: date,
@@ -231,14 +247,18 @@ export default class Calendar extends React.PureComponent<Props, State> {
       this.props.selectDays([date]);
     }
   };
-  // TODO: test it !!!
-  // TODO: write comments
+
+  /**
+   * Method for handling date hover
+   * @argument {Date} date
+   */
   handleHover = (date: Date) => {
     const { isFocused, start } = this.state;
     if (start && date && isFocused) {
       if (isBefore(date, start)) {
-        const range = eachDayOfInterval({ start: date, end: start });
-        this.setState({ hoveredDates: range });
+        this.setState({
+          hoveredDates: eachDayOfInterval({ start: date, end: start })
+        });
       } else {
         this.setState({
           hoveredDates: eachDayOfInterval({
@@ -268,12 +288,12 @@ export default class Calendar extends React.PureComponent<Props, State> {
     const { currentMonth, hoveredDates } = this.state;
 
     const months = future
-      ? utils.getMonths(numberOfPastMonths, numberOfMonths, new Date())
+      ? utils.getMonths(numberOfPastMonths, numberOfMonths)
       : utils.getMonths(
           numberOfPastMonths,
-          numberOfMonths - (visibleMonths - 1),
-          new Date()
+          numberOfMonths - (visibleMonths - 1)
         );
+
     return (
       <CalendarWrapper className={className}>
         <PrevBtn
@@ -308,7 +328,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 onHover={this.handleHover}
                 hoveredDates={hoveredDates}
                 allowedPastDates={numberOfPastMonths >= 1}
-                future={!!future}
+                future={future}
                 colors={mergedColors}
                 classes={classes}
               />

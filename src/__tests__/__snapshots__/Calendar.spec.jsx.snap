@@ -51,6 +51,106 @@ exports[`#Calendar should render correctly 1`] = `
         }
       }
       disabledDays={Array []}
+      future={false}
+      hoveredDates={Array []}
+      month={2017-11-29T23:00:00.000Z}
+      onHover={[Function]}
+      selectDate={[Function]}
+      selectedDays={Array []}
+    />
+    <CalendarMonth
+      allowedPastDates={true}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "borders": "#D3D6DC",
+          "hover": "#D3D6DC",
+          "selected": "rgb(244, 114, 49)",
+        }
+      }
+      disabledDays={Array []}
+      future={false}
+      hoveredDates={Array []}
+      month={2017-12-30T23:00:00.000Z}
+      onHover={[Function]}
+      selectDate={[Function]}
+      selectedDays={Array []}
+    />
+    <CalendarMonth
+      allowedPastDates={true}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "borders": "#D3D6DC",
+          "hover": "#D3D6DC",
+          "selected": "rgb(244, 114, 49)",
+        }
+      }
+      disabledDays={Array []}
+      future={false}
+      hoveredDates={Array []}
+      month={2018-01-30T23:00:00.000Z}
+      onHover={[Function]}
+      selectDate={[Function]}
+      selectedDays={Array []}
+    />
+  </div>
+</styled.div>
+`;
+
+exports[`#Calendar should render correctly with future enabled 1`] = `
+<styled.div
+  className="wrapper"
+>
+  <styled.button
+    className={undefined}
+    colors={
+      Object {
+        "background": "white",
+        "borders": "#D3D6DC",
+        "hover": "#D3D6DC",
+        "selected": "rgb(244, 114, 49)",
+      }
+    }
+    data-test="rdl-prev-button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <Styled(ArrowLeft) />
+  </styled.button>
+  <styled.button
+    className={undefined}
+    colors={
+      Object {
+        "background": "white",
+        "borders": "#D3D6DC",
+        "hover": "#D3D6DC",
+        "selected": "rgb(244, 114, 49)",
+      }
+    }
+    data-test="rdl-next-button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <Styled(ArrowRight) />
+  </styled.button>
+  <div
+    className={undefined}
+  >
+    <CalendarMonth
+      allowedPastDates={true}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "borders": "#D3D6DC",
+          "hover": "#D3D6DC",
+          "selected": "rgb(244, 114, 49)",
+        }
+      }
+      disabledDays={Array []}
       future={true}
       hoveredDates={Array []}
       month={2018-01-30T23:00:00.000Z}
