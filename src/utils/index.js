@@ -56,7 +56,7 @@ export const calendarDayNames = (months: Date[]): Date[] => R.take(7, months);
 export const getMonths = (
   pastMonths: number,
   futureMonths: number,
-  today: Date
+  today: Date = new Date()
 ): Date[] => [
   ...R.compose(
     R.map(month => subMonths(startOfDay(today), month + 1)),
@@ -80,7 +80,7 @@ export const getCurrentMonthIndex = (
   dates: Date[],
   future: boolean,
   visibleMonths: number,
-  today: Date
+  today: Date = new Date()
 ): number => {
   const datesOrToday = R.isEmpty(dates) ? [today] : dates;
   const months = getMonths(

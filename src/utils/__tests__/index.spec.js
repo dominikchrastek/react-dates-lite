@@ -1,4 +1,5 @@
 /* @flow */
+import MockDate from 'mockdate';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import addMonths from 'date-fns/addMonths';
 import subMonths from 'date-fns/subMonths';
@@ -6,6 +7,12 @@ import subMonths from 'date-fns/subMonths';
 import * as utils from '../';
 
 describe('#dayHelpers', () => {
+  beforeEach(() => {
+    MockDate.set('1/31/2018');
+  });
+  afterEach(() => {
+    MockDate.reset();
+  });
   const date = new Date(2018, 3, 3);
   const month = new Date(2018, 2, 2);
   const prevMonth = new Date(2018, 1, 1);
@@ -51,6 +58,7 @@ describe('#dayHelpers', () => {
   });
 
   it('getMonths', () => {
+    expect(utils.getMonths(1, 2).length).toEqual(3);
     expect(utils.getMonths(1, 2, month).length).toEqual(3);
     expect(utils.getMonths(2, 1, month).length).toEqual(3);
     expect(utils.getMonths(2, 2, month)).toEqual([
@@ -58,6 +66,12 @@ describe('#dayHelpers', () => {
       subMonths(month, 1),
       month,
       addMonths(month, 1)
+    ]);
+    expect(utils.getMonths(2, 2)).toEqual([
+      subMonths(new Date(), 2),
+      subMonths(new Date(), 1),
+      new Date(),
+      addMonths(new Date(), 1)
     ]);
   });
 
@@ -68,6 +82,8 @@ describe('#dayHelpers', () => {
   });
 
   it('getCurrentMonthIndex', () => {
+    expect(utils.getCurrentMonthIndex(10, 10, [], false, 3)).toBe(8);
+
     expect(utils.getCurrentMonthIndex(10, 10, [], false, 3, date)).toBe(8);
     expect(utils.getCurrentMonthIndex(10, 10, [], true, 3, date)).toBe(10);
     expect(utils.getCurrentMonthIndex(10, 10, [month], true, 3, date)).toBe(9);

@@ -25,7 +25,6 @@ export default class Example extends React.PureComponent {
           className="wrapper"
           colors={{
             selected: 'rgb(244, 114, 49)',
-            hovered: 'rgba(244, 114, 49, 0.75)',
             borders: '#D3D6DC',
             hover: '#D3D6DC'
           }}

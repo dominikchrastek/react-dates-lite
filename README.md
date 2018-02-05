@@ -10,12 +10,12 @@
 import Calendar from 'react-dates-lite';
 
 <Calendar
-    visibleMonths={1}
-    numberOfMonths={4}
-    numberOfPastMonths={2}
-    selectedDays={[ new Date() ]}
-    selectDays={(date) => console.log(date)}
-  />
+  visibleMonths={1}
+  numberOfMonths={4}
+  numberOfPastMonths={2}
+  selectedDays={[new Date()]}
+  selectDays={date => console.log(date)}
+/>;
 ```
 
 see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/master/example/Example.jsx) usage
@@ -29,20 +29,20 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 * `selectedDays: [Date]` - array of Dates that are selected
 * `className?: string` - will provide class to the Calendar container (default `''`)
 * `colors?: { [string]: number }` - will provide colors to these stuff:
-     * `selected` - background-color of selected date
-     * `hovered` - background-color of hovered date (range-pick)
-     * `borders` - borders color
-     * `hover` - background-color of hovered date
-     * example color object:
-     ```js
-    colors={{
-      selected: 'rgb(244, 114, 49)',
-      hovered: 'rgba(244, 114, 49, 0.75)',
-      borders: '#D3D6DC',
-      hover: 'red',
-    }}
-    ```
-    * there are some default values
+  * `selected` - background-color of selected date
+  * `borders` - borders color
+  * `hover` - background-color of hovered date
+  * example color object:
+
+
+  ```js
+  colors={{
+   selected: 'rgb(244, 114, 49)',
+   borders: '#D3D6DC',
+   hover: 'red',
+  }}
+  ```
+  * there are some default values
 
 ## License
 

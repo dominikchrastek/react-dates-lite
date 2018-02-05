@@ -15,7 +15,6 @@ import * as utils from './utils';
 
 const defaultColors = {
   selected: 'rgb(244, 114, 49)',
-  hovered: 'rgba(244, 114, 49, 0.75)',
   borders: '#D3D6DC',
   background: 'white',
   hover: '#D3D6DC'

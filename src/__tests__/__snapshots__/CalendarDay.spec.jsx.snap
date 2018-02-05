@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#CalendarDay should render correctly 1`] = `
+exports[`#CalendarDay methods should render correctly 1`] = `
 <styled.div
   isHidden={false}
 >
@@ -23,7 +23,7 @@ exports[`#CalendarDay should render correctly 1`] = `
 </styled.div>
 `;
 
-exports[`#CalendarDay should render hidden 1`] = `
+exports[`#CalendarDay methods should render hidden 1`] = `
 <styled.div
   isHidden={true}
 >

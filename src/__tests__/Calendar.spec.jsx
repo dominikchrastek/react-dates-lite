@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import MockDate from 'mockdate';
 
-// import getDate from 'date-fns/get_date';
-
 import Calendar from '../Calendar';
 
 describe('#Calendar', () => {

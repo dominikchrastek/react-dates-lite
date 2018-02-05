@@ -17,7 +17,6 @@ type Props = ButtonProps & {
   number: number,
   selectDate: Date => void,
   onHover: Date => void,
-  // eslint-disable-next-line react/no-unused-prop-types
   classes: {| [string]: string |}
 };
 
@@ -26,7 +25,7 @@ export const getClasses = (props: Props) => {
     return props.classes.disabled;
   }
   if (props.isHovered) {
-    return props.classes.hovered;
+    return props.classes.selected;
   }
   if (props.isSelected) {
     return props.classes.selected;
@@ -39,7 +38,7 @@ export const buttonColor = (props: ButtonProps) => {
   if (props.className) {
     return 'inherit';
   }
-  if (props.isPast || props.isFuture) {
+  if (props.isPast || props.isFuture || props.isDisabled) {
     return 'inherit';
   }
   if (props.isHovered) {
@@ -52,16 +51,16 @@ export const buttonColor = (props: ButtonProps) => {
   return 'inherit';
 };
 
-const buttonBg = (props: ButtonProps) => {
+export const buttonBg = (props: ButtonProps) => {
   if (props.className) {
     return 'inherit';
   }
-  if (props.isPast || props.isFuture) {
+  if (props.isPast || props.isFuture || props.isDisabled) {
     return 'white';
   }
 
   if (props.isHovered) {
-    return props.colors.hovered;
+    return props.colors.selected;
   }
   if (props.isSelected) {
     return props.colors.selected;
@@ -83,9 +82,7 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 0;
   :hover {
-    background: ${props =>
-      props.isHovered ? props.colors.hovered : props.colors.hover};
-  }
+    background: ${props => props.colors.hover}
   :disabled {
     cursor: default;
     :hover {

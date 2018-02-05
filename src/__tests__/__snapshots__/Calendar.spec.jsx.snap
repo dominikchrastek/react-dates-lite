@@ -11,7 +11,6 @@ exports[`#Calendar should render correctly 1`] = `
         "background": "white",
         "borders": "#D3D6DC",
         "hover": "#D3D6DC",
-        "hovered": "rgba(244, 114, 49, 0.75)",
         "selected": "rgb(244, 114, 49)",
       }
     }
@@ -28,7 +27,6 @@ exports[`#Calendar should render correctly 1`] = `
         "background": "white",
         "borders": "#D3D6DC",
         "hover": "#D3D6DC",
-        "hovered": "rgba(244, 114, 49, 0.75)",
         "selected": "rgb(244, 114, 49)",
       }
     }
@@ -49,7 +47,6 @@ exports[`#Calendar should render correctly 1`] = `
           "background": "white",
           "borders": "#D3D6DC",
           "hover": "#D3D6DC",
-          "hovered": "rgba(244, 114, 49, 0.75)",
           "selected": "rgb(244, 114, 49)",
         }
       }
@@ -69,7 +66,6 @@ exports[`#Calendar should render correctly 1`] = `
           "background": "white",
           "borders": "#D3D6DC",
           "hover": "#D3D6DC",
-          "hovered": "rgba(244, 114, 49, 0.75)",
           "selected": "rgb(244, 114, 49)",
         }
       }
@@ -89,7 +85,6 @@ exports[`#Calendar should render correctly 1`] = `
           "background": "white",
           "borders": "#D3D6DC",
           "hover": "#D3D6DC",
-          "hovered": "rgba(244, 114, 49, 0.75)",
           "selected": "rgb(244, 114, 49)",
         }
       }
