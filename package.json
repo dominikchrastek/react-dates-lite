@@ -12,6 +12,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006",
+    "flow": "flow",
     "deploy-storybook": "storybook-to-ghpages",
     "prepare": "npm run clean && npm run build:babel"
   },
@@ -74,6 +75,8 @@
   },
   "files": ["lib", "README.md"],
   "jest": {
-    "setupFiles": ["raf/polyfill", "./etc/jestSetup.js"]
+    "setupFiles": ["raf/polyfill", "./etc/jestSetup.js"],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
