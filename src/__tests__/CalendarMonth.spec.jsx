@@ -23,4 +23,24 @@ describe('#CalendarMonth', () => {
     );
     expect(wrapper.getElement()).toMatchSnapshot();
   });
+  it('should render correctly with classes', () => {
+    const wrapper = shallow(
+      <CalendarMonth
+        className="class"
+        month={new Date(2018, 1, 1)}
+        selectedDays={[]}
+        disabledDays={[]}
+        selectDate={jest.fn()}
+        onHover={jest.fn()}
+        hoveredDates={[]}
+        allowedPastDates
+        future
+        colors={{}}
+        classes={{
+          month: 'monthClass'
+        }}
+      />
+    );
+    expect(wrapper.getElement()).toMatchSnapshot();
+  });
 });

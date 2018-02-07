@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import getDate from 'date-fns/get_date';
+import getDate from 'date-fns/getDate';
 
 import CalendarDay, {
   buttonBg,
