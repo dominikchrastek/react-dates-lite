@@ -1,6 +1,7 @@
 # react-dates-lite
 
-**Calendar** component for maintaining selecting dates. Works with native Date API (no `Moment.js`) [https://dominikchrastek.github.io/react-dates-lite](https://dominikchrastek.github.io/react-dates-lite)
+[![Build Status](https://travis-ci.org/dominikchrastek/react-dates-lite.svg?branch=master)](https://travis-ci.org/dominikchrastek/react-dates-lite)
+[![codecov](https://codecov.io/gh/dominikchrastek/react-dates-lite/branch/master/graph/badge.svg)](https://codecov.io/gh/dominikchrastek/react-dates-lite)
 
 ## API
 
