@@ -1,43 +1,80 @@
 import * as React from 'react';
+import * as R from 'ramda';
+import styled from 'styled-components';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import subMonths from 'date-fns/subMonths';
+import startOfMonth from 'date-fns/startOfMonth';
+import endOfMonth from 'date-fns/endOfMonth';
+import format from 'date-fns/format';
+
 import Calendar from '../src';
 
-import addDays from 'date-fns/add_days';
+import addDays from 'date-fns/addDays';
+import startOfDay from 'date-fns/startOfDay';
 
+const Column = styled.div`
+  display: flex;
+`;
 export default class Example extends React.PureComponent {
   state = {
-    selected: []
+    selectedDates: [],
+    disabledDates: [startOfDay(addDays(new Date(), 1))]
   };
 
-  handleSelectDates = selected => {
-    this.setState({ selected });
+  handleSelectDates = selectedDates => {
+    this.setState({ selectedDates });
   };
 
-  handleSetLast = () => {
-    this.setState({ selected: [new Date(2017, 11, 5)] });
+  handleSetToday = () => {
+    this.setState({ selectedDates: [new Date()] });
+  };
+
+  handleSetLastMonth = () => {
+    this.setState({
+      selectedDates: eachDayOfInterval({
+        start: startOfMonth(subMonths(new Date(), 1)),
+        end: endOfMonth(subMonths(new Date(), 1))
+      })
+    });
   };
 
   render() {
-    const { selected } = this.state;
+    const { selectedDates, disabledDates } = this.state;
     return (
       <div>
-        <button onClick={this.handleSetLast} />
+        <button onClick={this.handleSetToday}>select today</button>
+        <button onClick={this.handleSetLastMonth}>select last monht</button>
         <Calendar
           className="wrapper"
           colors={{
-            selected: 'rgb(244, 114, 49)',
-            borders: '#D3D6DC',
-            hover: '#D3D6DC'
+            selected: '#008000',
+            selectedHover: '#329B24',
+            borders: '#e4e7e7',
+            hover: '#e4e7e7'
           }}
-          classes={{
-            calendarWrapper: 'calendarWrapper'
-          }}
-          visibleMonths={3}
+          visibleMonths={2}
           numberOfMonths={3}
-          numberOfPastMonths={10}
-          selectedDays={selected}
-          disabledDays={[addDays(new Date(), 1)]}
+          numberOfPastMonths={3}
+          selectedDays={selectedDates}
+          disabledDays={disabledDates}
           selectDays={this.handleSelectDates}
         />
+        <Column>
+          <div>
+            selected dates:
+            {R.map(
+              day => <div>{format(day, 'DD.MM.YYYY')}</div>,
+              selectedDates
+            )}
+          </div>
+          <div>
+            disabled dates:
+            {R.map(
+              day => <div>{format(day, 'DD.MM.YYYY')}</div>,
+              disabledDates
+            )}
+          </div>
+        </Column>
       </div>
     );
   }

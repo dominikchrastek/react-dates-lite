@@ -30,7 +30,7 @@ describe('#dayHelpers', () => {
 
   it('isHovered', () => {
     expect(dayHelpers.isHovered(date, [pastDate, date])).toBe(true);
-    expect(dayHelpers.isHovered(date, [date, futureDate])).toBe(false);
+    expect(dayHelpers.isHovered(date, [futureDate])).toBe(false);
     expect(dayHelpers.isHovered(date, [])).toBe(false);
   });
 });

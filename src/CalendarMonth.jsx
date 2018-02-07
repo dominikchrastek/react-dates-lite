@@ -22,7 +22,9 @@ type Props = {|
   allowedPastDates: boolean,
   future: boolean,
   colors: {| [string]: string |},
-  classes: {| [string]: string |}
+  classes: {| [string]: string |},
+  className: string,
+  isFocused: boolean
 |};
 
 const Week = styled.div`
@@ -63,11 +65,13 @@ const CalendarMonth = ({
   allowedPastDates,
   future,
   colors,
-  classes
+  classes,
+  isFocused,
+  className = ''
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   return (
-    <div className={classes.month}>
+    <div className={`${classes.month && classes.month} ${className}`}>
       <MonthName>{format(month, 'MMMM YYYY')}</MonthName>
 
       <DayNameList>
@@ -99,6 +103,7 @@ const CalendarMonth = ({
                     isFuture={dayHelpers.isFuture(day, new Date()) && !future}
                     colors={colors}
                     classes={classes}
+                    isFocused={isFocused}
                   />
                 ),
                 week

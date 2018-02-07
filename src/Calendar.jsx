@@ -15,9 +15,11 @@ import * as utils from './utils';
 
 const defaultColors = {
   selected: 'rgb(244, 114, 49)',
-  borders: '#D3D6DC',
+  selectedHover: 'rgb(255, 141, 74)',
+  border: '#e4e7e7',
   background: 'white',
-  hover: '#D3D6DC'
+  hover: '#e4e7e7',
+  disabled: 'gray'
 };
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -36,14 +38,26 @@ const StyledArrowRight = styled(ArrowRight)`
   width: 18px;
 `;
 
+export const getWidth = (number: number): string => {
+  if (number === 1) {
+    return `301px`;
+  }
+  return `${number * 301}px`; // 311 - 10 = 301 : 10 = margin
+};
+
 const CalendarWrapper = styled.div`
   position: relative;
   margin: 0 auto;
   text-align: center;
+  max-width: ${props => getWidth(props.visibleMonths)};
+`;
+
+const CalendarMonthWrapper = styled.div`
+  display: flex;
 `;
 
 const NavBtn = styled.button`
-  border: 1px solid ${props => props.colors.borders};
+  border: 1px solid ${props => props.colors.border};
   position: absolute;
   background: ${props => props.colors.background};
   border-radius: 2px;
@@ -51,7 +65,7 @@ const NavBtn = styled.button`
   height: 30px;
   cursor: pointer;
   :hover {
-    background: ${props => props.colors.borders};
+    background: ${props => props.colors.border};
   }
   &:focus {
     outline: none;
@@ -61,6 +75,13 @@ const NavBtn = styled.button`
     :hover {
       background: initial;
     }
+  }
+`;
+
+const StyledMonth = styled(CalendarMonth)`
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0;
   }
 `;
 
@@ -187,6 +208,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
    */
   handleSetRange = (date: Date) => {
     const { start } = this.state;
+    const { disabledDays } = this.props;
     // when someting is already selected (start)
     // and we clicked on some date (date)
     // then we will set array of dates between
@@ -197,10 +219,10 @@ export default class Calendar extends React.PureComponent<Props, State> {
       this.setState({ selectedInternally: true });
       if (isBefore(date, start)) {
         const range = eachDayOfInterval({ start: date, end: start });
-        this.props.selectDays(range);
+        this.props.selectDays(R.without(disabledDays, range));
       } else {
         const range = eachDayOfInterval({ start, end: date });
-        this.props.selectDays(range);
+        this.props.selectDays(R.without(disabledDays, range));
       }
     }
   };
@@ -211,6 +233,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
    */
   handleSelect = (date: Date) => {
     const { isFocused, end, start } = this.state;
+    const { disabledDays } = this.props;
     // when something is already selected
     if (isFocused) {
       this.setState({
@@ -244,7 +267,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         // eslint-disable-next-line react/no-unused-state
         selectedInternally: true
       });
-      this.props.selectDays([date]);
+      this.props.selectDays(R.without(disabledDays, [date]));
     }
   };
 
@@ -282,10 +305,9 @@ export default class Calendar extends React.PureComponent<Props, State> {
       classes,
       future
     } = this.props;
+    const { currentMonth, hoveredDates, isFocused } = this.state;
 
     const mergedColors = R.merge(defaultColors, colors);
-
-    const { currentMonth, hoveredDates } = this.state;
 
     const months = future
       ? utils.getMonths(numberOfPastMonths, numberOfMonths)
@@ -295,7 +317,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         );
 
     return (
-      <CalendarWrapper className={className}>
+      <CalendarWrapper className={className} visibleMonths={visibleMonths}>
         <PrevBtn
           data-test="rdl-prev-button"
           className={classes.button}
@@ -316,10 +338,10 @@ export default class Calendar extends React.PureComponent<Props, State> {
           <StyledArrowRight />
         </NextBtn>
 
-        <div className={classes.calendarWrapper}>
+        <CalendarMonthWrapper className={classes.calendarWrapper}>
           {R.map(
             month => (
-              <CalendarMonth
+              <StyledMonth
                 key={month}
                 month={month}
                 selectedDays={selectedDays}
@@ -328,6 +350,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 onHover={this.handleHover}
                 hoveredDates={hoveredDates}
                 allowedPastDates={numberOfPastMonths >= 1}
+                isFocused={isFocused}
                 future={future}
                 colors={mergedColors}
                 classes={classes}
@@ -335,7 +358,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)
           )}
-        </div>
+        </CalendarMonthWrapper>
       </CalendarWrapper>
     );
   }

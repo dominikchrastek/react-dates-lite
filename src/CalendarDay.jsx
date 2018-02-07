@@ -9,7 +9,8 @@ type ButtonProps = {
   isHovered: boolean,
   isSelected: boolean,
   isDisabled: boolean,
-  colors: {| [string]: string |}
+  colors: {| [string]: string |},
+  isFocused: boolean
 };
 
 type Props = ButtonProps & {
@@ -20,26 +21,26 @@ type Props = ButtonProps & {
   classes: {| [string]: string |}
 };
 
-export const getClasses = (props: Props) => {
-  if (props.isPast || props.isFuture || props.isDisabled) {
-    return props.classes.disabled;
-  }
-  if (props.isHovered) {
-    return props.classes.selected;
-  }
-  if (props.isSelected) {
-    return props.classes.selected;
-  }
+// export const getClasses = (props: Props) => {
+//   if (props.isPast || props.isFuture || props.isDisabled) {
+//     return props.classes.disabled;
+//   }
+//   if (props.isHovered) {
+//     return props.classes.selected;
+//   }
+//   if (props.isSelected) {
+//     return props.classes.selected;
+//   }
 
-  return props.classes.date;
-};
+//   return props.classes.date;
+// };
 
 export const buttonColor = (props: ButtonProps) => {
   if (props.className) {
     return 'inherit';
   }
-  if (props.isPast || props.isFuture || props.isDisabled) {
-    return 'inherit';
+  if (props.disabled) {
+    return props.colors.disabled;
   }
   if (props.isHovered) {
     return 'white';
@@ -55,8 +56,8 @@ export const buttonBg = (props: ButtonProps) => {
   if (props.className) {
     return 'inherit';
   }
-  if (props.isPast || props.isFuture || props.isDisabled) {
-    return 'white';
+  if (props.disabled) {
+    return props.colors.background;
   }
 
   if (props.isHovered) {
@@ -67,6 +68,26 @@ export const buttonBg = (props: ButtonProps) => {
   }
 
   return 'white';
+};
+
+export const getHover = (props: ButtonProps) => {
+  if (props.isHovered || props.isFocused) {
+    return props.colors.selected;
+  }
+  if (props.isSelected) {
+    return props.colors.selectedHover;
+  }
+  return props.colors.hover;
+};
+
+export const getHoverColor = (props: ButtonProps) => {
+  if (props.disabled) {
+    return props.colors.disabled;
+  }
+  if (props.isFocused || props.isSelected) {
+    return 'white';
+  }
+  return 'inherit';
 };
 
 const Button = styled.button`
@@ -82,7 +103,8 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 0;
   :hover {
-    background: ${props => props.colors.hover};
+    color: ${props => getHoverColor(props)};
+    background: ${props => getHover(props)};
   }
   :disabled {
     cursor: default;
@@ -97,7 +119,8 @@ const Button = styled.button`
 
 const Td = styled.div`
   display: table-cell;
-  border: ${props => (props.isHidden ? 'none' : '1px solid #e4e7e7')};
+  border: ${props =>
+    props.isHidden ? 'none' : `1px solid ${props.colors.border}`};
   box-sizing: border-box;
 `;
 
@@ -121,14 +144,14 @@ export default class CalendarDay extends React.PureComponent<Props> {
       isSelected,
       isDisabled,
       isHovered,
-      colors
+      colors,
+      isFocused
     } = this.props;
 
     return (
-      <Td isHidden={isHidden}>
+      <Td isHidden={isHidden} colors={colors}>
         <Button
-          className={getClasses(this.props)}
-          data-test="CalendarDay"
+          // className={getClasses(this.props)}
           onClick={this.handleClick}
           onMouseOver={this.handleHover}
           onFocus={this.handleHover}
@@ -138,7 +161,10 @@ export default class CalendarDay extends React.PureComponent<Props> {
           isPast={isPast}
           isFuture={isFuture}
           isHovered={isHovered}
-          colors={colors}>
+          isDisabled={isDisabled}
+          colors={colors}
+          isFocused={isFocused}
+          number={number}>
           {number}
         </Button>
       </Td>

@@ -90,7 +90,7 @@ export const getCurrentMonthIndex = (
   );
   const index = R.findIndex(
     // $FlowExpected
-    month => isSameMonth(month, R.head([datesOrToday])),
+    month => isSameMonth(month, R.head(datesOrToday)),
     months
   );
   // without future and without preselect

@@ -20,4 +20,4 @@ export const isDisabled = (day: Date, disabledDays: Date[]): boolean =>
   Boolean(R.find(disabled => isSameDay(disabled, day), disabledDays));
 
 export const isHovered = (day: Date, hoveredDates: Date[]): boolean =>
-  Boolean(R.find(hovered => isSameDay(hovered, day), R.drop(1, hoveredDates)));
+  Boolean(R.find(hovered => isSameDay(hovered, day), hoveredDates));
