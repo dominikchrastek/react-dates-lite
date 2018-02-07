@@ -1,6 +1,6 @@
 # react-dates-lite
 
-**Calendar** component for maintaining selecting dates. Works with native Date API (no `Moment.js`)
+**Calendar** component for maintaining selecting dates. Works with native Date API (no `Moment.js`) [https://dominikchrastek.github.io/react-dates-lite](https://dominikchrastek.github.io/react-dates-lite)
 
 ## API
 
@@ -18,14 +18,14 @@ import Calendar from 'react-dates-lite';
 />;
 ```
 
-see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/master/example/Example.jsx) usage
+see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/master/example/Example.jsx) or [Live demo](https://dominikchrastek.github.io/react-dates-lite)
 
 ### Props
 
 * `visibleMonths?: number` - how many months will be visible (default `1`)
 * `numberOfMonths: number` - how many months will be in calendar in the future (from current month)
 * `numberOfPastMonths?: number` - how many months will be in calendar in the past (from current month) (default `0`)
-* `selectDays: (Date[]) => any` - will receive array of Dates that were selected
+* `selectDays: Date[] => any` - will receive array of Dates that were selected
 * `selectedDays: Date[]` - array of Dates that are selected
 * `disabledDays: Date[]` - array of Dates that cannot be selected
 * `future?: boolean` - if future dates from today will be enabled (default `true`)
@@ -38,7 +38,7 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
   * `background` - default background-color
   * `hover` - background-color of hovered date
   * `disabled` - color of disabled date
-  * there are some default values
+  * default values:
   ```js
   colors = {
     selected: 'rgb(244, 114, 49)',
@@ -49,6 +49,10 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
     disabled: 'gray',
   };
   ```
+* `classes?: { [string]: string }` - will provide colors to these stuff: \* `button` - class for buttons
+  * `calendarWrapper` - class for calendar wrapper
+  * `month` - class for single month wrapper
+  * default value: `{}`
 
 ## License
 
