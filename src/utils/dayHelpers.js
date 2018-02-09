@@ -13,11 +13,11 @@ export const isPast = (day: Date, date: Date): boolean =>
 export const isFuture = (day: Date, date: Date): boolean =>
   isAfter(day, startOfDay(date));
 
-export const isSelected = (day: Date, selectedDays: Date[]): boolean =>
-  Boolean(R.find(selected => isSameDay(selected, day), selectedDays));
+export const isSelected = (day: Date, selectedDates: Date[]): boolean =>
+  Boolean(R.find(selected => isSameDay(selected, day), selectedDates));
 
-export const isDisabled = (day: Date, disabledDays: Date[]): boolean =>
-  Boolean(R.find(disabled => isSameDay(disabled, day), disabledDays));
+export const isDisabled = (day: Date, disabledDates: Date[]): boolean =>
+  Boolean(R.find(disabled => isSameDay(disabled, day), disabledDates));
 
 export const isHovered = (day: Date, hoveredDates: Date[]): boolean =>
   Boolean(R.find(hovered => isSameDay(hovered, day), hoveredDates));

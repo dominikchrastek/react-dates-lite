@@ -55,9 +55,9 @@ export default class Example extends React.PureComponent {
           visibleMonths={2}
           numberOfMonths={3}
           numberOfPastMonths={3}
-          selectedDays={selectedDates}
-          disabledDays={disabledDates}
-          selectDays={this.handleSelectDates}
+          selectedDates={selectedDates}
+          disabledDates={disabledDates}
+          selectDates={this.handleSelectDates}
         />
         <Column>
           <div>

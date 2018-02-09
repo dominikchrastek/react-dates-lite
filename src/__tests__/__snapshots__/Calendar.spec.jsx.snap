@@ -57,14 +57,14 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
-      disabledDays={Array []}
+      disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
       isFocused={false}
       month={2017-11-30T00:00:00.000Z}
       onHover={[Function]}
       selectDate={[Function]}
-      selectedDays={Array []}
+      selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedPastDates={true}
@@ -79,14 +79,14 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
-      disabledDays={Array []}
+      disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
       isFocused={false}
       month={2017-12-31T00:00:00.000Z}
       onHover={[Function]}
       selectDate={[Function]}
-      selectedDays={Array []}
+      selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedPastDates={true}
@@ -101,14 +101,14 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
-      disabledDays={Array []}
+      disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
       isFocused={false}
       month={2018-01-31T00:00:00.000Z}
       onHover={[Function]}
       selectDate={[Function]}
-      selectedDays={Array []}
+      selectedDates={Array []}
     />
   </styled.div>
 </styled.div>
@@ -171,14 +171,14 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
-      disabledDays={Array []}
+      disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
       isFocused={false}
       month={2018-01-31T00:00:00.000Z}
       onHover={[Function]}
       selectDate={[Function]}
-      selectedDays={Array []}
+      selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedPastDates={true}
@@ -193,14 +193,14 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
-      disabledDays={Array []}
+      disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
       isFocused={false}
       month={2018-02-28T00:00:00.000Z}
       onHover={[Function]}
       selectDate={[Function]}
-      selectedDays={Array []}
+      selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedPastDates={true}
@@ -215,14 +215,14 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
-      disabledDays={Array []}
+      disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
       isFocused={false}
       month={2018-03-31T00:00:00.000Z}
       onHover={[Function]}
       selectDate={[Function]}
-      selectedDays={Array []}
+      selectedDates={Array []}
     />
   </styled.div>
 </styled.div>

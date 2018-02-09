@@ -10,8 +10,8 @@ describe('#CalendarMonth', () => {
     const wrapper = shallow(
       <CalendarMonth
         month={new Date(2018, 1, 1)}
-        selectedDays={[]}
-        disabledDays={[]}
+        selectedDates={[]}
+        disabledDates={[]}
         selectDate={jest.fn()}
         onHover={jest.fn()}
         hoveredDates={[]}
@@ -28,8 +28,8 @@ describe('#CalendarMonth', () => {
       <CalendarMonth
         className="class"
         month={new Date(2018, 1, 1)}
-        selectedDays={[]}
-        disabledDays={[]}
+        selectedDates={[]}
+        disabledDates={[]}
         selectDate={jest.fn()}
         onHover={jest.fn()}
         hoveredDates={[]}

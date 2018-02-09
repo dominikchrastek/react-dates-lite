@@ -25,8 +25,8 @@ describe('#Calendar', () => {
           visibleMonths={3}
           numberOfMonths={3}
           numberOfPastMonths={10}
-          selectedDays={[]}
-          selectDays={jest.fn()}
+          selectedDates={[]}
+          selectDates={jest.fn()}
           future={false}
         />
       );
@@ -39,8 +39,8 @@ describe('#Calendar', () => {
           visibleMonths={3}
           numberOfMonths={3}
           numberOfPastMonths={10}
-          selectedDays={[]}
-          selectDays={jest.fn()}
+          selectedDates={[]}
+          selectDates={jest.fn()}
           future
         />
       );
@@ -54,8 +54,8 @@ describe('#Calendar', () => {
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={jest.fn()}
+          selectedDates={[]}
+          selectDates={jest.fn()}
         />
       );
 
@@ -87,8 +87,8 @@ describe('#Calendar', () => {
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={jest.fn()}
+          selectedDates={[]}
+          selectDates={jest.fn()}
         />
       );
 
@@ -115,15 +115,15 @@ describe('#Calendar', () => {
     });
 
     it('handleSelect select range: prev date - next date', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = shallow(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -134,8 +134,8 @@ describe('#Calendar', () => {
       expect(node.state.start).toBe(yesterday);
       expect(node.state.isFocused).toBe(true);
       expect(node.state.selectedInternally).toBe(true);
-      // call selectDays with selected dates
-      expect(selectDays).toBeCalledWith([yesterday]);
+      // call selectDates with selected dates
+      expect(selectDates).toBeCalledWith([yesterday]);
 
       node.handleSelect(today);
       expect(node.state.end).toBe(today);
@@ -145,19 +145,19 @@ describe('#Calendar', () => {
 
       // handleSetSelected should be called
       expect(node.state.selectedInternally).toBe(true);
-      expect(selectDays).toBeCalledWith([yesterday, today]);
+      expect(selectDates).toBeCalledWith([yesterday, today]);
     });
 
     it('handleSelect select range: next date - prev date', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = shallow(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -168,8 +168,8 @@ describe('#Calendar', () => {
       expect(node.state.isFocused).toBe(true);
       expect(node.state.hoveredDates).toEqual([]);
       expect(node.state.selectedInternally).toBe(true);
-      // call selectDays with selected dates
-      expect(selectDays).toBeCalledWith([today]);
+      // call selectDates with selected dates
+      expect(selectDates).toBeCalledWith([today]);
 
       node.handleSelect(yesterday);
       expect(node.state.end).toBe(yesterday);
@@ -178,18 +178,18 @@ describe('#Calendar', () => {
 
       // handleSetSelected should be called
       expect(node.state.selectedInternally).toBe(true);
-      expect(selectDays).toBeCalledWith([yesterday, today]);
+      expect(selectDates).toBeCalledWith([yesterday, today]);
     });
     it('handleSelect select same day and then unselect', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -200,8 +200,8 @@ describe('#Calendar', () => {
       expect(node.state.start).toBe(today);
       expect(node.state.isFocused).toBe(true);
       expect(node.state.selectedInternally).toBe(true);
-      // call selectDays with selected dates
-      expect(selectDays).toBeCalledWith([today]);
+      // call selectDates with selected dates
+      expect(selectDates).toBeCalledWith([today]);
 
       node.handleSelect(today);
       expect(node.state.end).toBe(today);
@@ -210,7 +210,7 @@ describe('#Calendar', () => {
 
       // handleSetSelected should be called
       expect(node.state.selectedInternally).toBe(true);
-      expect(selectDays).toBeCalledWith([today]);
+      expect(selectDates).toBeCalledWith([today]);
 
       // unselect
       node.handleSelect(today);
@@ -218,37 +218,37 @@ describe('#Calendar', () => {
       expect(node.state.end).toBe(null);
       expect(node.state.isFocused).toBe(false);
       expect(node.state.selectedInternally).toBe(true);
-      expect(selectDays).toBeCalledWith([]);
+      expect(selectDates).toBeCalledWith([]);
     });
     it('handleSetRange - nothing should happend', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
       const node = wrapper.instance();
 
       node.handleSetRange(today);
-      expect(selectDays).not.toBeCalled();
+      expect(selectDates).not.toBeCalled();
     });
 
     it('handleHover - select date and hover it', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -258,23 +258,23 @@ describe('#Calendar', () => {
       expect(node.state.start).toBe(today);
       expect(node.state.isFocused).toBe(true);
       expect(node.state.selectedInternally).toBe(true);
-      // call selectDays with selected dates
-      expect(selectDays).toBeCalledWith([today]);
+      // call selectDates with selected dates
+      expect(selectDates).toBeCalledWith([today]);
 
       node.handleHover(today);
       expect(node.state.hoveredDates).toEqual([today]);
     });
 
     it('handleHover - select date and hover next date', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -284,23 +284,23 @@ describe('#Calendar', () => {
       expect(node.state.start).toBe(today);
       expect(node.state.isFocused).toBe(true);
       expect(node.state.selectedInternally).toBe(true);
-      // call selectDays with selected dates
-      expect(selectDays).toBeCalledWith([today]);
+      // call selectDates with selected dates
+      expect(selectDates).toBeCalledWith([today]);
 
       node.handleHover(tomorrow);
       expect(node.state.hoveredDates).toEqual([today, tomorrow]);
     });
 
     it('handleHover - select date and hover prev date', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -310,23 +310,23 @@ describe('#Calendar', () => {
       expect(node.state.start).toBe(today);
       expect(node.state.isFocused).toBe(true);
       expect(node.state.selectedInternally).toBe(true);
-      // call selectDays with selected dates
-      expect(selectDays).toBeCalledWith([today]);
+      // call selectDates with selected dates
+      expect(selectDates).toBeCalledWith([today]);
 
       node.handleHover(yesterday);
       expect(node.state.hoveredDates).toEqual([yesterday, today]);
     });
 
     it('handleHover - nothing should happend', () => {
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -338,20 +338,20 @@ describe('#Calendar', () => {
 
     it('handleSetCurrentMonth - componentWillUpdate, selected externally', () => {
       const nextProps = {
-        selectedDays: today
+        selectedDates: today
       };
       const nextState = {
         selectedInternally: false
       };
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -362,7 +362,7 @@ describe('#Calendar', () => {
       const currentMonth = utils.getCurrentMonthIndex(
         node.props.numberOfPastMonths,
         node.props.numberOfMonths,
-        nextProps.selectedDays,
+        nextProps.selectedDates,
         node.props.future,
         node.props.visibleMonths
       );
@@ -372,20 +372,20 @@ describe('#Calendar', () => {
     });
     it('handleSetCurrentMonth - componentWillUpdate, selected internally', () => {
       const nextProps = {
-        selectedDays: today
+        selectedDates: today
       };
       const nextState = {
         selectedInternally: true
       };
-      const selectDays = jest.fn();
+      const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
           numberOfMonths={2}
           numberOfPastMonths={2}
-          selectedDays={[]}
-          selectDays={selectDays}
+          selectedDates={[]}
+          selectDates={selectDates}
         />
       );
 
@@ -396,7 +396,7 @@ describe('#Calendar', () => {
       const currentMonth = utils.getCurrentMonthIndex(
         node.props.numberOfPastMonths,
         node.props.numberOfMonths,
-        nextProps.selectedDays,
+        nextProps.selectedDates,
         node.props.future,
         node.props.visibleMonths
       );

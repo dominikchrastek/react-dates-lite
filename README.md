@@ -14,8 +14,8 @@ import Calendar from 'react-dates-lite';
   visibleMonths={1}
   numberOfMonths={4}
   numberOfPastMonths={2}
-  selectedDays={[new Date()]}
-  selectDays={date => console.log(date)}
+  selectedDates={[new Date()]}
+  selectDates={date => console.log(date)}
 />;
 ```
 
@@ -26,9 +26,9 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 * `visibleMonths?: number` - how many months will be visible (default `1`)
 * `numberOfMonths: number` - how many months will be in calendar in the future (from current month)
 * `numberOfPastMonths?: number` - how many months will be in calendar in the past (from current month) (default `0`)
-* `selectDays: Date[] => any` - will receive array of Dates that were selected
-* `selectedDays: Date[]` - array of Dates that are selected
-* `disabledDays: Date[]` - array of Dates that cannot be selected
+* `selectDates: Date[] => any` - will receive array of Dates that were selected
+* `selectedDates: Date[]` - array of Dates that are selected
+* `disabledDates: Date[]` - array of Dates that cannot be selected
 * `future?: boolean` - if future dates from today will be enabled (default `true`)
 * `className?: string` - will provide class to the Calendar container (default `''`)
 * `colors?: { [string]: number }` - will provide colors to these stuff:

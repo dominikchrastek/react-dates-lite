@@ -10,9 +10,9 @@ storiesOf('Calendar', module).add('default', () => (
     visibleMonths={1}
     numberOfMonths={3}
     numberOfPastMonths={10}
-    selectedDays={[]}
-    disabledDays={[]}
-    selectDays={action('click')}
+    selectedDates={[]}
+    disabledDates={[]}
+    selectDates={action('click')}
   />
 ));
 
@@ -21,8 +21,8 @@ storiesOf('Calendar', module).add('2 visibleMonths', () => (
     visibleMonths={2}
     numberOfMonths={3}
     numberOfPastMonths={10}
-    selectedDays={[]}
-    disabledDays={[]}
-    selectDays={action('click')}
+    selectedDates={[]}
+    disabledDates={[]}
+    selectDates={action('click')}
   />
 ));

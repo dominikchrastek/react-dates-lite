@@ -16,8 +16,8 @@ type Props = {|
   selectDate: Date => void,
   onHover: Date => void,
   month: Date,
-  selectedDays: Date[],
-  disabledDays: Date[],
+  selectedDates: Date[],
+  disabledDates: Date[],
   hoveredDates: Date[],
   allowedPastDates: boolean,
   future: boolean,
@@ -57,8 +57,8 @@ const MonthName = styled.span`
 
 const CalendarMonth = ({
   month,
-  selectedDays,
-  disabledDays,
+  selectedDates,
+  disabledDates,
   selectDate,
   onHover,
   hoveredDates,
@@ -95,8 +95,8 @@ const CalendarMonth = ({
                     selectDate={selectDate}
                     onHover={onHover}
                     isHovered={dayHelpers.isHovered(day, hoveredDates)}
-                    isSelected={dayHelpers.isSelected(day, selectedDays)}
-                    isDisabled={dayHelpers.isDisabled(day, disabledDays)}
+                    isSelected={dayHelpers.isSelected(day, selectedDates)}
+                    isDisabled={dayHelpers.isDisabled(day, disabledDates)}
                     isPast={
                       dayHelpers.isPast(day, new Date()) && !allowedPastDates
                     }
