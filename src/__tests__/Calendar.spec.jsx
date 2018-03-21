@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import MockDate from 'mockdate';
 
 import * as utils from '../utils';
-
-import MockDate from 'mockdate';
 
 import Calendar, { getWidth } from '../Calendar';
 
@@ -28,6 +27,7 @@ describe('#Calendar', () => {
           selectedDates={[]}
           selectDates={jest.fn()}
           future={false}
+          rangeSelect
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -42,6 +42,7 @@ describe('#Calendar', () => {
           selectedDates={[]}
           selectDates={jest.fn()}
           future
+          rangeSelect
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -56,6 +57,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={jest.fn()}
+          rangeSelect
         />
       );
 
@@ -89,6 +91,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={jest.fn()}
+          rangeSelect
         />
       );
 
@@ -124,6 +127,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -158,6 +162,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -190,6 +195,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -230,6 +236,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -249,6 +256,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -275,6 +283,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -301,6 +310,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -327,6 +337,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -352,6 +363,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 
@@ -386,6 +398,7 @@ describe('#Calendar', () => {
           numberOfPastMonths={2}
           selectedDates={[]}
           selectDates={selectDates}
+          rangeSelect
         />
       );
 

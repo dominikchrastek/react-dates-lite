@@ -103,7 +103,8 @@ type Props = {|
   future: boolean,
   colors: {| [string]: string |},
   classes: {| [string]: string |},
-  className: string
+  className: string,
+  rangeSelect: boolean
 |};
 
 type State = {|
@@ -191,7 +192,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
         future,
         visibleMonths
       );
-
+      // eslint-disable-next-line react/no-unused-state
       this.setState({ selectedInternally: false, currentMonth });
       // }
       // otherwise just set selectedInternally to false, so we can determine if next
@@ -232,10 +233,10 @@ export default class Calendar extends React.PureComponent<Props, State> {
    * @argument {Date} date
    */
   handleSelect = (date: Date) => {
+    const { disabledDates, rangeSelect } = this.props;
     const { isFocused, end, start } = this.state;
-    const { disabledDates } = this.props;
     // when something is already selected
-    if (isFocused) {
+    if (isFocused && rangeSelect) {
       this.setState({
         end: date,
         isFocused: false,
@@ -276,8 +277,9 @@ export default class Calendar extends React.PureComponent<Props, State> {
    * @argument {Date} date
    */
   handleHover = (date: Date) => {
+    const { rangeSelect } = this.props;
     const { isFocused, start } = this.state;
-    if (start && date && isFocused) {
+    if (start && date && isFocused && rangeSelect) {
       if (isBefore(date, start)) {
         this.setState({
           hoveredDates: eachDayOfInterval({ start: date, end: start })

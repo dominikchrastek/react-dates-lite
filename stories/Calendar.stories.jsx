@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -13,6 +14,18 @@ storiesOf('Calendar', module).add('default', () => (
     selectedDates={[]}
     disabledDates={[]}
     selectDates={action('click')}
+  />
+));
+
+storiesOf('Calendar', module).add('range select', () => (
+  <Calendar
+    visibleMonths={1}
+    numberOfMonths={3}
+    numberOfPastMonths={10}
+    selectedDates={[]}
+    disabledDates={[]}
+    selectDates={action('click')}
+    rangeSelect
   />
 ));
 
