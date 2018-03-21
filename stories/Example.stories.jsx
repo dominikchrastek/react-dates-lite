@@ -7,3 +7,6 @@ import { storiesOf } from '@storybook/react';
 import Calendar from '../example/Example';
 
 storiesOf('Calendar - Example', module).add('default', () => <Calendar />);
+storiesOf('Calendar - Example', module).add('with allowedDates', () => (
+  <Calendar allowedDates />
+));

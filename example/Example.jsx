@@ -1,3 +1,4 @@
+/* @flow */
 import * as React from 'react';
 import * as R from 'ramda';
 import styled from 'styled-components';
@@ -6,22 +7,34 @@ import subMonths from 'date-fns/subMonths';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfMonth from 'date-fns/endOfMonth';
 import format from 'date-fns/format';
-
-import Calendar from '../src';
-
 import addDays from 'date-fns/addDays';
 import startOfDay from 'date-fns/startOfDay';
+
+import Calendar from '../src';
 
 const Column = styled.div`
   display: flex;
 `;
-export default class Example extends React.PureComponent {
+
+type Props = {|
+  allowedDates: boolean
+|};
+type State = {|
+  selectedDates: Date[],
+  disabledDates: Date[]
+|};
+
+export default class Example extends React.PureComponent<Props, State> {
+  static defaultProps = {
+    allowedDates: false
+  };
+
   state = {
     selectedDates: [],
     disabledDates: [startOfDay(addDays(new Date(), 1))]
   };
 
-  handleSelectDates = selectedDates => {
+  handleSelectDates = (selectedDates: Date[]) => {
     this.setState({ selectedDates });
   };
 
@@ -39,6 +52,7 @@ export default class Example extends React.PureComponent {
   };
 
   render() {
+    const { allowedDates } = this.props;
     const { selectedDates, disabledDates } = this.state;
     return (
       <div>
@@ -57,8 +71,12 @@ export default class Example extends React.PureComponent {
           numberOfPastMonths={3}
           selectedDates={selectedDates}
           disabledDates={disabledDates}
+          allowedDates={
+            allowedDates ? [startOfDay(addDays(new Date(), 2))] : []
+          }
           selectDates={this.handleSelectDates}
         />
+
         <Column>
           <div>
             selected dates:

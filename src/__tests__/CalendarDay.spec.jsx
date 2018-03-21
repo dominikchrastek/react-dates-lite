@@ -6,7 +6,6 @@ import getDate from 'date-fns/getDate';
 import CalendarDay, {
   buttonBg,
   buttonColor,
-  getClasses,
   getHover,
   getHoverColor
 } from '../CalendarDay';

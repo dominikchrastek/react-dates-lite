@@ -32,6 +32,7 @@ describe('#Calendar', () => {
       );
       expect(wrapper.getElement()).toMatchSnapshot();
     });
+
     it('should render correctly with future enabled', () => {
       const wrapper = shallow(
         <Calendar
@@ -40,6 +41,23 @@ describe('#Calendar', () => {
           numberOfMonths={3}
           numberOfPastMonths={10}
           selectedDates={[]}
+          selectDates={jest.fn()}
+          future
+          rangeSelect
+        />
+      );
+      expect(wrapper.getElement()).toMatchSnapshot();
+    });
+
+    it('should render correctly with allowedDates', () => {
+      const wrapper = shallow(
+        <Calendar
+          className="wrapper"
+          visibleMonths={3}
+          numberOfMonths={3}
+          numberOfPastMonths={10}
+          selectedDates={[]}
+          allowedDates={[today]}
           selectDates={jest.fn()}
           future
           rangeSelect
