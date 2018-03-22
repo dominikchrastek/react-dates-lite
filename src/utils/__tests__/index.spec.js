@@ -1,8 +1,7 @@
 /* @flow */
 import MockDate from 'mockdate';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import addMonths from 'date-fns/addMonths';
-import subMonths from 'date-fns/subMonths';
+import startOfMonth from 'date-fns/startOfMonth';
 
 import * as utils from '../';
 
@@ -14,8 +13,9 @@ describe('#dayHelpers', () => {
     MockDate.reset();
   });
   const date = new Date(2018, 3, 3);
-  const month = new Date(2018, 2, 2);
-  const prevMonth = new Date(2018, 1, 1);
+  const month = new Date(2018, 1, 2);
+  const prevMonth = new Date(2018, 0, 1);
+  const nextMonth = new Date(2018, 2, 3);
 
   it('lastDayOfPrevMonth', () => {
     expect(utils.lastDayOfPrevMonth(month)).toEqual(lastDayOfMonth(prevMonth));
@@ -32,11 +32,11 @@ describe('#dayHelpers', () => {
     expect(
       utils.daysFromPrevMonth(prevMonth, utils.lastDayOfPrevMonth(prevMonth))
         .length
-    ).toEqual(4);
+    ).toEqual(1);
   });
 
   it('calendarDaysToRender', () => {
-    expect(utils.calendarDaysToRender(month).length).toEqual(35);
+    expect(utils.calendarDaysToRender(month).length).toEqual(32);
     expect(utils.calendarDaysToRender(prevMonth).length).toEqual(32);
   });
 
@@ -58,71 +58,76 @@ describe('#dayHelpers', () => {
   });
 
   it('getMonths', () => {
-    expect(utils.getMonths(1, 2).length).toEqual(3);
-    expect(utils.getMonths(1, 2, month).length).toEqual(3);
-    expect(utils.getMonths(2, 1, month).length).toEqual(3);
-    expect(utils.getMonths(2, 2, month)).toEqual([
-      subMonths(month, 2),
-      subMonths(month, 1),
-      month,
-      addMonths(month, 1)
+    expect(utils.getMonths(prevMonth, month).length).toEqual(2);
+    expect(utils.getMonths(prevMonth, nextMonth).length).toEqual(3);
+    expect(utils.getMonths(prevMonth, nextMonth)).toEqual([
+      startOfMonth(prevMonth),
+      startOfMonth(month),
+      startOfMonth(nextMonth)
     ]);
-    expect(utils.getMonths(2, 2)).toEqual([
-      subMonths(new Date(), 2),
-      subMonths(new Date(), 1),
-      new Date(),
-      addMonths(new Date(), 1)
-    ]);
-  });
-
-  it('getNumberOfFutureMonths', () => {
-    expect(utils.getNumberOfFutureMonths(false, 3)).toBe(1);
-    expect(utils.getNumberOfFutureMonths(false, 0)).toBe(1);
-    expect(utils.getNumberOfFutureMonths(true, 3)).toBe(3);
   });
 
   it('getCurrentMonthIndex', () => {
-    expect(utils.getCurrentMonthIndex(10, 10, [], false, 3)).toBe(8);
-
-    expect(utils.getCurrentMonthIndex(10, 10, [], false, 3, date)).toBe(8);
-    expect(utils.getCurrentMonthIndex(10, 10, [], true, 3, date)).toBe(10);
-    expect(utils.getCurrentMonthIndex(10, 10, [month], true, 3, date)).toBe(9);
-    expect(utils.getCurrentMonthIndex(10, 10, [prevMonth], true, 3, date)).toBe(
-      8
-    );
-    expect(utils.getCurrentMonthIndex(10, 10, [prevMonth], true, 3, date)).toBe(
-      8
+    expect(utils.getCurrentMonthIndex(prevMonth, nextMonth, [], false, 1)).toBe(
+      0
     );
     expect(
+      utils.getCurrentMonthIndex(prevMonth, nextMonth, [month], true, 1, date)
+    ).toBe(1);
+    expect(
       utils.getCurrentMonthIndex(
-        10,
-        10,
+        prevMonth,
+        nextMonth,
         [prevMonth],
         true,
         3,
-        new Date(2017, 5, 3)
+        date
       )
-    ).toBe(17);
+    ).toBe(0);
+    expect(
+      utils.getCurrentMonthIndex(
+        prevMonth,
+        nextMonth,
+        [prevMonth],
+        true,
+        3,
+        date
+      )
+    ).toBe(0);
+    expect(
+      utils.getCurrentMonthIndex(
+        prevMonth,
+        nextMonth,
+        [prevMonth],
+        true,
+        3,
+        month
+      )
+    ).toBe(0);
   });
 
   it('calendarMonthsToRender', () => {
     expect(
-      utils.calendarMonthsToRender(3, 0, utils.getMonths(2, 1, month)).length
+      utils.calendarMonthsToRender(3, 0, utils.getMonths(prevMonth, nextMonth))
+        .length
     ).toBe(3);
     expect(
-      utils.calendarMonthsToRender(5, 0, utils.getMonths(2, 1, month)).length
+      utils.calendarMonthsToRender(5, 0, utils.getMonths(prevMonth, nextMonth))
+        .length
     ).toBe(3);
     expect(
-      utils.calendarMonthsToRender(2, 0, utils.getMonths(2, 1, month)).length
+      utils.calendarMonthsToRender(2, 0, utils.getMonths(prevMonth, nextMonth))
+        .length
     ).toBe(2);
     expect(
-      utils.calendarMonthsToRender(1, 0, utils.getMonths(2, 1, month)).length
+      utils.calendarMonthsToRender(1, 0, utils.getMonths(prevMonth, nextMonth))
+        .length
     ).toBe(1);
     expect(
-      utils.calendarMonthsToRender(2, 0, utils.getMonths(2, 1, month))
-    ).toEqual([subMonths(month, 2), subMonths(month, 1)]);
+      utils.calendarMonthsToRender(2, 0, utils.getMonths(prevMonth, nextMonth))
+    ).toEqual([startOfMonth(prevMonth), startOfMonth(month)]);
     expect(
-      utils.calendarMonthsToRender(2, 1, utils.getMonths(2, 1, month))
-    ).toEqual([subMonths(month, 1), subMonths(month, 0)]);
+      utils.calendarMonthsToRender(2, 1, utils.getMonths(prevMonth, nextMonth))
+    ).toEqual([startOfMonth(month), startOfMonth(nextMonth)]);
   });
 });

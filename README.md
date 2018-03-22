@@ -12,10 +12,10 @@ import Calendar from 'react-dates-lite';
 
 <Calendar
   visibleMonths={1}
-  numberOfMonths={4}
-  numberOfPastMonths={2}
+  firstMonth={new Date(2018, 1, 1)}
+  lastMonth={new Date(2018, 2, 1)}
   selectedDates={[new Date()]}
-  selectDates={date => console.log(date)}
+  selectDates={console.log}
 />;
 ```
 
@@ -24,12 +24,15 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 ### Props
 
 * `visibleMonths?: number` - how many months will be visible (default `1`)
-* `numberOfMonths: number` - how many months will be in calendar in the future (from current month)
-* `numberOfPastMonths?: number` - how many months will be in calendar in the past (from current month) (default `0`)
+* `firstMonth: Date` - first month in calendar, months between first and last (included) will be in calendar
+* `lastMonth: Date` - last month in calendar, months between first and last (included) will be in calendar
 * `selectDates: Date[] => any` - will receive array of Dates that were selected
 * `selectedDates: Date[]` - array of Dates that are selected
 * `disabledDates: Date[]` - array of Dates that cannot be selected
+* `allowedDates?: Date[]` - array of dates that are selectable (default `[]`) when it's empty, all dates are selectable (except disabled dates)
 * `future?: boolean` - if future dates from today will be enabled (default `true`)
+* `past?: boolean` - if past dates from today will be enabled (default `true`)
+* `rangeSelect?: boolean` - if enabled, ranges can be selected, otherwise just one date (default `true`)
 * `className?: string` - will provide class to the Calendar container (default `''`)
 * `colors?: { [string]: number }` - will provide colors to these stuff:
   * `selected` - background-color of selected date

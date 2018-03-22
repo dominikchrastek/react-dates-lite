@@ -16,7 +16,7 @@ describe('#CalendarMonth', () => {
         selectDate={jest.fn()}
         onHover={jest.fn()}
         hoveredDates={[]}
-        allowedPastDates
+        past
         future
         colors={{}}
         classes={{}}
@@ -35,7 +35,7 @@ describe('#CalendarMonth', () => {
         selectDate={jest.fn()}
         onHover={jest.fn()}
         hoveredDates={[]}
-        allowedPastDates
+        past
         future
         colors={{}}
         classes={{}}
@@ -54,7 +54,7 @@ describe('#CalendarMonth', () => {
         selectDate={jest.fn()}
         onHover={jest.fn()}
         hoveredDates={[]}
-        allowedPastDates
+        past
         future
         colors={{}}
         classes={{

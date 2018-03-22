@@ -8,10 +8,10 @@ import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import subDays from 'date-fns/subDays';
 import getDay from 'date-fns/getDay';
-import startOfDay from 'date-fns/startOfDay';
 import addMonths from 'date-fns/addMonths';
 import subMonths from 'date-fns/subMonths';
 import isSameMonth from 'date-fns/isSameMonth';
+import differenceInCalendarMonths from 'date-fns/differenceInCalendarMonths';
 
 // TODO: separate util files
 // CalendarMonth utils
@@ -52,42 +52,30 @@ export const calendarDayNames = (months: Date[]): Date[] => R.take(7, months);
 // TODO: separate util files
 // Calendar utils
 
-// get array of months of size n, where n = pastMonths + futureMonths
-export const getMonths = (
-  pastMonths: number,
-  futureMonths: number,
-  today: Date = new Date()
-): Date[] => [
-  ...R.compose(
-    R.map(month => subMonths(startOfDay(today), month + 1)),
-    R.sort((a, b) => b - a),
+/**
+ * Will return months between `firstMonth` and `lastMonth`
+ * @param {Date} firstMonth
+ * @param {Date} lastMonth
+ * @returns {Date[]}
+ */
+export function getMonths(firstMonth: Date, lastMonth: Date): Date[] {
+  return R.compose(
+    R.map(n => addMonths(startOfMonth(firstMonth), n)),
     R.times(R.identity)
-  )(pastMonths),
-  ...R.compose(
-    R.map(month => addMonths(startOfDay(today), month)),
-    R.times(R.identity)
-  )(futureMonths)
-];
-
-export const getNumberOfFutureMonths = (
-  future: boolean,
-  futureMonthsNumber: number
-): number => (future ? futureMonthsNumber : 1);
+    // add one month, because differenceInCalendarMonths will return n - 1
+  )(differenceInCalendarMonths(addMonths(lastMonth, 1), firstMonth));
+}
 
 export const getCurrentMonthIndex = (
-  pastMonths: number,
-  futureMonths: number,
+  firstMonth: Date,
+  lastMonth: Date,
   dates: Date[],
   future: boolean,
   visibleMonths: number,
   today: Date = new Date()
 ): number => {
   const datesOrToday = R.isEmpty(dates) ? [today] : dates;
-  const months = getMonths(
-    pastMonths,
-    getNumberOfFutureMonths(future, futureMonths),
-    today
-  );
+  const months = getMonths(firstMonth, lastMonth);
   const index = R.findIndex(
     // $FlowExpected
     month => isSameMonth(month, R.head(datesOrToday)),
@@ -111,4 +99,9 @@ export const calendarMonthsToRender = (
   visibleMonths: number,
   currentMonth: number,
   months: Date[]
-): Date[] => R.compose(R.take(visibleMonths), R.drop(currentMonth))(months);
+): Date[] => {
+  if (visibleMonths >= months.length) {
+    return months;
+  }
+  return R.compose(R.take(visibleMonths), R.drop(currentMonth))(months);
+};

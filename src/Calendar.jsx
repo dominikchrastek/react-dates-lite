@@ -99,13 +99,14 @@ type Props = {|
   disabledDates: Date[],
   allowedDates: Date[],
   visibleMonths: number,
-  numberOfMonths: number,
-  numberOfPastMonths: number,
   future: boolean,
+  past: boolean,
   colors: {| [string]: string |},
   classes: {| [string]: string |},
   className: string,
-  rangeSelect: boolean
+  rangeSelect: boolean,
+  firstMonth: Date,
+  lastMonth: Date
 |};
 
 type State = {|
@@ -126,17 +127,20 @@ export default class Calendar extends React.PureComponent<Props, State> {
     colors: defaultColors,
     className: '',
     classes: {},
-    future: true
+    future: true,
+    past: true,
+    rangeSelect: false
   };
 
   constructor(props: Props) {
     super(props);
+
     this.state = {
       end: null,
       hoveredDates: [],
       currentMonth: utils.getCurrentMonthIndex(
-        props.numberOfPastMonths,
-        props.numberOfMonths,
+        props.firstMonth,
+        props.lastMonth,
         props.selectedDates,
         props.future,
         props.visibleMonths
@@ -159,13 +163,13 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
   handleNext = () => {
     this.setState(state => ({
-      currentMonth: R.inc(state.currentMonth)
+      currentMonth: state.currentMonth + 1
     }));
   };
 
   handlePrev = () => {
     this.setState(state => ({
-      currentMonth: R.dec(state.currentMonth)
+      currentMonth: state.currentMonth - 1
     }));
   };
 
@@ -177,19 +181,14 @@ export default class Calendar extends React.PureComponent<Props, State> {
    * @argument {State} nextState
    */
   handleSetCurrentMonth = (nextProps: Props, nextState: State) => {
-    const {
-      numberOfPastMonths,
-      numberOfMonths,
-      future,
-      visibleMonths
-    } = this.props;
+    const { firstMonth, lastMonth, future, visibleMonths } = this.props;
     // if date wasn't selected internally (it means that selectedDates
     // was changed from parent component ) then calculate current month and set it
     // also set selectedInternally to false
     if (!nextState.selectedInternally) {
       const currentMonth = utils.getCurrentMonthIndex(
-        numberOfPastMonths,
-        numberOfMonths,
+        firstMonth,
+        lastMonth,
         nextProps.selectedDates,
         future,
         visibleMonths
@@ -300,26 +299,22 @@ export default class Calendar extends React.PureComponent<Props, State> {
   render() {
     const {
       visibleMonths,
-      numberOfMonths,
-      numberOfPastMonths,
       selectedDates,
       disabledDates,
       allowedDates,
       colors,
       className,
       classes,
-      future
+      past,
+      future,
+      firstMonth,
+      lastMonth
     } = this.props;
+
     const { currentMonth, hoveredDates, isFocused } = this.state;
 
     const mergedColors = R.merge(defaultColors, colors);
-
-    const months = future
-      ? utils.getMonths(numberOfPastMonths, numberOfMonths)
-      : utils.getMonths(
-          numberOfPastMonths,
-          numberOfMonths - (visibleMonths - 1)
-        );
+    const months = utils.getMonths(firstMonth, lastMonth);
 
     return (
       <CalendarWrapper className={className} visibleMonths={visibleMonths}>
@@ -327,7 +322,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
           data-test="rdl-prev-button"
           className={classes.button}
           onClick={this.handlePrev}
-          disabled={currentMonth === 0}
+          disabled={currentMonth === 0 || months.length <= visibleMonths}
           colors={mergedColors}>
           <StyledArrowLeft />
         </PrevBtn>
@@ -337,7 +332,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
           className={classes.button}
           onClick={this.handleNext}
           disabled={
-            currentMonth === R.subtract(R.length(months), visibleMonths)
+            currentMonth === R.subtract(R.length(months), visibleMonths) ||
+            months.length <= visibleMonths
           }
           colors={mergedColors}>
           <StyledArrowRight />
@@ -355,7 +351,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 selectDate={this.handleSelect}
                 onHover={this.handleHover}
                 hoveredDates={hoveredDates}
-                allowedPastDates={numberOfPastMonths >= 1}
+                past={past}
                 isFocused={isFocused}
                 future={future}
                 colors={mergedColors}

@@ -9,6 +9,7 @@ import endOfMonth from 'date-fns/endOfMonth';
 import format from 'date-fns/format';
 import addDays from 'date-fns/addDays';
 import startOfDay from 'date-fns/startOfDay';
+import addMonths from 'date-fns/addMonths';
 
 import Calendar from '../src';
 
@@ -67,28 +68,33 @@ export default class Example extends React.PureComponent<Props, State> {
             hover: '#e4e7e7'
           }}
           visibleMonths={2}
-          numberOfMonths={3}
-          numberOfPastMonths={3}
           selectedDates={selectedDates}
           disabledDates={disabledDates}
           allowedDates={
             allowedDates ? [startOfDay(addDays(new Date(), 2))] : []
           }
           selectDates={this.handleSelectDates}
+          rangeSelect
+          firstMonth={subMonths(new Date(), 1)}
+          lastMonth={addMonths(new Date(), 1)}
         />
 
         <Column>
           <div>
             selected dates:
             {R.map(
-              day => <div>{format(day, 'DD.MM.YYYY')}</div>,
+              day => (
+                <div key={day.toISOString()}>{format(day, 'DD.MM.YYYY')}</div>
+              ),
               selectedDates
             )}
           </div>
           <div>
             disabled dates:
             {R.map(
-              day => <div>{format(day, 'DD.MM.YYYY')}</div>,
+              day => (
+                <div key={day.toISOString()}>{format(day, 'DD.MM.YYYY')}</div>
+              ),
               disabledDates
             )}
           </div>

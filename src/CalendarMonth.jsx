@@ -20,7 +20,7 @@ type Props = {|
   disabledDates: Date[],
   allowedDates: Date[],
   hoveredDates: Date[],
-  allowedPastDates: boolean,
+  past: boolean,
   future: boolean,
   colors: {| [string]: string |},
   classes: {| [string]: string |},
@@ -64,7 +64,7 @@ const CalendarMonth = ({
   selectDate,
   onHover,
   hoveredDates,
-  allowedPastDates,
+  past,
   future,
   colors,
   classes,
@@ -103,9 +103,7 @@ const CalendarMonth = ({
                       (!R.isEmpty(allowedDates) &&
                         !dayHelpers.isDisabled(day, allowedDates))
                     }
-                    isPast={
-                      dayHelpers.isPast(day, new Date()) && !allowedPastDates
-                    }
+                    isPast={dayHelpers.isPast(day, new Date()) && !past}
                     isFuture={dayHelpers.isFuture(day, new Date()) && !future}
                     colors={colors}
                     classes={classes}

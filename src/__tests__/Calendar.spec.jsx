@@ -10,8 +10,11 @@ describe('#Calendar', () => {
   const yesterday = new Date(2018, 2, 9);
   const today = new Date(2018, 2, 10);
   const tomorrow = new Date(2018, 2, 11);
+  // const month = new Date(2018, 2, 2);
+  const prevMonth = new Date(2018, 1, 1);
+  const nextMonth = new Date(2018, 3, 3);
   beforeEach(() => {
-    MockDate.set('1/31/2018');
+    MockDate.set('2/31/2018');
   });
   afterEach(() => {
     MockDate.reset();
@@ -22,8 +25,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={3}
-          numberOfMonths={3}
-          numberOfPastMonths={10}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={jest.fn()}
           future={false}
@@ -38,8 +41,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={3}
-          numberOfMonths={3}
-          numberOfPastMonths={10}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={jest.fn()}
           future
@@ -54,8 +57,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={3}
-          numberOfMonths={3}
-          numberOfPastMonths={10}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           allowedDates={[today]}
           selectDates={jest.fn()}
@@ -71,8 +74,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={jest.fn()}
           rangeSelect
@@ -80,14 +83,13 @@ describe('#Calendar', () => {
       );
 
       const node = wrapper.instance();
-
-      expect(node.state.currentMonth).toBe(2);
+      expect(node.state.currentMonth).toBe(1);
       wrapper
         .find('[data-test="rdl-next-button"]')
         .at(1)
         .simulate('click');
 
-      expect(node.state.currentMonth).toBe(3);
+      expect(node.state.currentMonth).toBe(2);
       wrapper
         .find('[data-test="rdl-next-button"]')
         .at(1)
@@ -98,15 +100,16 @@ describe('#Calendar', () => {
           .at(1)
           .is('[disabled]')
       ).toBeTruthy();
-      expect(node.state.currentMonth).toBe(3);
+      expect(node.state.currentMonth).toBe(2);
     });
+
     it('rdl-prev-button should works', () => {
       const wrapper = mount(
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={jest.fn()}
           rangeSelect
@@ -115,13 +118,13 @@ describe('#Calendar', () => {
 
       const node = wrapper.instance();
 
-      expect(node.state.currentMonth).toBe(2);
+      expect(node.state.currentMonth).toBe(1);
       wrapper
         .find('[data-test="rdl-prev-button"]')
         .at(1)
         .simulate('click');
 
-      expect(node.state.currentMonth).toBe(1);
+      expect(node.state.currentMonth).toBe(0);
       wrapper
         .find('[data-test="rdl-prev-button"]')
         .at(1)
@@ -141,8 +144,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -176,8 +179,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -209,8 +212,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -250,8 +253,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -270,8 +273,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -297,8 +300,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -324,8 +327,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -351,8 +354,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -377,8 +380,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -390,8 +393,8 @@ describe('#Calendar', () => {
 
       // handleSetCurrentMonth should be called
       const currentMonth = utils.getCurrentMonthIndex(
-        node.props.numberOfPastMonths,
-        node.props.numberOfMonths,
+        node.props.firstMonth,
+        node.props.lastMonth,
         nextProps.selectedDates,
         node.props.future,
         node.props.visibleMonths
@@ -412,8 +415,8 @@ describe('#Calendar', () => {
         <Calendar
           className="wrapper"
           visibleMonths={1}
-          numberOfMonths={2}
-          numberOfPastMonths={2}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
           selectedDates={[]}
           selectDates={selectDates}
           rangeSelect
@@ -425,8 +428,8 @@ describe('#Calendar', () => {
 
       // handleSetCurrentMonth should be called
       const currentMonth = utils.getCurrentMonthIndex(
-        node.props.numberOfPastMonths,
-        node.props.numberOfMonths,
+        node.props.firstMonth,
+        node.props.lastMonth,
         nextProps.selectedDates,
         node.props.future,
         node.props.visibleMonths

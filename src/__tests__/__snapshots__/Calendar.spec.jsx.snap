@@ -18,7 +18,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       }
     }
     data-test="rdl-prev-button"
-    disabled={false}
+    disabled={true}
     onClick={[Function]}
   >
     <Styled(ArrowLeft) />
@@ -46,7 +46,6 @@ exports[`#Calendar methods should render correctly 1`] = `
   >
     <Styled(CalendarMonth)
       allowedDates={Array []}
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -62,14 +61,14 @@ exports[`#Calendar methods should render correctly 1`] = `
       future={false}
       hoveredDates={Array []}
       isFocused={false}
-      month={2017-11-30T00:00:00.000Z}
+      month={2018-02-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -85,14 +84,14 @@ exports[`#Calendar methods should render correctly 1`] = `
       future={false}
       hoveredDates={Array []}
       isFocused={false}
-      month={2017-12-31T00:00:00.000Z}
+      month={2018-03-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -108,8 +107,9 @@ exports[`#Calendar methods should render correctly 1`] = `
       future={false}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-01-31T00:00:00.000Z}
+      month={2018-04-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
@@ -135,7 +135,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       }
     }
     data-test="rdl-prev-button"
-    disabled={false}
+    disabled={true}
     onClick={[Function]}
   >
     <Styled(ArrowLeft) />
@@ -167,7 +167,6 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           2018-03-10T00:00:00.000Z,
         ]
       }
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -183,8 +182,9 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       future={true}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-01-31T00:00:00.000Z}
+      month={2018-02-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
@@ -194,7 +194,6 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           2018-03-10T00:00:00.000Z,
         ]
       }
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -210,8 +209,9 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       future={true}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-02-28T00:00:00.000Z}
+      month={2018-03-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
@@ -221,7 +221,6 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           2018-03-10T00:00:00.000Z,
         ]
       }
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -237,8 +236,9 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       future={true}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-03-31T00:00:00.000Z}
+      month={2018-04-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
@@ -264,7 +264,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       }
     }
     data-test="rdl-prev-button"
-    disabled={false}
+    disabled={true}
     onClick={[Function]}
   >
     <Styled(ArrowLeft) />
@@ -292,7 +292,6 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
   >
     <Styled(CalendarMonth)
       allowedDates={Array []}
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -308,14 +307,14 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       future={true}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-01-31T00:00:00.000Z}
+      month={2018-02-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -331,14 +330,14 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       future={true}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-02-28T00:00:00.000Z}
+      month={2018-03-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
-      allowedPastDates={true}
       classes={Object {}}
       colors={
         Object {
@@ -354,8 +353,9 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       future={true}
       hoveredDates={Array []}
       isFocused={false}
-      month={2018-03-31T00:00:00.000Z}
+      month={2018-04-01T00:00:00.000Z}
       onHover={[Function]}
+      past={true}
       selectDate={[Function]}
       selectedDates={Array []}
     />
