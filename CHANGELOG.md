@@ -8,7 +8,7 @@
 
 ### BREAKING CHANGES
 
-**numberOfMonths** and **numberOfPastMonths** was removed, use **firstMonth** and **lastMonth**
+**numberOfMonths** and **numberOfPastMonths** were removed, use **firstMonth** and **lastMonth**
 
 ```js
 numberOfMonths={1} -> firstMonth={new Date(2018, 1, 1)} // some month
