@@ -3,6 +3,11 @@
 [![Build Status](https://travis-ci.org/dominikchrastek/react-dates-lite.svg?branch=master)](https://travis-ci.org/dominikchrastek/react-dates-lite)
 [![codecov](https://codecov.io/gh/dominikchrastek/react-dates-lite/branch/master/graph/badge.svg)](https://codecov.io/gh/dominikchrastek/react-dates-lite)
 
+## Install
+
+`yarn add styled-components` - peerDependency, also check that you have `react` and `react-dom`
+`yarn add react-dates-lite`
+
 ## API
 
 #### Example

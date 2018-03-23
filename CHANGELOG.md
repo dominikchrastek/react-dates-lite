@@ -1,3 +1,7 @@
+# 0.0.34 (2018-03-23)
+
+* **styled-components** are now `peerDependency`
+
 # 0.0.32 (2018-03-22)
 
 ### BREAKING CHANGES
