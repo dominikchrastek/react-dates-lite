@@ -25,7 +25,8 @@ type Props = {|
   colors: {| [string]: string |},
   classes: {| [string]: string |},
   className: string,
-  isFocused: boolean
+  isFocused: boolean,
+  customClasses: {[key: string]: Date[]}
 |};
 
 const Week = styled.div`
@@ -69,7 +70,8 @@ const CalendarMonth = ({
   colors,
   classes,
   isFocused,
-  className = ''
+  className = '',
+  customClasses
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   return (
@@ -106,8 +108,8 @@ const CalendarMonth = ({
                     isPast={dayHelpers.isPast(day, new Date()) && !past}
                     isFuture={dayHelpers.isFuture(day, new Date()) && !future}
                     colors={colors}
-                    classes={classes}
                     isFocused={isFocused}
+                    classes={R.keys(utils.filterCustomClasses(day)(customClasses))}
                   />
                 ),
                 week

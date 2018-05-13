@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 import isSameDay from 'date-fns/isSameDay';
 import isBefore from 'date-fns/isBefore';
+import startOfMonth from 'date-fns/startOfMonth';
+import endOfMonth from 'date-fns/endOfMonth';
 
 import CalendarMonth from './CalendarMonth';
 import ArrowLeft from './ArrowLeft';
@@ -106,7 +108,8 @@ type Props = {|
   className: string,
   rangeSelect: boolean,
   firstMonth: Date,
-  lastMonth: Date
+  lastMonth: Date,
+  customClasses: { [className: string]: Date[] }
 |};
 
 type State = {|
@@ -129,7 +132,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
     classes: {},
     future: true,
     past: true,
-    rangeSelect: false
+    rangeSelect: false,
+    customClasses: {}
   };
 
   constructor(props: Props) {
@@ -308,13 +312,18 @@ export default class Calendar extends React.PureComponent<Props, State> {
       past,
       future,
       firstMonth,
-      lastMonth
+      lastMonth,
+      customClasses
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
 
     const mergedColors = R.merge(defaultColors, colors);
     const months = utils.getMonths(firstMonth, lastMonth);
+    const filteredCustomClasses = utils.filterCustomClasses(
+      allowedDates[0],
+      allowedDates[allowedDates.length - 1]
+    )(customClasses);
 
     return (
       <CalendarWrapper className={className} visibleMonths={visibleMonths}>
@@ -356,6 +365,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 future={future}
                 colors={mergedColors}
                 classes={classes}
+                customClasses={utils.filterCustomClasses(startOfMonth(month), endOfMonth(month))(filteredCustomClasses)}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

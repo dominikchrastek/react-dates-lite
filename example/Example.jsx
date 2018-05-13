@@ -58,7 +58,7 @@ export default class Example extends React.PureComponent<Props, State> {
     return (
       <div>
         <button onClick={this.handleSetToday}>select today</button>
-        <button onClick={this.handleSetLastMonth}>select last monht</button>
+        <button onClick={this.handleSetLastMonth}>select last month</button>
         <Calendar
           className="wrapper"
           colors={{
@@ -77,6 +77,10 @@ export default class Example extends React.PureComponent<Props, State> {
           rangeSelect
           firstMonth={subMonths(new Date(), 1)}
           lastMonth={addMonths(new Date(), 1)}
+          customClasses={{
+            class1: [new Date()],
+            class2: [new Date(), addDays(new Date(), 2)],
+          }}
         />
 
         <Column>

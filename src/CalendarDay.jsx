@@ -18,7 +18,7 @@ type Props = ButtonProps & {
   number: number,
   selectDate: Date => void,
   onHover: Date => void,
-  classes: {| [string]: string |}
+  classes: string[]
 };
 
 // export const getClasses = (props: Props) => {
@@ -145,11 +145,12 @@ export default class CalendarDay extends React.PureComponent<Props> {
       isDisabled,
       isHovered,
       colors,
-      isFocused
+      isFocused,
+      classes
     } = this.props;
 
     return (
-      <Td isHidden={isHidden} colors={colors}>
+      <Td isHidden={isHidden} colors={colors} className={classes.join(' ')}>
         <Button
           // className={getClasses(this.props)}
           onClick={this.handleClick}
