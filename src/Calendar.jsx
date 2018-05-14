@@ -106,7 +106,9 @@ type Props = {|
   className: string,
   rangeSelect: boolean,
   firstMonth: Date,
-  lastMonth: Date
+  lastMonth: Date,
+  showMonthName: boolean,
+  showWeekDayNames: boolean
 |};
 
 type State = {|
@@ -129,7 +131,9 @@ export default class Calendar extends React.PureComponent<Props, State> {
     classes: {},
     future: true,
     past: true,
-    rangeSelect: false
+    rangeSelect: false,
+    showMonthName: true,
+    showWeekDayNames: true
   };
 
   constructor(props: Props) {
@@ -308,7 +312,9 @@ export default class Calendar extends React.PureComponent<Props, State> {
       past,
       future,
       firstMonth,
-      lastMonth
+      lastMonth,
+      showMonthName,
+      showWeekDayNames
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -318,26 +324,31 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
     return (
       <CalendarWrapper className={className} visibleMonths={visibleMonths}>
-        <PrevBtn
-          data-test="rdl-prev-button"
-          className={classes.button}
-          onClick={this.handlePrev}
-          disabled={currentMonth === 0 || months.length <= visibleMonths}
-          colors={mergedColors}>
-          <StyledArrowLeft />
-        </PrevBtn>
+        {months.length > visibleMonths && (
+          <PrevBtn
+            data-test="rdl-prev-button"
+            className={classes.button}
+            onClick={this.handlePrev}
+            disabled={currentMonth === 0}
+            colors={mergedColors}
+          >
+            <StyledArrowLeft />
+          </PrevBtn>
+        )}
 
-        <NextBtn
-          data-test="rdl-next-button"
-          className={classes.button}
-          onClick={this.handleNext}
-          disabled={
-            currentMonth === R.subtract(R.length(months), visibleMonths) ||
-            months.length <= visibleMonths
-          }
-          colors={mergedColors}>
-          <StyledArrowRight />
-        </NextBtn>
+        {months.length > visibleMonths && (
+          <NextBtn
+            data-test="rdl-next-button"
+            className={classes.button}
+            onClick={this.handleNext}
+            disabled={
+              currentMonth === R.subtract(R.length(months), visibleMonths)
+            }
+            colors={mergedColors}
+          >
+            <StyledArrowRight />
+          </NextBtn>
+        )}
 
         <CalendarMonthWrapper className={classes.calendarWrapper}>
           {R.map(
@@ -356,6 +367,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 future={future}
                 colors={mergedColors}
                 classes={classes}
+                showMonthName={showMonthName}
+                showWeekDayNames={showWeekDayNames}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

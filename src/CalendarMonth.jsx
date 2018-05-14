@@ -25,7 +25,9 @@ type Props = {|
   colors: {| [string]: string |},
   classes: {| [string]: string |},
   className: string,
-  isFocused: boolean
+  isFocused: boolean,
+  showMonthName: boolean,
+  showWeekDayNames: boolean
 |};
 
 const Week = styled.div`
@@ -69,19 +71,23 @@ const CalendarMonth = ({
   colors,
   classes,
   isFocused,
-  className = ''
+  className = '',
+  showMonthName,
+  showWeekDayNames
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
-      <MonthName>{format(month, 'MMMM YYYY')}</MonthName>
+      {showMonthName && <MonthName>{format(month, 'MMMM YYYY')}</MonthName>}
 
-      <DayNameList>
-        {R.map(
-          day => <DayName key={day}>{format(day, 'dd')}</DayName>,
-          utils.calendarDayNames(toRender)
-        )}
-      </DayNameList>
+      {showWeekDayNames && (
+        <DayNameList>
+          {R.map(
+            day => <DayName key={day}>{format(day, 'dd')}</DayName>,
+            utils.calendarDayNames(toRender)
+          )}
+        </DayNameList>
+      )}
 
       <Month>
         {R.map(
