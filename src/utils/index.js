@@ -120,11 +120,11 @@ export const filterCustomClasses = (
     R.mapObjIndexed((dates: Date[]) =>
       dates.filter(
         date =>
-          R.isNil(to)
-            ? isSameDay(date, from)
-            : isSameDay(date, from) ||
+          to
+            ? isSameDay(date, from) ||
               isSameDay(date, to) ||
               (isBefore(date, to) && isAfter(date, from))
+            : isSameDay(date, from)
       )
     )
   );
