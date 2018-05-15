@@ -113,7 +113,7 @@ type CustomClasses = { [className: string]: Date[] };
 
 export const filterCustomClasses = (
   from: Date,
-  to: Date
+  to?: Date
 ): (CustomClasses => CustomClasses) =>
   R.compose(
     R.pickBy(R.prop('length')),
