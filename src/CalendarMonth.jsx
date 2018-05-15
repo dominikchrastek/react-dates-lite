@@ -71,7 +71,7 @@ const CalendarMonth = ({
   classes,
   isFocused,
   className = '',
-  customClasses
+  customClasses = {}
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   return (

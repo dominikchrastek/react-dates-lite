@@ -2,6 +2,7 @@
 
 exports[`#CalendarDay methods should render correctly 1`] = `
 <styled.div
+  className=""
   colors={Object {}}
   isHidden={false}
 >
@@ -27,6 +28,7 @@ exports[`#CalendarDay methods should render correctly 1`] = `
 
 exports[`#CalendarDay methods should render hidden 1`] = `
 <styled.div
+  className=""
   colors={Object {}}
   isHidden={true}
 >
@@ -37,6 +39,32 @@ exports[`#CalendarDay methods should render hidden 1`] = `
     isFocused={undefined}
     isFuture={false}
     isHidden={true}
+    isHovered={false}
+    isPast={false}
+    isSelected={false}
+    number={1}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    1
+  </styled.button>
+</styled.div>
+`;
+
+exports[`#CalendarDay methods should render joined classes 1`] = `
+<styled.div
+  className="hey hou"
+  colors={Object {}}
+  isHidden={false}
+>
+  <styled.button
+    colors={Object {}}
+    disabled={undefined}
+    isDisabled={undefined}
+    isFocused={undefined}
+    isFuture={false}
+    isHidden={false}
     isHovered={false}
     isPast={false}
     isSelected={false}

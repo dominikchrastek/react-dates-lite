@@ -146,7 +146,7 @@ export default class CalendarDay extends React.PureComponent<Props> {
       isHovered,
       colors,
       isFocused,
-      classes
+      classes = []
     } = this.props;
 
     return (
