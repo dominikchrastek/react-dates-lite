@@ -320,10 +320,6 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
     const mergedColors = R.merge(defaultColors, colors);
     const months = utils.getMonths(firstMonth, lastMonth);
-    const filteredCustomClasses = utils.filterCustomClasses(
-      allowedDates[0],
-      allowedDates[allowedDates.length - 1]
-    )(customClasses);
 
     return (
       <CalendarWrapper className={className} visibleMonths={visibleMonths}>
@@ -365,7 +361,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 future={future}
                 colors={mergedColors}
                 classes={classes}
-                customClasses={utils.filterCustomClasses(startOfMonth(month), endOfMonth(month))(filteredCustomClasses)}
+                customClasses={utils.filterCustomClasses(startOfMonth(month), endOfMonth(month))(customClasses)}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

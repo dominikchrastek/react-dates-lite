@@ -13,6 +13,15 @@ import addMonths from 'date-fns/addMonths';
 
 import Calendar from '../src';
 
+const Container = styled.div`
+  & .class1>button {
+    background-color: #8bc34a;
+  }
+  & .class2>button {
+    text-decoration: line-through;
+  }
+`;
+
 const Column = styled.div`
   display: flex;
 `;
@@ -56,7 +65,7 @@ export default class Example extends React.PureComponent<Props, State> {
     const { allowedDates } = this.props;
     const { selectedDates, disabledDates } = this.state;
     return (
-      <div>
+      <Container>
         <button onClick={this.handleSetToday}>select today</button>
         <button onClick={this.handleSetLastMonth}>select last month</button>
         <Calendar
@@ -103,7 +112,7 @@ export default class Example extends React.PureComponent<Props, State> {
             )}
           </div>
         </Column>
-      </div>
+      </Container>
     );
   }
 }
