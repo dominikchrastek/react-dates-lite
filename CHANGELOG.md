@@ -1,3 +1,7 @@
+# 0.0.35 (2018-05-17)
+
+* new props **customClasses** { [string]: Date[]} - the class (css) will be applied to the dates that are in the array
+
 # 0.0.34 (2018-03-23)
 
 * **styled-components** are now `peerDependency`
