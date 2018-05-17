@@ -146,11 +146,15 @@ export default class CalendarDay extends React.PureComponent<Props> {
       isHovered,
       colors,
       isFocused,
-      classes = []
+      classes
     } = this.props;
 
     return (
-      <Td isHidden={isHidden} colors={colors} className={classes.join(' ')}>
+      <Td
+        isHidden={isHidden}
+        colors={colors}
+        className={classes && classes.join(' ')}
+      >
         <Button
           // className={getClasses(this.props)}
           onClick={this.handleClick}
