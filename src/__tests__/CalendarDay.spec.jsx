@@ -41,7 +41,25 @@ describe('#CalendarDay', () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={{}}
+          classes={[]}
+        />
+      );
+      expect(wrapper.getElement()).toMatchSnapshot();
+    });
+    it('should render joined classes', () => {
+      const wrapper = shallow(
+        <CalendarDay
+          isHidden={false}
+          number={getDate(date)}
+          value={date}
+          selectDate={jest.fn()}
+          onHover={jest.fn()}
+          isHovered={false}
+          isSelected={false}
+          isPast={false}
+          isFuture={false}
+          colors={{}}
+          classes={["hey", "hou"]}
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -59,7 +77,7 @@ describe('#CalendarDay', () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={{}}
+          classes={[]}
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -79,7 +97,7 @@ describe('#CalendarDay', () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={{}}
+          classes={[]}
         />
       );
 
@@ -103,7 +121,7 @@ describe('#CalendarDay', () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={{}}
+          classes={[]}
         />
       );
 

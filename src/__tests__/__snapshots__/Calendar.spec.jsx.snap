@@ -57,6 +57,7 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -80,6 +81,7 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -103,6 +105,7 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -178,6 +181,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -205,6 +209,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -232,6 +237,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -303,6 +309,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -326,6 +333,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -349,6 +357,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
