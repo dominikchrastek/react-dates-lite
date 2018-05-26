@@ -13,13 +13,15 @@ type ButtonProps = {
   isFocused: boolean
 };
 
-type Props = ButtonProps & {
+export type CalendarDayProps = ButtonProps & {
   value: Date,
   number: number,
   selectDate: Date => void,
   onHover: Date => void,
   classes: string[]
 };
+
+type Props = CalendarDayProps;
 
 // export const getClasses = (props: Props) => {
 //   if (props.isPast || props.isFuture || props.isDisabled) {
@@ -153,8 +155,7 @@ export default class CalendarDay extends React.PureComponent<Props> {
       <Td
         isHidden={isHidden}
         colors={colors}
-        className={classes && classes.join(' ')}
-      >
+        className={classes && (!isHovered && !isSelected) && classes.join(' ')}>
         <Button
           // className={getClasses(this.props)}
           onClick={this.handleClick}

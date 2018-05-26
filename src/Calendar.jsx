@@ -12,7 +12,7 @@ import endOfMonth from 'date-fns/endOfMonth';
 import CalendarMonth from './CalendarMonth';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
-
+import type { CalendarDayProps } from './CalendarDay';
 import * as utils from './utils';
 
 const defaultColors = {
@@ -109,7 +109,8 @@ type Props = {|
   rangeSelect: boolean,
   firstMonth: Date,
   lastMonth: Date,
-  customClasses: { [className: string]: Date[] }
+  customClasses: { [className: string]: Date[] },
+  CustomTd?: React.ComponentType<CalendarDayProps>
 |};
 
 type State = {|
@@ -350,6 +351,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
               <StyledMonth
                 key={month}
                 month={month}
+                CustomTd={this.props.CustomTd}
                 selectedDates={selectedDates}
                 disabledDates={disabledDates}
                 allowedDates={allowedDates}
@@ -361,7 +363,10 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 future={future}
                 colors={mergedColors}
                 classes={classes}
-                customClasses={utils.filterCustomClasses(startOfMonth(month), endOfMonth(month))(customClasses)}
+                customClasses={utils.filterCustomClasses(
+                  startOfMonth(month),
+                  endOfMonth(month)
+                )(customClasses)}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

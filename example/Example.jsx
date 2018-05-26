@@ -12,12 +12,13 @@ import startOfDay from 'date-fns/startOfDay';
 import addMonths from 'date-fns/addMonths';
 
 import Calendar from '../src';
+import CalendarDay from '../src/CustomDay';
 
 const Container = styled.div`
-  & .class1>button {
+  & .class1 > button {
     background-color: #8bc34a;
   }
-  & .class2>button {
+  & .class2 > button {
     text-decoration: line-through;
   }
 `;
@@ -88,7 +89,7 @@ export default class Example extends React.PureComponent<Props, State> {
           lastMonth={addMonths(new Date(), 1)}
           customClasses={{
             class1: [new Date()],
-            class2: [new Date(), addDays(new Date(), 2)],
+            class2: [new Date(), addDays(new Date(), 2)]
           }}
         />
 
