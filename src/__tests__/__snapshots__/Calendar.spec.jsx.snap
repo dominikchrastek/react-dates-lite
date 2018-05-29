@@ -6,7 +6,7 @@ exports[`#Calendar methods should render correctly 1`] = `
   visibleMonths={3}
 >
   <styled.button
-    className={undefined}
+    className=""
     colors={
       Object {
         "background": "white",
@@ -24,7 +24,7 @@ exports[`#Calendar methods should render correctly 1`] = `
     <Styled(ArrowLeft) />
   </styled.button>
   <styled.button
-    className={undefined}
+    className=""
     colors={
       Object {
         "background": "white",
@@ -42,9 +42,10 @@ exports[`#Calendar methods should render correctly 1`] = `
     <Styled(ArrowRight) />
   </styled.button>
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -69,6 +70,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -93,6 +95,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -126,7 +129,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
   visibleMonths={3}
 >
   <styled.button
-    className={undefined}
+    className=""
     colors={
       Object {
         "background": "white",
@@ -144,7 +147,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
     <Styled(ArrowLeft) />
   </styled.button>
   <styled.button
-    className={undefined}
+    className=""
     colors={
       Object {
         "background": "white",
@@ -162,9 +165,10 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
     <Styled(ArrowRight) />
   </styled.button>
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -193,6 +197,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -221,6 +226,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -258,7 +264,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
   visibleMonths={3}
 >
   <styled.button
-    className={undefined}
+    className=""
     colors={
       Object {
         "background": "white",
@@ -276,7 +282,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
     <Styled(ArrowLeft) />
   </styled.button>
   <styled.button
-    className={undefined}
+    className=""
     colors={
       Object {
         "background": "white",
@@ -294,9 +300,10 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
     <Styled(ArrowRight) />
   </styled.button>
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -321,6 +328,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -345,6 +353,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       selectedDates={Array []}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={

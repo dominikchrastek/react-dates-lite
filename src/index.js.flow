@@ -1,0 +1,51 @@
+/* @flow */
+
+export type ButtonProps = {
+  isPast: boolean,
+  isFuture: boolean,
+  isHidden: boolean,
+  isHovered: boolean,
+  isSelected: boolean,
+  isDisabled: boolean,
+  colors: {| [string]: string |},
+  isFocused: boolean
+};
+
+export type CalendarDayProps = ButtonProps & {
+  value: Date,
+  number: number,
+  selectDate: Date => void,
+  onHover: Date => void,
+  classes: string[]
+};
+
+export type CalendarProps = {|
+  selectDates: (Date[]) => any,
+  selectedDates: Date[],
+  disabledDates: Date[],
+  allowedDates: Date[],
+  visibleMonths: number,
+  future: boolean,
+  past: boolean,
+  colors?: {| [string]: string |},
+  classes: {| [string]: string |},
+  className: string,
+  rangeSelect: boolean,
+  firstMonth: Date,
+  lastMonth: Date,
+  customClasses: { [className: string]: Date[] },
+  CustomTd?: React.ComponentType<CalendarDayProps>
+|};
+
+export type CalendarState = {|
+  hoveredDates: Date[],
+  start: Date | null,
+  end: Date | null,
+  currentMonth: number,
+  isFocused: boolean,
+  selectedInternally: boolean
+|};
+
+type Calendar = React.ComponentType<CalendarProps, CalendarState>;
+
+declare export default Calendar

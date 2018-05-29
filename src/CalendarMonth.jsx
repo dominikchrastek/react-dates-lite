@@ -8,6 +8,7 @@ import getDate from 'date-fns/getDate';
 import isSameMonth from 'date-fns/isSameMonth';
 
 import CalendarDay from './CalendarDay';
+import type { CalendarDayProps } from './';
 
 import * as utils from './utils';
 import * as dayHelpers from './utils/dayHelpers';
@@ -26,7 +27,8 @@ type Props = {|
   classes: {| [string]: string |},
   className: string,
   isFocused: boolean,
-  customClasses: {[key: string]: Date[]}
+  customClasses: { [key: string]: Date[] },
+  CustomTd: React.ComponentType<CalendarDayProps>
 |};
 
 const Week = styled.div`
@@ -71,9 +73,11 @@ const CalendarMonth = ({
   classes,
   isFocused,
   className = '',
-  customClasses = {}
+  customClasses = {},
+  CustomTd
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
+  const Day = CustomTd || CalendarDay;
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
       <MonthName>{format(month, 'MMMM YYYY')}</MonthName>
@@ -84,14 +88,13 @@ const CalendarMonth = ({
           utils.calendarDayNames(toRender)
         )}
       </DayNameList>
-
       <Month>
         {R.map(
           week => (
             <Week key={week}>
               {R.map(
                 day => (
-                  <CalendarDay
+                  <Day
                     key={day}
                     isHidden={!isSameMonth(month, day)}
                     number={getDate(day)}
@@ -107,9 +110,11 @@ const CalendarMonth = ({
                     }
                     isPast={dayHelpers.isPast(day, new Date()) && !past}
                     isFuture={dayHelpers.isFuture(day, new Date()) && !future}
-                    colors={colors}
                     isFocused={isFocused}
-                    classes={R.keys(utils.filterCustomClasses(day)(customClasses))}
+                    classes={R.keys(
+                      utils.filterCustomClasses(day)(customClasses)
+                    )}
+                    colors={colors}
                   />
                 ),
                 week
