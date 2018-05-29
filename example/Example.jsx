@@ -12,7 +12,7 @@ import startOfDay from 'date-fns/startOfDay';
 import addMonths from 'date-fns/addMonths';
 
 import Calendar from '../src';
-import CalendarDay from '../src/CustomDay';
+// import CalendarDay from '../src/CustomDay';
 
 const Container = styled.div`
   & .class1 > button {
@@ -84,6 +84,7 @@ export default class Example extends React.PureComponent<Props, State> {
             allowedDates ? [startOfDay(addDays(new Date(), 2))] : []
           }
           selectDates={this.handleSelectDates}
+          // CustomTd={CalendarDay}
           rangeSelect
           firstMonth={subMonths(new Date(), 1)}
           lastMonth={addMonths(new Date(), 1)}

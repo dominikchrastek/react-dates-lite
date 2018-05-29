@@ -12,7 +12,7 @@ import endOfMonth from 'date-fns/endOfMonth';
 import CalendarMonth from './CalendarMonth';
 import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
-import type { CalendarDayProps } from './CalendarDay';
+import type { CalendarState, CalendarProps } from './';
 import * as utils from './utils';
 
 const defaultColors = {
@@ -95,40 +95,16 @@ const NextBtn = NavBtn.extend`
   right: 0;
 `;
 
-type Props = {|
-  selectDates: (Date[]) => any,
-  selectedDates: Date[],
-  disabledDates: Date[],
-  allowedDates: Date[],
-  visibleMonths: number,
-  future: boolean,
-  past: boolean,
-  colors: {| [string]: string |},
-  classes: {| [string]: string |},
-  className: string,
-  rangeSelect: boolean,
-  firstMonth: Date,
-  lastMonth: Date,
-  customClasses: { [className: string]: Date[] },
-  CustomTd?: React.ComponentType<CalendarDayProps>
-|};
+type Props = CalendarProps;
 
-type State = {|
-  hoveredDates: Date[],
-  start: Date | null,
-  end: Date | null,
-  currentMonth: number,
-  isFocused: boolean,
-  selectedInternally: boolean
-|};
+type State = CalendarState;
 
-export default class Calendar extends React.PureComponent<Props, State> {
+class Calendar extends React.PureComponent<Props, State> {
   static defaultProps = {
     disabledDates: [],
     allowedDates: [],
     visibleMonths: 1,
-    numberOfPastMonths: 0,
-    colors: defaultColors,
+    colors: {},
     className: '',
     classes: {},
     future: true,
@@ -326,7 +302,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
       <CalendarWrapper className={className} visibleMonths={visibleMonths}>
         <PrevBtn
           data-test="rdl-prev-button"
-          className={classes.button}
+          className={classes.button || ''}
           onClick={this.handlePrev}
           disabled={currentMonth === 0 || months.length <= visibleMonths}
           colors={mergedColors}>
@@ -335,7 +311,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
 
         <NextBtn
           data-test="rdl-next-button"
-          className={classes.button}
+          className={classes.button || ''}
           onClick={this.handleNext}
           disabled={
             currentMonth === R.subtract(R.length(months), visibleMonths) ||
@@ -345,7 +321,7 @@ export default class Calendar extends React.PureComponent<Props, State> {
           <StyledArrowRight />
         </NextBtn>
 
-        <CalendarMonthWrapper className={classes.calendarWrapper}>
+        <CalendarMonthWrapper className={classes.calendarWrapper || ''}>
           {R.map(
             month => (
               <StyledMonth
@@ -376,3 +352,5 @@ export default class Calendar extends React.PureComponent<Props, State> {
     );
   }
 }
+
+export default Calendar;

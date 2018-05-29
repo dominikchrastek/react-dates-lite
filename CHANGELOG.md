@@ -1,3 +1,7 @@
+# 0.0.36 (2018-05-29)
+
+* new prop **CustomTd** React.ComponentType<CalendarDayProps> - shoudl be used as custom Day component in Calendar
+
 # 0.0.35 (2018-05-17)
 
 * new props **customClasses** { [string]: Date[]} - the class (css) will be applied to the dates that are in the array

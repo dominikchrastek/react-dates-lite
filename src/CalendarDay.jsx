@@ -1,25 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import styled from 'styled-components';
-
-type ButtonProps = {
-  isPast: boolean,
-  isFuture: boolean,
-  isHidden: boolean,
-  isHovered: boolean,
-  isSelected: boolean,
-  isDisabled: boolean,
-  colors: {| [string]: string |},
-  isFocused: boolean
-};
-
-export type CalendarDayProps = ButtonProps & {
-  value: Date,
-  number: number,
-  selectDate: Date => void,
-  onHover: Date => void,
-  classes: string[]
-};
+import type { ButtonProps, CalendarDayProps } from './';
 
 type Props = CalendarDayProps;
 
