@@ -1,27 +1,27 @@
 /* @flow */
-import * as React from 'react';
-import * as R from 'ramda';
-import styled from 'styled-components';
+import * as React from "react";
+import * as R from "ramda";
+import styled from "styled-components";
 
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import isSameDay from 'date-fns/isSameDay';
-import isBefore from 'date-fns/isBefore';
-import startOfMonth from 'date-fns/startOfMonth';
-import endOfMonth from 'date-fns/endOfMonth';
+import eachDayOfInterval from "date-fns/eachDayOfInterval";
+import isSameDay from "date-fns/isSameDay";
+import isBefore from "date-fns/isBefore";
+import startOfMonth from "date-fns/startOfMonth";
+import endOfMonth from "date-fns/endOfMonth";
 
-import CalendarMonth from './CalendarMonth';
-import ArrowLeft from './ArrowLeft';
-import ArrowRight from './ArrowRight';
-import type { CalendarState, CalendarProps } from './';
-import * as utils from './utils';
+import CalendarMonth from "./CalendarMonth";
+import ArrowLeft from "./ArrowLeft";
+import ArrowRight from "./ArrowRight";
+import type { CalendarState, CalendarProps } from "./";
+import * as utils from "./utils";
 
 const defaultColors = {
-  selected: 'rgb(244, 114, 49)',
-  selectedHover: 'rgb(255, 141, 74)',
-  border: '#e4e7e7',
-  background: 'white',
-  hover: '#e4e7e7',
-  disabled: 'gray'
+  selected: "rgb(244, 114, 49)",
+  selectedHover: "rgb(255, 141, 74)",
+  border: "#e4e7e7",
+  background: "white",
+  hover: "#e4e7e7",
+  disabled: "gray"
 };
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -105,11 +105,13 @@ class Calendar extends React.PureComponent<Props, State> {
     allowedDates: [],
     visibleMonths: 1,
     colors: {},
-    className: '',
+    className: "",
     classes: {},
     future: true,
     past: true,
     rangeSelect: false,
+    showMonthName: true,
+    showWeekDayNames: true,
     customClasses: {}
   };
 
@@ -290,6 +292,8 @@ class Calendar extends React.PureComponent<Props, State> {
       future,
       firstMonth,
       lastMonth,
+      showMonthName,
+      showWeekDayNames,
       customClasses
     } = this.props;
 
@@ -300,28 +304,34 @@ class Calendar extends React.PureComponent<Props, State> {
 
     return (
       <CalendarWrapper className={className} visibleMonths={visibleMonths}>
-        <PrevBtn
-          data-test="rdl-prev-button"
-          className={classes.button || ''}
-          onClick={this.handlePrev}
-          disabled={currentMonth === 0 || months.length <= visibleMonths}
-          colors={mergedColors}>
-          <StyledArrowLeft />
-        </PrevBtn>
+        {months.length > visibleMonths && (
+          <PrevBtn
+            data-test="rdl-prev-button"
+            className={classes.button || ""}
+            onClick={this.handlePrev}
+            disabled={currentMonth === 0 || months.length <= visibleMonths}
+            colors={mergedColors}
+          >
+            <StyledArrowLeft />
+          </PrevBtn>
+        )}
 
-        <NextBtn
-          data-test="rdl-next-button"
-          className={classes.button || ''}
-          onClick={this.handleNext}
-          disabled={
-            currentMonth === R.subtract(R.length(months), visibleMonths) ||
-            months.length <= visibleMonths
-          }
-          colors={mergedColors}>
-          <StyledArrowRight />
-        </NextBtn>
+        {months.length > visibleMonths && (
+          <NextBtn
+            data-test="rdl-next-button"
+            className={classes.button || ""}
+            onClick={this.handleNext}
+            disabled={
+              currentMonth === R.subtract(R.length(months), visibleMonths) ||
+              months.length <= visibleMonths
+            }
+            colors={mergedColors}
+          >
+            <StyledArrowRight />
+          </NextBtn>
+        )}
 
-        <CalendarMonthWrapper className={classes.calendarWrapper || ''}>
+        <CalendarMonthWrapper className={classes.calendarWrapper || ""}>
           {R.map(
             month => (
               <StyledMonth
@@ -339,6 +349,8 @@ class Calendar extends React.PureComponent<Props, State> {
                 future={future}
                 colors={mergedColors}
                 classes={classes}
+                showMonthName={showMonthName}
+                showWeekDayNames={showWeekDayNames}
                 customClasses={utils.filterCustomClasses(
                   startOfMonth(month),
                   endOfMonth(month)

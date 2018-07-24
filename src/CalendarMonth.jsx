@@ -1,17 +1,17 @@
 /* @flow */
-import * as React from 'react';
-import * as R from 'ramda';
-import styled from 'styled-components';
+import * as React from "react";
+import * as R from "ramda";
+import styled from "styled-components";
 
-import format from 'date-fns/format';
-import getDate from 'date-fns/getDate';
-import isSameMonth from 'date-fns/isSameMonth';
+import format from "date-fns/format";
+import getDate from "date-fns/getDate";
+import isSameMonth from "date-fns/isSameMonth";
 
-import CalendarDay from './CalendarDay';
-import type { CalendarDayProps } from './';
+import CalendarDay from "./CalendarDay";
+import type { CalendarDayProps } from "./";
 
-import * as utils from './utils';
-import * as dayHelpers from './utils/dayHelpers';
+import * as utils from "./utils";
+import * as dayHelpers from "./utils/dayHelpers";
 
 type Props = {|
   selectDate: Date => void,
@@ -27,6 +27,8 @@ type Props = {|
   classes: {| [string]: string |},
   className: string,
   isFocused: boolean,
+  showMonthName: boolean,
+  showWeekDayNames: boolean,
   customClasses: { [key: string]: Date[] },
   CustomTd: React.ComponentType<CalendarDayProps>
 |};
@@ -72,7 +74,9 @@ const CalendarMonth = ({
   colors,
   classes,
   isFocused,
-  className = '',
+  className = "",
+  showMonthName,
+  showWeekDayNames,
   customClasses = {},
   CustomTd
 }: Props) => {
@@ -80,14 +84,17 @@ const CalendarMonth = ({
   const Day = CustomTd || CalendarDay;
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
-      <MonthName>{format(month, 'MMMM YYYY')}</MonthName>
+      {showMonthName && <MonthName>{format(month, "MMMM YYYY")}</MonthName>}
 
-      <DayNameList>
-        {R.map(
-          day => <DayName key={day}>{format(day, 'dd')}</DayName>,
-          utils.calendarDayNames(toRender)
-        )}
-      </DayNameList>
+      {showWeekDayNames && (
+        <DayNameList>
+          {R.map(
+            day => <DayName key={day}>{format(day, "dd")}</DayName>,
+            utils.calendarDayNames(toRender)
+          )}
+        </DayNameList>
+      )}
+
       <Month>
         {R.map(
           week => (

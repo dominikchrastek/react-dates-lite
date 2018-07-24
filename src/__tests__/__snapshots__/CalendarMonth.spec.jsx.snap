@@ -4,32 +4,6 @@ exports[`#CalendarMonth should render correctly 1`] = `
 <div
   className="undefined "
 >
-  <styled.span>
-    February 2018
-  </styled.span>
-  <styled.div>
-    <styled.span>
-      Su
-    </styled.span>
-    <styled.span>
-      Mo
-    </styled.span>
-    <styled.span>
-      Tu
-    </styled.span>
-    <styled.span>
-      We
-    </styled.span>
-    <styled.span>
-      Th
-    </styled.span>
-    <styled.span>
-      Fr
-    </styled.span>
-    <styled.span>
-      Sa
-    </styled.span>
-  </styled.div>
   <styled.div>
     <styled.div>
       <CalendarDay
@@ -529,32 +503,6 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
 <div
   className="undefined "
 >
-  <styled.span>
-    February 2018
-  </styled.span>
-  <styled.div>
-    <styled.span>
-      Su
-    </styled.span>
-    <styled.span>
-      Mo
-    </styled.span>
-    <styled.span>
-      Tu
-    </styled.span>
-    <styled.span>
-      We
-    </styled.span>
-    <styled.span>
-      Th
-    </styled.span>
-    <styled.span>
-      Fr
-    </styled.span>
-    <styled.span>
-      Sa
-    </styled.span>
-  </styled.div>
   <styled.div>
     <styled.div>
       <CalendarDay
@@ -1054,32 +1002,6 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
 <div
   className="monthClass class"
 >
-  <styled.span>
-    February 2018
-  </styled.span>
-  <styled.div>
-    <styled.span>
-      Su
-    </styled.span>
-    <styled.span>
-      Mo
-    </styled.span>
-    <styled.span>
-      Tu
-    </styled.span>
-    <styled.span>
-      We
-    </styled.span>
-    <styled.span>
-      Th
-    </styled.span>
-    <styled.span>
-      Fr
-    </styled.span>
-    <styled.span>
-      Sa
-    </styled.span>
-  </styled.div>
   <styled.div>
     <styled.div>
       <CalendarDay

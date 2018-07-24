@@ -438,6 +438,24 @@ describe('#Calendar', () => {
       expect(node.state.selectedInternally).toBe(false);
       expect(node.state.currentMonth).not.toBe(currentMonth);
     });
+
+    it('should render without month and week days names', () => {
+      const wrapper = shallow(
+        <Calendar
+          className="wrapper"
+          visibleMonths={3}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
+          selectedDates={[]}
+          selectDates={jest.fn()}
+          future={false}
+          rangeSelect
+          showMonthName={false}
+          showWeekDayNames={false}
+        />
+      );
+      expect(wrapper.getElement()).toMatchSnapshot();
+    });
   });
 
   describe('helpers', () => {

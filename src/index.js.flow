@@ -34,7 +34,9 @@ export type CalendarProps = {|
   firstMonth: Date,
   lastMonth: Date,
   customClasses: { [className: string]: Date[] },
-  CustomTd?: React.ComponentType<CalendarDayProps>
+  CustomTd?: React.ComponentType<CalendarDayProps>,
+  showMonthName: boolean,
+  showWeekDayNames: boolean
 |};
 
 export type CalendarState = {|

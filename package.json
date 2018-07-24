@@ -28,6 +28,7 @@
   ],
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.12",
+    "@storybook/addon-knobs": "^3.4.8",
     "@storybook/addon-links": "^3.3.12",
     "@storybook/addons": "^3.3.12",
     "@storybook/react": "^3.3.12",
@@ -78,8 +79,16 @@
     "date-fns": "~2.0.0-alpha.1",
     "ramda": "^0.25.0"
   },
-  "files": ["lib", "es", "README.md", "CHANGELOG.md"],
+  "files": [
+    "lib",
+    "es",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "jest": {
-    "setupFiles": ["raf/polyfill", "./etc/jestSetup.js"]
+    "setupFiles": [
+      "raf/polyfill",
+      "./etc/jestSetup.js"
+    ]
   }
 }
