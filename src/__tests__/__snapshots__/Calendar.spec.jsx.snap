@@ -34,6 +34,8 @@ exports[`#Calendar methods should render correctly 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -61,6 +63,8 @@ exports[`#Calendar methods should render correctly 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -88,6 +92,8 @@ exports[`#Calendar methods should render correctly 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
@@ -131,6 +137,8 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -162,6 +170,8 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -193,6 +203,8 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
@@ -232,6 +244,8 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -259,6 +273,8 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -286,6 +302,8 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       selectedDates={Array []}
       showMonthName={true}
       showWeekDayNames={true}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
@@ -325,6 +343,8 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       selectedDates={Array []}
       showMonthName={false}
       showWeekDayNames={false}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -352,6 +372,8 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       selectedDates={Array []}
       showMonthName={false}
       showWeekDayNames={false}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
       CustomTd={undefined}
@@ -379,6 +401,8 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       selectedDates={Array []}
       showMonthName={false}
       showWeekDayNames={false}
+      weekDayFormat="dd"
+      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
