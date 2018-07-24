@@ -1,6 +1,6 @@
 {
   "name": "react-dates-lite",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "React calendar component for selecting dates",
   "main": "lib/index.js",
   "scripts": {
@@ -79,16 +79,8 @@
     "date-fns": "~2.0.0-alpha.1",
     "ramda": "^0.25.0"
   },
-  "files": [
-    "lib",
-    "es",
-    "README.md",
-    "CHANGELOG.md"
-  ],
+  "files": ["lib", "es", "README.md", "CHANGELOG.md"],
   "jest": {
-    "setupFiles": [
-      "raf/polyfill",
-      "./etc/jestSetup.js"
-    ]
+    "setupFiles": ["raf/polyfill", "./etc/jestSetup.js"]
   }
 }

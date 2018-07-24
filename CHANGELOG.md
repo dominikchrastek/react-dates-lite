@@ -1,3 +1,7 @@
+# 0.0.37 (2018-07-24)
+
+* fix onClick/onHover behaviour on hidden Dates
+
 # 0.0.36 (2018-05-29)
 
 * new prop **CustomTd** React.ComponentType<CalendarDayProps> - shoudl be used as custom Day component in Calendar
