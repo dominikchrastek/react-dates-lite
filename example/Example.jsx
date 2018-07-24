@@ -29,8 +29,8 @@ const Column = styled.div`
 
 type Props = {|
   allowedDates: boolean,
-  showMonthName: boolean,
-  showWeekDayNames: boolean
+  showMonthName?: boolean,
+  showWeekDayNames?: boolean
 |};
 type State = {|
   selectedDates: Date[],
