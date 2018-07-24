@@ -84,7 +84,8 @@ const Button = styled.button`
   color: ${props => buttonColor(props)};
   background: ${props => buttonBg(props)};
   border: none;
-  cursor: pointer;
+
+  ${props => !props.isHidden && "cursor: pointer;"};
   border-radius: 0;
   :hover {
     color: ${props => getHoverColor(props)};
