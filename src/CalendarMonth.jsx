@@ -31,7 +31,8 @@ type Props = {|
   showWeekDayNames: boolean,
   customClasses: { [key: string]: Date[] },
   CustomTd: React.ComponentType<CalendarDayProps>,
-  weekDayFormat: string
+  weekDayFormat: string,
+  weekDayFormater: any => any
 |};
 
 const Week = styled.div`
@@ -80,7 +81,8 @@ const CalendarMonth = ({
   showWeekDayNames,
   customClasses = {},
   CustomTd,
-  weekDayFormat
+  weekDayFormat,
+  weekDayFormater
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   const Day = CustomTd || CalendarDay;
@@ -91,7 +93,13 @@ const CalendarMonth = ({
       {showWeekDayNames && (
         <DayNameList>
           {R.map(
-            day => <DayName key={day}>{format(day, weekDayFormat)}</DayName>,
+            day => (
+              <DayName key={day}>
+                {weekDayFormater
+                  ? weekDayFormater(day)
+                  : format(day, weekDayFormat)}
+              </DayName>
+            ),
             utils.calendarDayNames(toRender)
           )}
         </DayNameList>

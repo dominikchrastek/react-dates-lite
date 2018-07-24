@@ -1,8 +1,8 @@
 /* @flow */
-import * as React from 'react';
+import * as React from "react";
 
 type Props = {|
-  className: string
+  className?: string
 |};
 
 const ArrowLeft = (props: Props) => (
@@ -12,7 +12,7 @@ const ArrowLeft = (props: Props) => (
 );
 
 ArrowLeft.defaultProps = {
-  className: ''
+  className: ""
 };
 
 export default ArrowLeft;

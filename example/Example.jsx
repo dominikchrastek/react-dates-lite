@@ -93,6 +93,7 @@ export default class Example extends React.PureComponent<Props, State> {
           firstMonth={subMonths(new Date(), 1)}
           lastMonth={addMonths(new Date(), 1)}
           weekDayFormat="dd"
+          weekDayFormater={day => format(day, "YYYY")}
           customClasses={{
             class1: [new Date()],
             class2: [new Date(), addDays(new Date(), 2)]
