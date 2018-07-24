@@ -1,16 +1,17 @@
 /* @flow */
-import * as React from 'react';
-import * as R from 'ramda';
-import styled from 'styled-components';
+import * as React from "react";
+import * as R from "ramda";
+import styled from "styled-components";
 
-import format from 'date-fns/format';
-import getDate from 'date-fns/getDate';
-import isSameMonth from 'date-fns/isSameMonth';
+import format from "date-fns/format";
+import getDate from "date-fns/getDate";
+import isSameMonth from "date-fns/isSameMonth";
 
-import CalendarDay from './CalendarDay';
+import CalendarDay from "./CalendarDay";
+import type { CalendarDayProps } from "./";
 
-import * as utils from './utils';
-import * as dayHelpers from './utils/dayHelpers';
+import * as utils from "./utils";
+import * as dayHelpers from "./utils/dayHelpers";
 
 type Props = {|
   selectDate: Date => void,
@@ -27,7 +28,9 @@ type Props = {|
   className: string,
   isFocused: boolean,
   showMonthName: boolean,
-  showWeekDayNames: boolean
+  showWeekDayNames: boolean,
+  customClasses: { [key: string]: Date[] },
+  CustomTd: React.ComponentType<CalendarDayProps>
 |};
 
 const Week = styled.div`
@@ -71,19 +74,22 @@ const CalendarMonth = ({
   colors,
   classes,
   isFocused,
-  className = '',
+  className = "",
   showMonthName,
-  showWeekDayNames
+  showWeekDayNames,
+  customClasses = {},
+  CustomTd
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
+  const Day = CustomTd || CalendarDay;
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
-      {showMonthName && <MonthName>{format(month, 'MMMM YYYY')}</MonthName>}
+      {showMonthName && <MonthName>{format(month, "MMMM YYYY")}</MonthName>}
 
       {showWeekDayNames && (
         <DayNameList>
           {R.map(
-            day => <DayName key={day}>{format(day, 'dd')}</DayName>,
+            day => <DayName key={day}>{format(day, "dd")}</DayName>,
             utils.calendarDayNames(toRender)
           )}
         </DayNameList>
@@ -95,7 +101,7 @@ const CalendarMonth = ({
             <Week key={week}>
               {R.map(
                 day => (
-                  <CalendarDay
+                  <Day
                     key={day}
                     isHidden={!isSameMonth(month, day)}
                     number={getDate(day)}
@@ -111,9 +117,11 @@ const CalendarMonth = ({
                     }
                     isPast={dayHelpers.isPast(day, new Date()) && !past}
                     isFuture={dayHelpers.isFuture(day, new Date()) && !future}
-                    colors={colors}
-                    classes={classes}
                     isFocused={isFocused}
+                    classes={R.keys(
+                      utils.filterCustomClasses(day)(customClasses)
+                    )}
+                    colors={colors}
                   />
                 ),
                 week

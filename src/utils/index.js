@@ -12,6 +12,9 @@ import addMonths from 'date-fns/addMonths';
 import subMonths from 'date-fns/subMonths';
 import isSameMonth from 'date-fns/isSameMonth';
 import differenceInCalendarMonths from 'date-fns/differenceInCalendarMonths';
+import isBefore from 'date-fns/isBefore';
+import isAfter from 'date-fns/isAfter';
+import isSameDay from 'date-fns/isSameDay';
 
 // TODO: separate util files
 // CalendarMonth utils
@@ -105,3 +108,21 @@ export const calendarMonthsToRender = (
   }
   return R.compose(R.take(visibleMonths), R.drop(currentMonth))(months);
 };
+
+export const filterCustomClasses = (
+  from: Date,
+  to?: Date
+) =>
+  R.compose(
+    R.pickBy(R.prop('length')),
+    R.mapObjIndexed((dates: Date[]) =>
+      dates.filter(
+        date =>
+          to
+            ? isSameDay(date, from) ||
+              isSameDay(date, to) ||
+              (isBefore(date, to) && isAfter(date, from))
+            : isSameDay(date, from)
+      )
+    )
+  );

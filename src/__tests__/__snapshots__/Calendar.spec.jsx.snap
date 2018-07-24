@@ -6,9 +6,10 @@ exports[`#Calendar methods should render correctly 1`] = `
   visibleMonths={3}
 >
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -21,6 +22,7 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -34,6 +36,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       showWeekDayNames={true}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -46,6 +49,7 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -59,6 +63,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       showWeekDayNames={true}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -71,6 +76,7 @@ exports[`#Calendar methods should render correctly 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -93,9 +99,10 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
   visibleMonths={3}
 >
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -112,6 +119,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -125,6 +133,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showWeekDayNames={true}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -141,6 +150,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -154,6 +164,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showWeekDayNames={true}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -170,6 +181,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -192,9 +204,10 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
   visibleMonths={3}
 >
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -207,6 +220,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -220,6 +234,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showWeekDayNames={true}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -232,6 +247,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -245,6 +261,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showWeekDayNames={true}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -257,6 +274,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={true}
       hoveredDates={Array []}
@@ -279,9 +297,10 @@ exports[`#Calendar methods should render without month and week days names 1`] =
   visibleMonths={3}
 >
   <styled.div
-    className={undefined}
+    className=""
   >
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -294,6 +313,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -307,6 +327,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showWeekDayNames={false}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -319,6 +340,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}
@@ -332,6 +354,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showWeekDayNames={false}
     />
     <Styled(CalendarMonth)
+      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -344,6 +367,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
           "selectedHover": "rgb(255, 141, 74)",
         }
       }
+      customClasses={Object {}}
       disabledDates={Array []}
       future={false}
       hoveredDates={Array []}

@@ -1,25 +1,27 @@
 /* @flow */
-import * as React from 'react';
-import * as R from 'ramda';
-import styled from 'styled-components';
+import * as React from "react";
+import * as R from "ramda";
+import styled from "styled-components";
 
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import isSameDay from 'date-fns/isSameDay';
-import isBefore from 'date-fns/isBefore';
+import eachDayOfInterval from "date-fns/eachDayOfInterval";
+import isSameDay from "date-fns/isSameDay";
+import isBefore from "date-fns/isBefore";
+import startOfMonth from "date-fns/startOfMonth";
+import endOfMonth from "date-fns/endOfMonth";
 
-import CalendarMonth from './CalendarMonth';
-import ArrowLeft from './ArrowLeft';
-import ArrowRight from './ArrowRight';
-
-import * as utils from './utils';
+import CalendarMonth from "./CalendarMonth";
+import ArrowLeft from "./ArrowLeft";
+import ArrowRight from "./ArrowRight";
+import type { CalendarState, CalendarProps } from "./";
+import * as utils from "./utils";
 
 const defaultColors = {
-  selected: 'rgb(244, 114, 49)',
-  selectedHover: 'rgb(255, 141, 74)',
-  border: '#e4e7e7',
-  background: 'white',
-  hover: '#e4e7e7',
-  disabled: 'gray'
+  selected: "rgb(244, 114, 49)",
+  selectedHover: "rgb(255, 141, 74)",
+  border: "#e4e7e7",
+  background: "white",
+  hover: "#e4e7e7",
+  disabled: "gray"
 };
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -93,47 +95,24 @@ const NextBtn = NavBtn.extend`
   right: 0;
 `;
 
-type Props = {|
-  selectDates: (Date[]) => any,
-  selectedDates: Date[],
-  disabledDates: Date[],
-  allowedDates: Date[],
-  visibleMonths: number,
-  future: boolean,
-  past: boolean,
-  colors: {| [string]: string |},
-  classes: {| [string]: string |},
-  className: string,
-  rangeSelect: boolean,
-  firstMonth: Date,
-  lastMonth: Date,
-  showMonthName: boolean,
-  showWeekDayNames: boolean
-|};
+type Props = CalendarProps;
 
-type State = {|
-  hoveredDates: Date[],
-  start: Date | null,
-  end: Date | null,
-  currentMonth: number,
-  isFocused: boolean,
-  selectedInternally: boolean
-|};
+type State = CalendarState;
 
-export default class Calendar extends React.PureComponent<Props, State> {
+class Calendar extends React.PureComponent<Props, State> {
   static defaultProps = {
     disabledDates: [],
     allowedDates: [],
     visibleMonths: 1,
-    numberOfPastMonths: 0,
-    colors: defaultColors,
-    className: '',
+    colors: {},
+    className: "",
     classes: {},
     future: true,
     past: true,
     rangeSelect: false,
     showMonthName: true,
-    showWeekDayNames: true
+    showWeekDayNames: true,
+    customClasses: {}
   };
 
   constructor(props: Props) {
@@ -314,7 +293,8 @@ export default class Calendar extends React.PureComponent<Props, State> {
       firstMonth,
       lastMonth,
       showMonthName,
-      showWeekDayNames
+      showWeekDayNames,
+      customClasses
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -327,9 +307,9 @@ export default class Calendar extends React.PureComponent<Props, State> {
         {months.length > visibleMonths && (
           <PrevBtn
             data-test="rdl-prev-button"
-            className={classes.button}
+            className={classes.button || ""}
             onClick={this.handlePrev}
-            disabled={currentMonth === 0}
+            disabled={currentMonth === 0 || months.length <= visibleMonths}
             colors={mergedColors}
           >
             <StyledArrowLeft />
@@ -339,10 +319,11 @@ export default class Calendar extends React.PureComponent<Props, State> {
         {months.length > visibleMonths && (
           <NextBtn
             data-test="rdl-next-button"
-            className={classes.button}
+            className={classes.button || ""}
             onClick={this.handleNext}
             disabled={
-              currentMonth === R.subtract(R.length(months), visibleMonths)
+              currentMonth === R.subtract(R.length(months), visibleMonths) ||
+              months.length <= visibleMonths
             }
             colors={mergedColors}
           >
@@ -350,12 +331,13 @@ export default class Calendar extends React.PureComponent<Props, State> {
           </NextBtn>
         )}
 
-        <CalendarMonthWrapper className={classes.calendarWrapper}>
+        <CalendarMonthWrapper className={classes.calendarWrapper || ""}>
           {R.map(
             month => (
               <StyledMonth
                 key={month}
                 month={month}
+                CustomTd={this.props.CustomTd}
                 selectedDates={selectedDates}
                 disabledDates={disabledDates}
                 allowedDates={allowedDates}
@@ -369,6 +351,10 @@ export default class Calendar extends React.PureComponent<Props, State> {
                 classes={classes}
                 showMonthName={showMonthName}
                 showWeekDayNames={showWeekDayNames}
+                customClasses={utils.filterCustomClasses(
+                  startOfMonth(month),
+                  endOfMonth(month)
+                )(customClasses)}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)
@@ -378,3 +364,5 @@ export default class Calendar extends React.PureComponent<Props, State> {
     );
   }
 }
+
+export default Calendar;

@@ -62,6 +62,7 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
   * `calendarWrapper` - class for calendar wrapper
   * `month` - class for single month wrapper
   * default value: `{}`
+* `customClasses?: { [className: string]: Date[] }` - add `className` to specified dates
 
 ## License
 

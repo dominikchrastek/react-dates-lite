@@ -2,6 +2,7 @@
 import MockDate from 'mockdate';
 import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import startOfMonth from 'date-fns/startOfMonth';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 
 import * as utils from '../';
 
@@ -129,5 +130,74 @@ describe('#dayHelpers', () => {
     expect(
       utils.calendarMonthsToRender(2, 1, utils.getMonths(prevMonth, nextMonth))
     ).toEqual([startOfMonth(month), startOfMonth(nextMonth)]);
+  });
+
+  it.only('filterCustomClasses', () => {
+    const classNames = {
+      name: eachDayOfInterval({
+        start: new Date(2010, 1, 1),
+        end: new Date(2010, 1, 10)
+      })
+    };
+    expect(
+      utils.filterCustomClasses(new Date(2010, 1, 1))(
+        classNames
+      )
+    ).toEqual({
+      name: [new Date(2010, 1, 1)]
+    });
+    expect(
+      utils.filterCustomClasses(new Date(2010, 1, 1), new Date(2010, 1, 10))(
+        classNames
+      )
+    ).toEqual(classNames);
+    expect(
+      utils.filterCustomClasses(new Date(2010, 0, 1), new Date(2010, 0, 31))(
+        classNames
+      )
+    ).toEqual({});
+    expect(
+      utils.filterCustomClasses(new Date(2010, 1, 20), new Date(2010, 1, 25))(
+        classNames
+      )
+    ).toEqual({});
+    expect(
+      utils.filterCustomClasses(new Date(2010, 0, 1), new Date(2010, 1, 1))(
+        classNames
+      )
+    ).toEqual({ name: [new Date(2010, 1, 1)] });
+    expect(
+      utils.filterCustomClasses(new Date(2010, 1, 10), new Date(2010, 1, 20))(
+        classNames
+      )
+    ).toEqual({ name: [new Date(2010, 1, 10)] });
+    const classNamesTwo = {
+      name1: eachDayOfInterval({
+        start: new Date(2010, 1, 1),
+        end: new Date(2010, 1, 10)
+      }),
+      name2: eachDayOfInterval({
+        start: new Date(2010, 1, 11),
+        end: new Date(2010, 1, 20)
+      })
+    };
+    expect(
+      utils.filterCustomClasses(new Date(2010, 1, 10), new Date(2010, 1, 11))(
+        classNamesTwo
+      )
+    ).toEqual({
+      name1: [new Date(2010, 1, 10)],
+      name2: [new Date(2010, 1, 11)]
+    });
+    expect(
+      utils.filterCustomClasses(new Date(2010, 1, 1), new Date(2010, 1, 10))(
+        classNamesTwo
+      )
+    ).toEqual({
+      name1: eachDayOfInterval({
+        start: new Date(2010, 1, 1),
+        end: new Date(2010, 1, 10)
+      })
+    });
   });
 });

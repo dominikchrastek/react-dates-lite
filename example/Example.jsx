@@ -1,24 +1,36 @@
 /* @flow */
-import * as React from 'react';
-import * as R from 'ramda';
-import styled from 'styled-components';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import subMonths from 'date-fns/subMonths';
-import startOfMonth from 'date-fns/startOfMonth';
-import endOfMonth from 'date-fns/endOfMonth';
-import format from 'date-fns/format';
-import addDays from 'date-fns/addDays';
-import startOfDay from 'date-fns/startOfDay';
-import addMonths from 'date-fns/addMonths';
+import * as React from "react";
+import * as R from "ramda";
+import styled from "styled-components";
+import eachDayOfInterval from "date-fns/eachDayOfInterval";
+import subMonths from "date-fns/subMonths";
+import startOfMonth from "date-fns/startOfMonth";
+import endOfMonth from "date-fns/endOfMonth";
+import format from "date-fns/format";
+import addDays from "date-fns/addDays";
+import startOfDay from "date-fns/startOfDay";
+import addMonths from "date-fns/addMonths";
 
-import Calendar from '../src';
+import Calendar from "../src";
+// import CalendarDay from '../src/CustomDay';
+
+const Container = styled.div`
+  & .class1 > button {
+    background-color: #8bc34a;
+  }
+  & .class2 > button {
+    text-decoration: line-through;
+  }
+`;
 
 const Column = styled.div`
   display: flex;
 `;
 
 type Props = {|
-  allowedDates: boolean
+  allowedDates: boolean,
+  showMonthName: boolean,
+  showWeekDayNames: boolean
 |};
 type State = {|
   selectedDates: Date[],
@@ -53,19 +65,19 @@ export default class Example extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { allowedDates } = this.props;
+    const { allowedDates, showWeekDayNames, showMonthName } = this.props;
     const { selectedDates, disabledDates } = this.state;
     return (
-      <div>
+      <Container>
         <button onClick={this.handleSetToday}>select today</button>
-        <button onClick={this.handleSetLastMonth}>select last monht</button>
+        <button onClick={this.handleSetLastMonth}>select last month</button>
         <Calendar
           className="wrapper"
           colors={{
-            selected: '#008000',
-            selectedHover: '#329B24',
-            borders: '#e4e7e7',
-            hover: '#e4e7e7'
+            selected: "#008000",
+            selectedHover: "#329B24",
+            borders: "#e4e7e7",
+            hover: "#e4e7e7"
           }}
           visibleMonths={2}
           selectedDates={selectedDates}
@@ -74,9 +86,16 @@ export default class Example extends React.PureComponent<Props, State> {
             allowedDates ? [startOfDay(addDays(new Date(), 2))] : []
           }
           selectDates={this.handleSelectDates}
+          // CustomTd={CalendarDay}
           rangeSelect
+          showWeekDayNames={showWeekDayNames}
+          showMonthName={showMonthName}
           firstMonth={subMonths(new Date(), 1)}
           lastMonth={addMonths(new Date(), 1)}
+          customClasses={{
+            class1: [new Date()],
+            class2: [new Date(), addDays(new Date(), 2)]
+          }}
         />
 
         <Column>
@@ -84,7 +103,7 @@ export default class Example extends React.PureComponent<Props, State> {
             selected dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, 'DD.MM.YYYY')}</div>
+                <div key={day.toISOString()}>{format(day, "DD.MM.YYYY")}</div>
               ),
               selectedDates
             )}
@@ -93,13 +112,13 @@ export default class Example extends React.PureComponent<Props, State> {
             disabled dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, 'DD.MM.YYYY')}</div>
+                <div key={day.toISOString()}>{format(day, "DD.MM.YYYY")}</div>
               ),
               disabledDates
             )}
           </div>
         </Column>
-      </div>
+      </Container>
     );
   }
 }
