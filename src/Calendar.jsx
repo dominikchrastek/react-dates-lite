@@ -112,7 +112,8 @@ class Calendar extends React.PureComponent<Props, State> {
     rangeSelect: false,
     showMonthName: true,
     showWeekDayNames: true,
-    customClasses: {}
+    customClasses: {},
+    weekDayFormat: "dd"
   };
 
   constructor(props: Props) {
@@ -294,7 +295,8 @@ class Calendar extends React.PureComponent<Props, State> {
       lastMonth,
       showMonthName,
       showWeekDayNames,
-      customClasses
+      customClasses,
+      weekDayFormat
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -351,6 +353,7 @@ class Calendar extends React.PureComponent<Props, State> {
                 classes={classes}
                 showMonthName={showMonthName}
                 showWeekDayNames={showWeekDayNames}
+                weekDayFormat={weekDayFormat}
                 customClasses={utils.filterCustomClasses(
                   startOfMonth(month),
                   endOfMonth(month)
