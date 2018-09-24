@@ -1,7 +1,7 @@
 /* @flow */
-import * as React from 'react';
-import * as R from 'ramda';
-import styled from 'styled-components';
+import * as React from "react";
+import * as R from "ramda";
+import styled from "styled-components";
 
 type Props = {
   value: Date,
@@ -20,24 +20,24 @@ type Props = {
 
 export const getClasses = (props: Object, isBtn: boolean = false): string => {
   if (props.isHidden) {
-    return isBtn ? 'hidden-btn' : 'hidden';
+    return isBtn ? "hidden-btn" : "hidden";
   }
   if (props.isDisabled) {
-    return isBtn ? 'disabled-btn' : 'disabled';
+    return isBtn ? "disabled-btn" : "disabled";
   }
 
   if (props.isHovered) {
-    return isBtn ? 'hovered-btn' : 'hovered';
+    return isBtn ? "hovered-btn" : "hovered";
   }
   if (props.isSelected) {
-    return isBtn ? 'selected-btn' : 'selected';
+    return isBtn ? "selected-btn" : "selected";
   }
   if (!R.isEmpty(props.classes)) {
     return isBtn
-      ? `${props.classes.join(' ')} default-btn`
-      : `${props.classes.join(' ')} default`;
+      ? `${props.classes.join(" ")} default-btn`
+      : `${props.classes.join(" ")} default`;
   }
-  return isBtn ? 'default-btn' : 'default';
+  return isBtn ? "default-btn" : "default";
 };
 
 const Button = styled.button`
@@ -108,15 +108,17 @@ const Td = styled.div`
 `;
 
 export default class CustomDay extends React.PureComponent<Props> {
-  props: Props;
-
   handleClick = () => {
-    this.props.selectDate(this.props.value);
+    const { selectDate, value } = this.props;
+    selectDate(value);
   };
 
   handleHover = () => {
-    this.props.onHover(this.props.value);
+    const { onHover, value } = this.props;
+    onHover(value);
   };
+
+  props: Props;
 
   render() {
     const {
@@ -141,7 +143,8 @@ export default class CustomDay extends React.PureComponent<Props> {
           isHovered,
           classes
         })}
-        isHidden={isHidden}>
+        isHidden={isHidden}
+      >
         <Button
           className={getClasses(
             {
@@ -165,7 +168,8 @@ export default class CustomDay extends React.PureComponent<Props> {
           isHovered={isHovered}
           isDisabled={isDisabled}
           isFocused={isFocused}
-          number={number}>
+          number={number}
+        >
           {number}
         </Button>
       </Td>

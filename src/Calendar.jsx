@@ -12,7 +12,7 @@ import endOfMonth from "date-fns/endOfMonth";
 import CalendarMonth from "./CalendarMonth";
 import ArrowLeft from "./ArrowLeft";
 import ArrowRight from "./ArrowRight";
-import type { CalendarState, CalendarProps } from "./";
+import type { CalendarState, CalendarProps } from ".";
 import * as utils from "./utils";
 
 const defaultColors = {
@@ -137,10 +137,11 @@ class Calendar extends React.PureComponent<Props, State> {
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
+    const { selectedDates } = this.props;
     // when selectedDates came as a props, we need to know if they were changed
     // if they were, then we have to determine if they were changed internally
     // or externaly (from parent component)
-    if (nextProps.selectedDates !== this.props.selectedDates) {
+    if (nextProps.selectedDates !== selectedDates) {
       this.handleSetCurrentMonth(nextProps, nextState);
     }
   }
@@ -194,7 +195,7 @@ class Calendar extends React.PureComponent<Props, State> {
    */
   handleSetRange = (date: Date) => {
     const { start } = this.state;
-    const { disabledDates } = this.props;
+    const { disabledDates, selectDates } = this.props;
     // when someting is already selected (start)
     // and we clicked on some date (date)
     // then we will set array of dates between
@@ -205,10 +206,10 @@ class Calendar extends React.PureComponent<Props, State> {
       this.setState({ selectedInternally: true });
       if (isBefore(date, start)) {
         const range = eachDayOfInterval({ start: date, end: start });
-        this.props.selectDates(R.without(disabledDates, range));
+        selectDates(R.without(disabledDates, range));
       } else {
         const range = eachDayOfInterval({ start, end: date });
-        this.props.selectDates(R.without(disabledDates, range));
+        selectDates(R.without(disabledDates, range));
       }
     }
   };
@@ -218,7 +219,7 @@ class Calendar extends React.PureComponent<Props, State> {
    * @argument {Date} date
    */
   handleSelect = (date: Date) => {
-    const { disabledDates, rangeSelect } = this.props;
+    const { disabledDates, rangeSelect, selectDates } = this.props;
     const { isFocused, end, start } = this.state;
     // when something is already selected
     if (isFocused && rangeSelect) {
@@ -244,7 +245,7 @@ class Calendar extends React.PureComponent<Props, State> {
         // eslint-disable-next-line react/no-unused-state
         selectedInternally: true
       });
-      this.props.selectDates([]);
+      selectDates([]);
       // initial select case
     } else {
       this.setState({
@@ -253,7 +254,7 @@ class Calendar extends React.PureComponent<Props, State> {
         // eslint-disable-next-line react/no-unused-state
         selectedInternally: true
       });
-      this.props.selectDates(R.without(disabledDates, [date]));
+      selectDates(R.without(disabledDates, [date]));
     }
   };
 
@@ -297,7 +298,8 @@ class Calendar extends React.PureComponent<Props, State> {
       showWeekDayNames,
       customClasses,
       weekDayFormat,
-      weekDayFormater
+      weekDayFormater,
+      CustomTd
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -340,7 +342,7 @@ class Calendar extends React.PureComponent<Props, State> {
               <StyledMonth
                 key={month}
                 month={month}
-                CustomTd={this.props.CustomTd}
+                CustomTd={CustomTd}
                 selectedDates={selectedDates}
                 disabledDates={disabledDates}
                 allowedDates={allowedDates}

@@ -8,7 +8,7 @@ import getDate from "date-fns/getDate";
 import isSameMonth from "date-fns/isSameMonth";
 
 import CalendarDay from "./CalendarDay";
-import type { CalendarDayProps } from "./";
+import type { CalendarDayProps } from ".";
 
 import * as utils from "./utils";
 import * as dayHelpers from "./utils/dayHelpers";

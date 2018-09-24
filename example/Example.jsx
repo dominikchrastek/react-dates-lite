@@ -28,7 +28,7 @@ const Column = styled.div`
 `;
 
 type Props = {|
-  allowedDates: boolean,
+  allowedDates?: boolean,
   showMonthName?: boolean,
   showWeekDayNames?: boolean
 |};
@@ -39,7 +39,9 @@ type State = {|
 
 export default class Example extends React.PureComponent<Props, State> {
   static defaultProps = {
-    allowedDates: false
+    allowedDates: false,
+    showMonthName: true,
+    showWeekDayNames: true
   };
 
   state = {
@@ -69,8 +71,12 @@ export default class Example extends React.PureComponent<Props, State> {
     const { selectedDates, disabledDates } = this.state;
     return (
       <Container>
-        <button onClick={this.handleSetToday}>select today</button>
-        <button onClick={this.handleSetLastMonth}>select last month</button>
+        <button type="button" onClick={this.handleSetToday}>
+          select today
+        </button>
+        <button type="button" onClick={this.handleSetLastMonth}>
+          select last month
+        </button>
         <Calendar
           className="wrapper"
           colors={{

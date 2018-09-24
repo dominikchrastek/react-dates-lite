@@ -4,7 +4,7 @@ import lastDayOfMonth from 'date-fns/lastDayOfMonth';
 import startOfMonth from 'date-fns/startOfMonth';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 
-import * as utils from '../';
+import * as utils from '..';
 
 describe('#dayHelpers', () => {
   beforeEach(() => {
