@@ -25,6 +25,8 @@ const Container = styled.div`
 
 const Column = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 300px;
 `;
 
 type Props = {|
@@ -109,7 +111,7 @@ export default class Example extends React.PureComponent<Props, State> {
             selected dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, "DD.MM.YYYY")}</div>
+                <div key={day.toISOString()}>{format(day, "dd.MM.YYYY")}</div>
               ),
               selectedDates
             )}
@@ -118,7 +120,7 @@ export default class Example extends React.PureComponent<Props, State> {
             disabled dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, "DD.MM.YYYY")}</div>
+                <div key={day.toISOString()}>{format(day, "dd.MM.YYYY")}</div>
               ),
               disabledDates
             )}

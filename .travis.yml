@@ -6,7 +6,9 @@ node_js:
   - "stable"
 
 script:
+  - npm run eslint
   - npm run test:coverage
   - npm run flow
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)

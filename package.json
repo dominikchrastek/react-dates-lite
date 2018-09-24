@@ -8,6 +8,8 @@
     "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
     "build:webpack": "webpack --config etc/webpack.build.js -p",
     "build": "gulp build",
+    "eslint": "eslint --ext .js --ext .jsx .",
+    "eslint:fix": "eslint --fix --ext .js --ext .jsx .",
     "test": "TZ=UTC jest",
     "test:update": "TZ=UTC jest -u",
     "test:watch": "TZ=UTC jest --watch",
@@ -86,7 +88,7 @@
     "styled-components": "^3.4.9"
   },
   "dependencies": {
-    "date-fns": "~2.0.0-alpha.1",
+    "date-fns": "~2.0.0-alpha.18",
     "ramda": "^0.25.0"
   },
   "files": [
