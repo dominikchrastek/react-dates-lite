@@ -37,8 +37,8 @@ export type CalendarProps = {|
   CustomTd?: React.ComponentType<CalendarDayProps>,
   showMonthName: boolean,
   showWeekDayNames: boolean,
-  weekDayFormat: string,
-  weekDayFormater: any => any
+  weekDayFormat?: string,
+  weekDayFormater?: any => any
 |};
 
 export type CalendarState = {|
