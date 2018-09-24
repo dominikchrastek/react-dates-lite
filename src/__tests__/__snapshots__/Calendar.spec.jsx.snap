@@ -9,7 +9,6 @@ exports[`#Calendar methods should render correctly 1`] = `
     className=""
   >
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -35,10 +34,8 @@ exports[`#Calendar methods should render correctly 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -64,10 +61,8 @@ exports[`#Calendar methods should render correctly 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -93,7 +88,6 @@ exports[`#Calendar methods should render correctly 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
@@ -108,7 +102,6 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
     className=""
   >
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -138,10 +131,8 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -171,10 +162,8 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -204,7 +193,6 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
@@ -219,7 +207,6 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
     className=""
   >
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -245,10 +232,8 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -274,10 +259,8 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -303,7 +286,6 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>
@@ -318,7 +300,6 @@ exports[`#Calendar methods should render without month and week days names 1`] =
     className=""
   >
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -344,10 +325,8 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showMonthName={false}
       showWeekDayNames={false}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -373,10 +352,8 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showMonthName={false}
       showWeekDayNames={false}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
     <Styled(CalendarMonth)
-      CustomTd={undefined}
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -402,7 +379,6 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showMonthName={false}
       showWeekDayNames={false}
       weekDayFormat="dd"
-      weekDayFormater={undefined}
     />
   </styled.div>
 </styled.div>

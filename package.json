@@ -8,6 +8,7 @@
     "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
     "build:webpack": "webpack --config etc/webpack.build.js -p",
     "build": "gulp build",
+    "test": "TZ=UTC jest",
     "test:update": "TZ=UTC jest -u",
     "test:watch": "TZ=UTC jest --watch",
     "test:coverage": "TZ=UTC jest --coverage",
