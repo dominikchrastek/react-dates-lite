@@ -113,7 +113,7 @@ class Calendar extends React.PureComponent<Props, State> {
     showMonthName: true,
     showWeekDayNames: true,
     customClasses: {},
-    weekDayFormat: "dd"
+    weekDayFormat: "E"
   };
 
   constructor(props: Props) {

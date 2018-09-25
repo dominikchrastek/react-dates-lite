@@ -66,8 +66,8 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 * `CustomTd?: React.ComponentType<CalendarDayProps>` - custom day component (original `CalendarDay`)
 *  `showMonthName: boolean` - show / hide month names
 * `showWeekDayNames: boolean` - show / hide week day names
-* `weekDayFormat?: string` - week day format, e.g. `dd`
-* `weekDayFormater?: any => any` - week day fromatter function, e.g.  `day => format(day, 'dd')`
+* `weekDayFormat?: string` - week day format, e.g. `E`
+* `weekDayFormater?: any => any` - week day fromatter function, e.g.  `day => format(day, 'E')`
 
 ## License
 
