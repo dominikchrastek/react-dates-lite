@@ -111,7 +111,7 @@ export default class Example extends React.PureComponent<Props, State> {
             selected dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, "dd.MM.YYYY")}</div>
+                <div key={day.toISOString()}>{format(day, "dd.MM.yyyy")}</div>
               ),
               selectedDates
             )}
@@ -120,7 +120,7 @@ export default class Example extends React.PureComponent<Props, State> {
             disabled dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, "dd.MM.YYYY")}</div>
+                <div key={day.toISOString()}>{format(day, "dd.MM.yyyy")}</div>
               ),
               disabledDates
             )}

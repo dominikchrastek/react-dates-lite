@@ -67,7 +67,8 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 *  `showMonthName: boolean` - show / hide month names
 * `showWeekDayNames: boolean` - show / hide week day names
 * `weekDayFormat?: string` - week day format, e.g. `E`
-* `weekDayFormater?: any => any` - week day fromatter function, e.g.  `day => format(day, 'E')`
+* `weekDayFormatter?: Date => string` - week day formatter function, e.g.  `day => format(day, 'E')` (can be used to pass locale)
+* `monthNameFormatter?: Date => string` - month name formatter function, e.g.  `month => format(month, 'MMMM yyyy')` (can be used to pass locale)
 
 ## License
 

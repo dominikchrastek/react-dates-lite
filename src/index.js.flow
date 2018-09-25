@@ -40,7 +40,8 @@ export type CalendarProps = {|
   showMonthName: boolean,
   showWeekDayNames: boolean,
   weekDayFormat?: string,
-  weekDayFormater?: any => any
+  weekDayFormatter?: Date => string,
+  monthNameFormatter?: Date => string
 |};
 
 export type CalendarState = {|

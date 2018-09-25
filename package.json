@@ -3,22 +3,6 @@
   "version": "0.0.40",
   "description": "React calendar component for selecting dates",
   "main": "lib/index.js",
-  "scripts": {
-    "clean": "rimraf lib && rimraf es",
-    "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
-    "build:webpack": "webpack --config etc/webpack.build.js -p",
-    "build": "gulp build",
-    "eslint": "eslint --ext .js --ext .jsx .",
-    "eslint:fix": "eslint --fix --ext .js --ext .jsx .",
-    "test": "TZ=UTC jest",
-    "test:update": "TZ=UTC jest -u",
-    "test:watch": "TZ=UTC jest --watch",
-    "test:coverage": "TZ=UTC jest --coverage",
-    "storybook": "start-storybook -p 6006",
-    "flow": "flow",
-    "deploy-storybook": "storybook-to-ghpages",
-    "prepare": "npm run clean && npm run build"
-  },
   "author": "Dominik Chrastek",
   "license": "MIT",
   "keywords": [
@@ -29,6 +13,30 @@
     "react calendar component",
     "react dates component"
   ],
+  "scripts": {
+    "clean": "rimraf lib && rimraf es",
+    "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
+    "build:webpack": "webpack --config etc/webpack.build.js -p",
+    "build": "gulp build",
+    "eslint": "eslint --ext .js --ext .jsx .",
+    "eslint:fix": "eslint --fix --ext .js --ext .jsx .",
+    "test": "TZ=UTC jest",
+    "test:watch": "TZ=UTC jest --watch",
+    "test:coverage": "TZ=UTC jest --coverage",
+    "storybook": "start-storybook -p 6006",
+    "flow": "flow",
+    "deploy-storybook": "storybook-to-ghpages",
+    "prepare": "npm run clean && npm run build"
+  },
+  "peerDependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "styled-components": "^3.4.9"
+  },
+  "dependencies": {
+    "date-fns": "~2.0.0-alpha.18",
+    "ramda": "^0.25.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
@@ -81,15 +89,6 @@
     "styled-components": "^3.4.9",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
-  },
-  "peerDependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "styled-components": "^3.4.9"
-  },
-  "dependencies": {
-    "date-fns": "~2.0.0-alpha.18",
-    "ramda": "^0.25.0"
   },
   "files": [
     "lib",
