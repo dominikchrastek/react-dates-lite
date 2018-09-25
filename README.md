@@ -6,6 +6,7 @@
 ## Install
 
 `yarn add styled-components` - peerDependency, also check that you have `react` and `react-dom`
+
 `yarn add react-dates-lite`
 
 ## API
@@ -45,7 +46,6 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
   * `hover` - background-color of date that is hovered
   * `border` - border color
   * `background` - default background-color
-  * `hover` - background-color of hovered date
   * `disabled` - color of disabled date
   * default values:
   ```js
@@ -63,6 +63,11 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
   * `month` - class for single month wrapper
   * default value: `{}`
 * `customClasses?: { [className: string]: Date[] }` - add `className` to specified dates
+* `CustomTd?: React.ComponentType<CalendarDayProps>` - custom day component (original `CalendarDay`)
+*  `showMonthName: boolean` - show / hide month names
+* `showWeekDayNames: boolean` - show / hide week day names
+* `weekDayFormat?: string` - week day format, e.g. `dd`
+* `weekDayFormater?: any => any` - week day fromatter function, e.g.  `day => format(day, 'dd')`
 
 ## License
 
