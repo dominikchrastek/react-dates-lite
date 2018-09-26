@@ -40,18 +40,14 @@ const StyledArrowRight = styled(ArrowRight)`
   width: 18px;
 `;
 
-export const getWidth = (number: number): string => {
-  if (number === 1) {
-    return `301px`;
-  }
-  return `${number * 301}px`; // 311 - 10 = 301 : 10 = margin
-};
+export const getWidth = (visibleMonths: number, width: number): string =>
+  `${width * visibleMonths}px`; // 321 - 20 = 301 : 20 = margin
 
 const CalendarWrapper = styled.div`
   position: relative;
   margin: 0 auto;
   text-align: center;
-  max-width: ${props => getWidth(props.visibleMonths)};
+  max-width: ${props => getWidth(props.visibleMonths, props.width)};
 `;
 
 const CalendarMonthWrapper = styled.div`
@@ -113,8 +109,9 @@ class Calendar extends React.PureComponent<Props, State> {
     showMonthName: true,
     showWeekDayNames: true,
     customClasses: {},
-    weekDayFormat: "E"
-  };
+    weekDayFormat: "E",
+    width: 301
+  }
 
   constructor(props: Props) {
     super(props);
@@ -300,7 +297,8 @@ class Calendar extends React.PureComponent<Props, State> {
       weekDayFormat,
       weekDayFormatter,
       monthNameFormatter,
-      CustomTd
+      CustomTd,
+      width
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -309,7 +307,11 @@ class Calendar extends React.PureComponent<Props, State> {
     const months = utils.getMonths(firstMonth, lastMonth);
 
     return (
-      <CalendarWrapper className={className} visibleMonths={visibleMonths}>
+      <CalendarWrapper
+        className={className}
+        visibleMonths={visibleMonths}
+        width={width}
+      >
         {months.length > visibleMonths && (
           <PrevBtn
             data-test="rdl-prev-button"
@@ -364,6 +366,7 @@ class Calendar extends React.PureComponent<Props, State> {
                   startOfMonth(month),
                   endOfMonth(month)
                 )(customClasses)}
+                width={width}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

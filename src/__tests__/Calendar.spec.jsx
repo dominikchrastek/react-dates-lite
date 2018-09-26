@@ -460,8 +460,9 @@ describe('#Calendar', () => {
 
   describe('helpers', () => {
     it('getWidth', () => {
-      expect(getWidth(1)).toBe('301px');
-      expect(getWidth(3)).toBe(`903px`);
+      expect(getWidth(1, 301)).toBe('301px');
+      expect(getWidth(3, 301)).toBe(`903px`);
+      expect(getWidth(5, 200)).toBe(`1000px`);
     });
   });
 });

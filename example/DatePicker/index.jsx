@@ -103,6 +103,7 @@ class DatePicker extends React.Component<Props, State> {
         {calendarVisible && (
           <div ref={this.calendarWrapperNode}>
             <StyledCalendar
+              width={345}
               visibleMonths={1}
               firstMonth={minDate}
               lastMonth={maxDate}

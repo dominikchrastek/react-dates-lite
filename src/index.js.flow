@@ -41,7 +41,8 @@ export type CalendarProps = {|
   showWeekDayNames: boolean,
   weekDayFormat?: string,
   weekDayFormatter?: Date => string,
-  monthNameFormatter?: Date => string
+  monthNameFormatter?: Date => string,
+  width?: number
 |};
 
 export type CalendarState = {|

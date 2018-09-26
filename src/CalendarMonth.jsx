@@ -33,7 +33,8 @@ type Props = {|
   CustomTd: React.ComponentType<CalendarDayProps>,
   weekDayFormat: string,
   weekDayFormatter: Date => string,
-  monthNameFormatter: Date => string
+  monthNameFormatter: Date => string,
+  width: number
 |};
 
 const Week = styled.div`
@@ -41,13 +42,14 @@ const Week = styled.div`
 `;
 
 const Month = styled.div`
-  width: 300px;
+  width: ${({ width }) => `${width}px`};
   display: table;
   border-collapse: collapse;
 `;
 
 const DayNameList = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin: 40px 0 10px;
 `;
@@ -84,7 +86,8 @@ const CalendarMonth = ({
   CustomTd,
   weekDayFormat,
   weekDayFormatter,
-  monthNameFormatter
+  monthNameFormatter,
+  width
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   const Day = CustomTd || CalendarDay;
@@ -113,7 +116,7 @@ const CalendarMonth = ({
         </DayNameList>
       )}
 
-      <Month>
+      <Month width={width}>
         {R.map(
           week => (
             <Week key={week}>

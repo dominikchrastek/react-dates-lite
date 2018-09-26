@@ -4,6 +4,7 @@ exports[`#Calendar methods should render correctly 1`] = `
 <styled.div
   className="wrapper"
   visibleMonths={3}
+  width={301}
 >
   <styled.div
     className=""
@@ -34,6 +35,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
@@ -61,6 +63,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
@@ -88,6 +91,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
   </styled.div>
 </styled.div>
@@ -97,6 +101,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
 <styled.div
   className="wrapper"
   visibleMonths={3}
+  width={301}
 >
   <styled.div
     className=""
@@ -131,6 +136,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={
@@ -162,6 +168,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={
@@ -193,6 +200,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
   </styled.div>
 </styled.div>
@@ -202,6 +210,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
 <styled.div
   className="wrapper"
   visibleMonths={3}
+  width={301}
 >
   <styled.div
     className=""
@@ -232,6 +241,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
@@ -259,6 +269,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
@@ -286,6 +297,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       showMonthName={true}
       showWeekDayNames={true}
       weekDayFormat="E"
+      width={301}
     />
   </styled.div>
 </styled.div>
@@ -295,6 +307,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
 <styled.div
   className="wrapper"
   visibleMonths={3}
+  width={301}
 >
   <styled.div
     className=""
@@ -325,6 +338,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showMonthName={false}
       showWeekDayNames={false}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
@@ -352,6 +366,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showMonthName={false}
       showWeekDayNames={false}
       weekDayFormat="E"
+      width={301}
     />
     <Styled(CalendarMonth)
       allowedDates={Array []}
@@ -379,6 +394,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       showMonthName={false}
       showWeekDayNames={false}
       weekDayFormat="E"
+      width={301}
     />
   </styled.div>
 </styled.div>

@@ -69,6 +69,7 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 * `weekDayFormat?: string` - week day format, e.g. `E`
 * `weekDayFormatter?: Date => string` - week day formatter function, e.g.  `day => format(day, 'E')` (can be used to pass locale)
 * `monthNameFormatter?: Date => string` - month name formatter function, e.g.  `month => format(month, 'MMMM yyyy')` (can be used to pass locale)
+* `width?: number` - custom base width of a single calendar (excluding margins)
 
 ## License
 
