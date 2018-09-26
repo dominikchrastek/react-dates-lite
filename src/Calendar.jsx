@@ -111,7 +111,7 @@ class Calendar extends React.PureComponent<Props, State> {
     customClasses: {},
     weekDayFormat: "E",
     width: 301
-  }
+  };
 
   constructor(props: Props) {
     super(props);
@@ -298,7 +298,9 @@ class Calendar extends React.PureComponent<Props, State> {
       weekDayFormatter,
       monthNameFormatter,
       CustomTd,
-      width
+      width,
+      buttonBack,
+      buttonForward
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -320,7 +322,13 @@ class Calendar extends React.PureComponent<Props, State> {
             disabled={currentMonth === 0 || months.length <= visibleMonths}
             colors={mergedColors}
           >
-            <StyledArrowLeft />
+            {buttonBack ? (
+              React.cloneElement(buttonBack, {
+                disabled: currentMonth === 0 || months.length <= visibleMonths
+              })
+            ) : (
+              <StyledArrowLeft />
+            )}
           </PrevBtn>
         )}
 
@@ -335,7 +343,16 @@ class Calendar extends React.PureComponent<Props, State> {
             }
             colors={mergedColors}
           >
-            <StyledArrowRight />
+            {buttonForward ? (
+              React.cloneElement(buttonForward, {
+                disabled:
+                  currentMonth ===
+                    R.subtract(R.length(months), visibleMonths) ||
+                  months.length <= visibleMonths
+              })
+            ) : (
+              <StyledArrowRight />
+            )}
           </NextBtn>
         )}
 

@@ -5,6 +5,8 @@ import format from "date-fns/format";
 // $FlowFixMe
 import Calendar from "../../src";
 import InputButton from "./components/InputButton";
+import SvgArrowBack from "./components/SvgArrowBack";
+import SvgArrowForward from "./components/SvgArrowForward";
 
 const StyledCalendar = styled(Calendar)`
   position: absolute;
@@ -123,6 +125,8 @@ class DatePicker extends React.Component<Props, State> {
                 background: "white",
                 border: "white"
               }}
+              buttonBack={<SvgArrowBack />}
+              buttonForward={<SvgArrowForward />}
             />
           </div>
         )}

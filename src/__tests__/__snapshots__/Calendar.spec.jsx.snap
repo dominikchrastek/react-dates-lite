@@ -206,6 +206,103 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
 </styled.div>
 `;
 
+exports[`#Calendar methods should render correctly with custom icons 1`] = `
+<styled.div
+  className="wrapper"
+  visibleMonths={3}
+  width={301}
+>
+  <styled.div
+    className=""
+  >
+    <Styled(CalendarMonth)
+      allowedDates={Array []}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "border": "#e4e7e7",
+          "disabled": "gray",
+          "hover": "#e4e7e7",
+          "selected": "rgb(244, 114, 49)",
+          "selectedHover": "rgb(255, 141, 74)",
+        }
+      }
+      customClasses={Object {}}
+      disabledDates={Array []}
+      future={false}
+      hoveredDates={Array []}
+      isFocused={false}
+      month={2018-02-01T00:00:00.000Z}
+      onHover={[Function]}
+      past={true}
+      selectDate={[Function]}
+      selectedDates={Array []}
+      showMonthName={true}
+      showWeekDayNames={true}
+      weekDayFormat="E"
+      width={301}
+    />
+    <Styled(CalendarMonth)
+      allowedDates={Array []}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "border": "#e4e7e7",
+          "disabled": "gray",
+          "hover": "#e4e7e7",
+          "selected": "rgb(244, 114, 49)",
+          "selectedHover": "rgb(255, 141, 74)",
+        }
+      }
+      customClasses={Object {}}
+      disabledDates={Array []}
+      future={false}
+      hoveredDates={Array []}
+      isFocused={false}
+      month={2018-03-01T00:00:00.000Z}
+      onHover={[Function]}
+      past={true}
+      selectDate={[Function]}
+      selectedDates={Array []}
+      showMonthName={true}
+      showWeekDayNames={true}
+      weekDayFormat="E"
+      width={301}
+    />
+    <Styled(CalendarMonth)
+      allowedDates={Array []}
+      classes={Object {}}
+      colors={
+        Object {
+          "background": "white",
+          "border": "#e4e7e7",
+          "disabled": "gray",
+          "hover": "#e4e7e7",
+          "selected": "rgb(244, 114, 49)",
+          "selectedHover": "rgb(255, 141, 74)",
+        }
+      }
+      customClasses={Object {}}
+      disabledDates={Array []}
+      future={false}
+      hoveredDates={Array []}
+      isFocused={false}
+      month={2018-04-01T00:00:00.000Z}
+      onHover={[Function]}
+      past={true}
+      selectDate={[Function]}
+      selectedDates={Array []}
+      showMonthName={true}
+      showWeekDayNames={true}
+      weekDayFormat="E"
+      width={301}
+    />
+  </styled.div>
+</styled.div>
+`;
+
 exports[`#Calendar methods should render correctly with future enabled 1`] = `
 <styled.div
   className="wrapper"

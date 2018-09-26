@@ -42,7 +42,9 @@ export type CalendarProps = {|
   weekDayFormat?: string,
   weekDayFormatter?: Date => string,
   monthNameFormatter?: Date => string,
-  width?: number
+  width?: number,
+  buttonBack?: React.Node,
+  buttonForward?: React.Node
 |};
 
 export type CalendarState = {|
