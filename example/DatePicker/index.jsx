@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from "react";
+import * as R from "ramda";
 import styled from "styled-components";
 import format from "date-fns/format";
 // $FlowFixMe
@@ -32,11 +33,11 @@ type Props = {
   minDate: Date,
   maxDate: Date,
   disabledDates?: ?(Date[]),
-  onChangeDate: (date: Date) => void,
   placeholder?: string
 };
 type State = {
-  calendarVisible: boolean
+  calendarVisible: boolean,
+  selected: Date[]
 };
 
 class DatePicker extends React.Component<Props, State> {
@@ -49,7 +50,8 @@ class DatePicker extends React.Component<Props, State> {
     super(props);
     this.calendarWrapperNode = React.createRef();
     this.state = {
-      calendarVisible: false
+      calendarVisible: false,
+      selected: [props.date]
     };
   }
 
@@ -81,25 +83,22 @@ class DatePicker extends React.Component<Props, State> {
     this.setState({ calendarVisible: !calendarVisible });
   };
 
+  handleChangeDate = (date: Date) => {
+    this.setState({ selected: date });
+  };
+
   calendarWrapperNode: ?React.Ref<*>; // should be typeof div
 
   render() {
-    const {
-      date,
-      minDate,
-      maxDate,
-      disabledDates,
-      onChangeDate,
-      placeholder
-    } = this.props;
+    const { date, minDate, maxDate, disabledDates, placeholder } = this.props;
 
-    const { calendarVisible } = this.state;
+    const { calendarVisible, selected } = this.state;
 
     return (
       <StyledRoot>
         <InputButton
           placeholder={placeholder}
-          value={date ? formatDate(date) : ""}
+          value={R.isEmpty(selected) ? "" : formatDate(R.head(selected))}
           onClick={this.handleToggleCalendar}
         />
         {calendarVisible && (
@@ -110,9 +109,9 @@ class DatePicker extends React.Component<Props, State> {
               firstMonth={minDate}
               lastMonth={maxDate}
               disabledDates={disabledDates}
-              selectedDates={date ? [date] : []}
+              selectedDates={selected}
               selectDates={dates => {
-                onChangeDate(dates[0]);
+                this.handleChangeDate(dates);
                 this.handleToggleCalendar();
               }}
               showWeekDayNames
