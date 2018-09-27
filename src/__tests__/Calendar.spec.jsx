@@ -1,12 +1,12 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import MockDate from 'mockdate';
+import React from "react";
+import { shallow, mount } from "enzyme";
+import MockDate from "mockdate";
 
-import * as utils from '../utils';
+import * as utils from "../utils";
 
-import Calendar, { getWidth } from '../Calendar';
+import Calendar, { getWidth } from "../Calendar";
 
-describe('#Calendar', () => {
+describe("#Calendar", () => {
   const yesterday = new Date(2018, 2, 9);
   const today = new Date(2018, 2, 10);
   const tomorrow = new Date(2018, 2, 11);
@@ -14,13 +14,13 @@ describe('#Calendar', () => {
   const prevMonth = new Date(2018, 1, 1);
   const nextMonth = new Date(2018, 3, 3);
   beforeEach(() => {
-    MockDate.set('2/31/2018');
+    MockDate.set("2/31/2018");
   });
   afterEach(() => {
     MockDate.reset();
   });
-  describe('methods', () => {
-    it('should render correctly', () => {
+  describe("methods", () => {
+    it("should render correctly", () => {
       const wrapper = shallow(
         <Calendar
           className="wrapper"
@@ -36,7 +36,7 @@ describe('#Calendar', () => {
       expect(wrapper.getElement()).toMatchSnapshot();
     });
 
-    it('should render correctly with future enabled', () => {
+    it("should render correctly with future enabled", () => {
       const wrapper = shallow(
         <Calendar
           className="wrapper"
@@ -52,7 +52,7 @@ describe('#Calendar', () => {
       expect(wrapper.getElement()).toMatchSnapshot();
     });
 
-    it('should render correctly with allowedDates', () => {
+    it("should render correctly with allowedDates", () => {
       const wrapper = shallow(
         <Calendar
           className="wrapper"
@@ -69,7 +69,25 @@ describe('#Calendar', () => {
       expect(wrapper.getElement()).toMatchSnapshot();
     });
 
-    it('rdl-prev-button should works', () => {
+    it("should render correctly with custom icons", () => {
+      const wrapper = shallow(
+        <Calendar
+          className="wrapper"
+          visibleMonths={3}
+          firstMonth={prevMonth}
+          lastMonth={nextMonth}
+          selectedDates={[]}
+          selectDates={jest.fn()}
+          future={false}
+          rangeSelect
+          buttonLeft={<div>back</div>}
+          buttonForward={<div>forward</div>}
+        />
+      );
+      expect(wrapper.getElement()).toMatchSnapshot();
+    });
+
+    it("rdl-prev-button should works", () => {
       const wrapper = mount(
         <Calendar
           className="wrapper"
@@ -87,23 +105,23 @@ describe('#Calendar', () => {
       wrapper
         .find('[data-test="rdl-next-button"]')
         .at(1)
-        .simulate('click');
+        .simulate("click");
 
       expect(node.state.currentMonth).toBe(2);
       wrapper
         .find('[data-test="rdl-next-button"]')
         .at(1)
-        .simulate('click');
+        .simulate("click");
       expect(
         wrapper
           .find('[data-test="rdl-next-button"]')
           .at(1)
-          .is('[disabled]')
+          .is("[disabled]")
       ).toBeTruthy();
       expect(node.state.currentMonth).toBe(2);
     });
 
-    it('rdl-prev-button should works', () => {
+    it("rdl-prev-button should works", () => {
       const wrapper = mount(
         <Calendar
           className="wrapper"
@@ -122,23 +140,23 @@ describe('#Calendar', () => {
       wrapper
         .find('[data-test="rdl-prev-button"]')
         .at(1)
-        .simulate('click');
+        .simulate("click");
 
       expect(node.state.currentMonth).toBe(0);
       wrapper
         .find('[data-test="rdl-prev-button"]')
         .at(1)
-        .simulate('click');
+        .simulate("click");
       expect(
         wrapper
           .find('[data-test="rdl-prev-button"]')
           .at(1)
-          .is('[disabled]')
+          .is("[disabled]")
       ).toBeTruthy();
       expect(node.state.currentMonth).toBe(0);
     });
 
-    it('handleSelect select range: prev date - next date', () => {
+    it("handleSelect select range: prev date - next date", () => {
       const selectDates = jest.fn();
       const wrapper = shallow(
         <Calendar
@@ -173,7 +191,7 @@ describe('#Calendar', () => {
       expect(selectDates).toBeCalledWith([yesterday, today]);
     });
 
-    it('handleSelect select range: next date - prev date', () => {
+    it("handleSelect select range: next date - prev date", () => {
       const selectDates = jest.fn();
       const wrapper = shallow(
         <Calendar
@@ -206,7 +224,7 @@ describe('#Calendar', () => {
       expect(node.state.selectedInternally).toBe(true);
       expect(selectDates).toBeCalledWith([yesterday, today]);
     });
-    it('handleSelect select same day and then unselect', () => {
+    it("handleSelect select same day and then unselect", () => {
       const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
@@ -247,7 +265,7 @@ describe('#Calendar', () => {
       expect(node.state.selectedInternally).toBe(true);
       expect(selectDates).toBeCalledWith([]);
     });
-    it('handleSetRange - nothing should happend', () => {
+    it("handleSetRange - nothing should happend", () => {
       const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
@@ -267,7 +285,7 @@ describe('#Calendar', () => {
       expect(selectDates).not.toBeCalled();
     });
 
-    it('handleHover - select date and hover it', () => {
+    it("handleHover - select date and hover it", () => {
       const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
@@ -294,7 +312,7 @@ describe('#Calendar', () => {
       expect(node.state.hoveredDates).toEqual([today]);
     });
 
-    it('handleHover - select date and hover next date', () => {
+    it("handleHover - select date and hover next date", () => {
       const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
@@ -321,7 +339,7 @@ describe('#Calendar', () => {
       expect(node.state.hoveredDates).toEqual([today, tomorrow]);
     });
 
-    it('handleHover - select date and hover prev date', () => {
+    it("handleHover - select date and hover prev date", () => {
       const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
@@ -348,7 +366,7 @@ describe('#Calendar', () => {
       expect(node.state.hoveredDates).toEqual([yesterday, today]);
     });
 
-    it('handleHover - nothing should happend', () => {
+    it("handleHover - nothing should happend", () => {
       const selectDates = jest.fn();
       const wrapper = mount(
         <Calendar
@@ -368,7 +386,7 @@ describe('#Calendar', () => {
       expect(node.state.hoveredDates).toEqual([]);
     });
 
-    it('handleSetCurrentMonth - componentWillUpdate, selected externally', () => {
+    it("handleSetCurrentMonth - componentWillUpdate, selected externally", () => {
       const nextProps = {
         selectedDates: today
       };
@@ -403,7 +421,7 @@ describe('#Calendar', () => {
       expect(node.state.selectedInternally).toBe(false);
       expect(node.state.currentMonth).toBe(currentMonth);
     });
-    it('handleSetCurrentMonth - componentWillUpdate, selected internally', () => {
+    it("handleSetCurrentMonth - componentWillUpdate, selected internally", () => {
       const nextProps = {
         selectedDates: today
       };
@@ -439,7 +457,7 @@ describe('#Calendar', () => {
       expect(node.state.currentMonth).not.toBe(currentMonth);
     });
 
-    it('should render without month and week days names', () => {
+    it("should render without month and week days names", () => {
       const wrapper = shallow(
         <Calendar
           className="wrapper"
@@ -458,10 +476,11 @@ describe('#Calendar', () => {
     });
   });
 
-  describe('helpers', () => {
-    it('getWidth', () => {
-      expect(getWidth(1)).toBe('301px');
-      expect(getWidth(3)).toBe(`903px`);
+  describe("helpers", () => {
+    it("getWidth", () => {
+      expect(getWidth(1, 301)).toBe("301px");
+      expect(getWidth(3, 301)).toBe(`903px`);
+      expect(getWidth(5, 200)).toBe(`1000px`);
     });
   });
 });

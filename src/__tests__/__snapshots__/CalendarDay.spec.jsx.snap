@@ -8,9 +8,6 @@ exports[`#CalendarDay methods should render correctly 1`] = `
 >
   <styled.button
     colors={Object {}}
-    disabled={undefined}
-    isDisabled={undefined}
-    isFocused={undefined}
     isFuture={false}
     isHidden={false}
     isHovered={false}
@@ -34,9 +31,6 @@ exports[`#CalendarDay methods should render hidden 1`] = `
 >
   <styled.button
     colors={Object {}}
-    disabled={undefined}
-    isDisabled={undefined}
-    isFocused={undefined}
     isFuture={false}
     isHidden={true}
     isHovered={false}
@@ -60,9 +54,6 @@ exports[`#CalendarDay methods should render joined classes 1`] = `
 >
   <styled.button
     colors={Object {}}
-    disabled={undefined}
-    isDisabled={undefined}
-    isFocused={undefined}
     isFuture={false}
     isHidden={false}
     isHovered={false}

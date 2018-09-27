@@ -10,6 +10,7 @@ if (app) {
   render(<Example />, app);
 }
 
+// $FlowFixMe
 if (module.hot) {
   // $FlowExpected
   module.hot.accept();

@@ -12,7 +12,7 @@ import endOfMonth from "date-fns/endOfMonth";
 import CalendarMonth from "./CalendarMonth";
 import ArrowLeft from "./ArrowLeft";
 import ArrowRight from "./ArrowRight";
-import type { CalendarState, CalendarProps } from "./";
+import type { CalendarState, CalendarProps } from ".";
 import * as utils from "./utils";
 
 const defaultColors = {
@@ -40,18 +40,14 @@ const StyledArrowRight = styled(ArrowRight)`
   width: 18px;
 `;
 
-export const getWidth = (number: number): string => {
-  if (number === 1) {
-    return `301px`;
-  }
-  return `${number * 301}px`; // 311 - 10 = 301 : 10 = margin
-};
+export const getWidth = (visibleMonths: number, width: number): string =>
+  `${width * visibleMonths}px`; // 321 - 20 = 301 : 20 = margin
 
 const CalendarWrapper = styled.div`
   position: relative;
   margin: 0 auto;
   text-align: center;
-  max-width: ${props => getWidth(props.visibleMonths)};
+  max-width: ${props => getWidth(props.visibleMonths, props.width)};
 `;
 
 const CalendarMonthWrapper = styled.div`
@@ -113,7 +109,8 @@ class Calendar extends React.PureComponent<Props, State> {
     showMonthName: true,
     showWeekDayNames: true,
     customClasses: {},
-    weekDayFormat: "dd"
+    weekDayFormat: "E",
+    width: 301
   };
 
   constructor(props: Props) {
@@ -137,10 +134,11 @@ class Calendar extends React.PureComponent<Props, State> {
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
+    const { selectedDates } = this.props;
     // when selectedDates came as a props, we need to know if they were changed
     // if they were, then we have to determine if they were changed internally
     // or externaly (from parent component)
-    if (nextProps.selectedDates !== this.props.selectedDates) {
+    if (nextProps.selectedDates !== selectedDates) {
       this.handleSetCurrentMonth(nextProps, nextState);
     }
   }
@@ -194,7 +192,7 @@ class Calendar extends React.PureComponent<Props, State> {
    */
   handleSetRange = (date: Date) => {
     const { start } = this.state;
-    const { disabledDates } = this.props;
+    const { disabledDates, selectDates } = this.props;
     // when someting is already selected (start)
     // and we clicked on some date (date)
     // then we will set array of dates between
@@ -205,10 +203,10 @@ class Calendar extends React.PureComponent<Props, State> {
       this.setState({ selectedInternally: true });
       if (isBefore(date, start)) {
         const range = eachDayOfInterval({ start: date, end: start });
-        this.props.selectDates(R.without(disabledDates, range));
+        selectDates(R.without(disabledDates, range));
       } else {
         const range = eachDayOfInterval({ start, end: date });
-        this.props.selectDates(R.without(disabledDates, range));
+        selectDates(R.without(disabledDates, range));
       }
     }
   };
@@ -218,7 +216,7 @@ class Calendar extends React.PureComponent<Props, State> {
    * @argument {Date} date
    */
   handleSelect = (date: Date) => {
-    const { disabledDates, rangeSelect } = this.props;
+    const { disabledDates, rangeSelect, selectDates } = this.props;
     const { isFocused, end, start } = this.state;
     // when something is already selected
     if (isFocused && rangeSelect) {
@@ -244,7 +242,7 @@ class Calendar extends React.PureComponent<Props, State> {
         // eslint-disable-next-line react/no-unused-state
         selectedInternally: true
       });
-      this.props.selectDates([]);
+      selectDates([]);
       // initial select case
     } else {
       this.setState({
@@ -253,7 +251,7 @@ class Calendar extends React.PureComponent<Props, State> {
         // eslint-disable-next-line react/no-unused-state
         selectedInternally: true
       });
-      this.props.selectDates(R.without(disabledDates, [date]));
+      selectDates(R.without(disabledDates, [date]));
     }
   };
 
@@ -297,7 +295,12 @@ class Calendar extends React.PureComponent<Props, State> {
       showWeekDayNames,
       customClasses,
       weekDayFormat,
-      weekDayFormater
+      weekDayFormatter,
+      monthNameFormatter,
+      CustomTd,
+      width,
+      buttonBack,
+      buttonForward
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
@@ -306,7 +309,11 @@ class Calendar extends React.PureComponent<Props, State> {
     const months = utils.getMonths(firstMonth, lastMonth);
 
     return (
-      <CalendarWrapper className={className} visibleMonths={visibleMonths}>
+      <CalendarWrapper
+        className={className}
+        visibleMonths={visibleMonths}
+        width={width}
+      >
         {months.length > visibleMonths && (
           <PrevBtn
             data-test="rdl-prev-button"
@@ -315,7 +322,13 @@ class Calendar extends React.PureComponent<Props, State> {
             disabled={currentMonth === 0 || months.length <= visibleMonths}
             colors={mergedColors}
           >
-            <StyledArrowLeft />
+            {buttonBack ? (
+              React.cloneElement(buttonBack, {
+                disabled: currentMonth === 0 || months.length <= visibleMonths
+              })
+            ) : (
+              <StyledArrowLeft />
+            )}
           </PrevBtn>
         )}
 
@@ -330,7 +343,16 @@ class Calendar extends React.PureComponent<Props, State> {
             }
             colors={mergedColors}
           >
-            <StyledArrowRight />
+            {buttonForward ? (
+              React.cloneElement(buttonForward, {
+                disabled:
+                  currentMonth ===
+                    R.subtract(R.length(months), visibleMonths) ||
+                  months.length <= visibleMonths
+              })
+            ) : (
+              <StyledArrowRight />
+            )}
           </NextBtn>
         )}
 
@@ -340,7 +362,7 @@ class Calendar extends React.PureComponent<Props, State> {
               <StyledMonth
                 key={month}
                 month={month}
-                CustomTd={this.props.CustomTd}
+                CustomTd={CustomTd}
                 selectedDates={selectedDates}
                 disabledDates={disabledDates}
                 allowedDates={allowedDates}
@@ -355,11 +377,13 @@ class Calendar extends React.PureComponent<Props, State> {
                 showMonthName={showMonthName}
                 showWeekDayNames={showWeekDayNames}
                 weekDayFormat={weekDayFormat}
-                weekDayFormater={weekDayFormater}
+                weekDayFormatter={weekDayFormatter}
+                monthNameFormatter={monthNameFormatter}
                 customClasses={utils.filterCustomClasses(
                   startOfMonth(month),
                   endOfMonth(month)
                 )(customClasses)}
+                width={width}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

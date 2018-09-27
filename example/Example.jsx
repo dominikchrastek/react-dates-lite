@@ -25,10 +25,12 @@ const Container = styled.div`
 
 const Column = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 300px;
 `;
 
 type Props = {|
-  allowedDates: boolean,
+  allowedDates?: boolean,
   showMonthName?: boolean,
   showWeekDayNames?: boolean
 |};
@@ -39,7 +41,9 @@ type State = {|
 
 export default class Example extends React.PureComponent<Props, State> {
   static defaultProps = {
-    allowedDates: false
+    allowedDates: false,
+    showMonthName: true,
+    showWeekDayNames: true
   };
 
   state = {
@@ -69,8 +73,12 @@ export default class Example extends React.PureComponent<Props, State> {
     const { selectedDates, disabledDates } = this.state;
     return (
       <Container>
-        <button onClick={this.handleSetToday}>select today</button>
-        <button onClick={this.handleSetLastMonth}>select last month</button>
+        <button type="button" onClick={this.handleSetToday}>
+          select today
+        </button>
+        <button type="button" onClick={this.handleSetLastMonth}>
+          select last month
+        </button>
         <Calendar
           className="wrapper"
           colors={{
@@ -92,8 +100,6 @@ export default class Example extends React.PureComponent<Props, State> {
           showMonthName={showMonthName}
           firstMonth={subMonths(new Date(), 1)}
           lastMonth={addMonths(new Date(), 1)}
-          weekDayFormat="dd"
-          weekDayFormater={day => format(day, "YYYY")}
           customClasses={{
             class1: [new Date()],
             class2: [new Date(), addDays(new Date(), 2)]
@@ -105,7 +111,7 @@ export default class Example extends React.PureComponent<Props, State> {
             selected dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, "DD.MM.YYYY")}</div>
+                <div key={day.toISOString()}>{format(day, "dd.MM.yyyy")}</div>
               ),
               selectedDates
             )}
@@ -114,7 +120,7 @@ export default class Example extends React.PureComponent<Props, State> {
             disabled dates:
             {R.map(
               day => (
-                <div key={day.toISOString()}>{format(day, "DD.MM.YYYY")}</div>
+                <div key={day.toISOString()}>{format(day, "dd.MM.yyyy")}</div>
               ),
               disabledDates
             )}

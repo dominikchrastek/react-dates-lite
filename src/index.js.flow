@@ -8,7 +8,9 @@ export type ButtonProps = {
   isSelected: boolean,
   isDisabled: boolean,
   colors: {| [string]: string |},
-  isFocused: boolean
+  isFocused: boolean,
+  disabled?: boolean,
+  className?: string
 };
 
 export type CalendarDayProps = ButtonProps & {
@@ -37,8 +39,12 @@ export type CalendarProps = {|
   CustomTd?: React.ComponentType<CalendarDayProps>,
   showMonthName: boolean,
   showWeekDayNames: boolean,
-  weekDayFormat: string,
-  weekDayFormater: any => any
+  weekDayFormat?: string,
+  weekDayFormatter?: Date => string,
+  monthNameFormatter?: Date => string,
+  width?: number,
+  buttonBack?: React.Node,
+  buttonForward?: React.Node
 |};
 
 export type CalendarState = {|
@@ -52,4 +58,4 @@ export type CalendarState = {|
 
 type Calendar = React.ComponentType<CalendarProps, CalendarState>;
 
-declare export default Calendar
+declare export default Calendar;

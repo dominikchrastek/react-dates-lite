@@ -8,7 +8,7 @@ import getDate from "date-fns/getDate";
 import isSameMonth from "date-fns/isSameMonth";
 
 import CalendarDay from "./CalendarDay";
-import type { CalendarDayProps } from "./";
+import type { CalendarDayProps } from ".";
 
 import * as utils from "./utils";
 import * as dayHelpers from "./utils/dayHelpers";
@@ -32,7 +32,9 @@ type Props = {|
   customClasses: { [key: string]: Date[] },
   CustomTd: React.ComponentType<CalendarDayProps>,
   weekDayFormat: string,
-  weekDayFormater: any => any
+  weekDayFormatter: Date => string,
+  monthNameFormatter: Date => string,
+  width: number
 |};
 
 const Week = styled.div`
@@ -40,13 +42,14 @@ const Week = styled.div`
 `;
 
 const Month = styled.div`
-  width: 300px;
+  width: ${({ width }) => `${width}px`};
   display: table;
   border-collapse: collapse;
 `;
 
 const DayNameList = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin: 40px 0 10px;
 `;
@@ -82,21 +85,29 @@ const CalendarMonth = ({
   customClasses = {},
   CustomTd,
   weekDayFormat,
-  weekDayFormater
+  weekDayFormatter,
+  monthNameFormatter,
+  width
 }: Props) => {
   const toRender = utils.calendarDaysToRender(month);
   const Day = CustomTd || CalendarDay;
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
-      {showMonthName && <MonthName>{format(month, "MMMM YYYY")}</MonthName>}
+      {showMonthName && (
+        <MonthName>
+          {monthNameFormatter
+            ? monthNameFormatter(month)
+            : format(month, "MMMM yyyy")}
+        </MonthName>
+      )}
 
       {showWeekDayNames && (
         <DayNameList>
           {R.map(
             day => (
               <DayName key={day}>
-                {weekDayFormater
-                  ? weekDayFormater(day)
+                {weekDayFormatter
+                  ? weekDayFormatter(day)
                   : format(day, weekDayFormat)}
               </DayName>
             ),
@@ -105,7 +116,7 @@ const CalendarMonth = ({
         </DayNameList>
       )}
 
-      <Month>
+      <Month width={width}>
         {R.map(
           week => (
             <Week key={week}>

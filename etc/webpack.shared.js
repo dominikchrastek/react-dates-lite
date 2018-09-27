@@ -2,8 +2,9 @@ const path = require('path');
 const ExtractText = require('extract-text-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
 const babelOptions = {
-  presets: ['react', ['es2015', { modules: false, loose: true }], 'stage-2'],
-  plugins: ['ramda']
+  // presets: ['react', ['es2015', { modules: false, loose: true }], 'stage-2'],
+  // plugins: ['ramda']
+  babelrc: true,
 };
 
 module.exports = {

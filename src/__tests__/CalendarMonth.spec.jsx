@@ -1,12 +1,12 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
 // import getDate from 'date-fns/get_date';
 
-import CalendarMonth from '../CalendarMonth';
+import CalendarMonth from "../CalendarMonth";
 
-describe('#CalendarMonth', () => {
-  it('should render correctly', () => {
+describe("#CalendarMonth", () => {
+  it("should render correctly", () => {
     const wrapper = shallow(
       <CalendarMonth
         month={new Date(2018, 1, 1)}
@@ -25,7 +25,7 @@ describe('#CalendarMonth', () => {
     expect(wrapper.getElement()).toMatchSnapshot();
   });
 
-  it('should render correctly with allowedDates', () => {
+  it("should render correctly with allowedDates", () => {
     const wrapper = shallow(
       <CalendarMonth
         month={new Date(2018, 1, 1)}
@@ -43,7 +43,7 @@ describe('#CalendarMonth', () => {
     );
     expect(wrapper.getElement()).toMatchSnapshot();
   });
-  it('should render correctly with classes', () => {
+  it("should render correctly with classes", () => {
     const wrapper = shallow(
       <CalendarMonth
         className="class"
@@ -58,8 +58,28 @@ describe('#CalendarMonth', () => {
         future
         colors={{}}
         classes={{
-          month: 'monthClass'
+          month: "monthClass"
         }}
+      />
+    );
+    expect(wrapper.getElement()).toMatchSnapshot();
+  });
+  it("should render correctly with formatter", () => {
+    const wrapper = shallow(
+      <CalendarMonth
+        month={new Date(2018, 1, 1)}
+        selectedDates={[]}
+        disabledDates={[]}
+        allowedDates={[]}
+        selectDate={jest.fn()}
+        onHover={jest.fn()}
+        hoveredDates={[]}
+        past
+        future
+        colors={{}}
+        classes={{}}
+        weekDayFormatter={date => String(date)}
+        monthDayFormatter={date => String(date)}
       />
     );
     expect(wrapper.getElement()).toMatchSnapshot();

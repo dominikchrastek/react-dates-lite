@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from "react";
 import styled from "styled-components";
-import type { ButtonProps, CalendarDayProps } from "./";
+import type { ButtonProps, CalendarDayProps } from ".";
 
 type Props = CalendarDayProps;
 
@@ -110,8 +110,6 @@ const Td = styled.div`
 `;
 
 export default class CalendarDay extends React.PureComponent<Props> {
-  props: Props;
-
   handleClick = () => {
     const { value, isHidden, selectDate } = this.props;
     if (!isHidden) {
@@ -125,6 +123,8 @@ export default class CalendarDay extends React.PureComponent<Props> {
       onHover(value);
     }
   };
+
+  props: Props;
 
   render() {
     const {
