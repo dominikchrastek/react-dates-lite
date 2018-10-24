@@ -1,3 +1,7 @@
+# 0.0.42 (2018-10-24)
+
+update styled components to `4.0.2`
+
 # 0.0.41 (2018-09-27)
 
 new props:
