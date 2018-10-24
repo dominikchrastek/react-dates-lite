@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#CalendarDay methods should render correctly 1`] = `
-<styled.div
+<ForwardRef
   className=""
   colors={Object {}}
   isHidden={false}
 >
-  <styled.button
+  <ForwardRef
     colors={Object {}}
     isFuture={false}
     isHidden={false}
@@ -19,17 +19,17 @@ exports[`#CalendarDay methods should render correctly 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </styled.button>
-</styled.div>
+  </ForwardRef>
+</ForwardRef>
 `;
 
 exports[`#CalendarDay methods should render hidden 1`] = `
-<styled.div
+<ForwardRef
   className=""
   colors={Object {}}
   isHidden={true}
 >
-  <styled.button
+  <ForwardRef
     colors={Object {}}
     isFuture={false}
     isHidden={true}
@@ -42,17 +42,17 @@ exports[`#CalendarDay methods should render hidden 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </styled.button>
-</styled.div>
+  </ForwardRef>
+</ForwardRef>
 `;
 
 exports[`#CalendarDay methods should render joined classes 1`] = `
-<styled.div
+<ForwardRef
   className="hey hou"
   colors={Object {}}
   isHidden={false}
 >
-  <styled.button
+  <ForwardRef
     colors={Object {}}
     isFuture={false}
     isHidden={false}
@@ -65,6 +65,6 @@ exports[`#CalendarDay methods should render joined classes 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </styled.button>
-</styled.div>
+  </ForwardRef>
+</ForwardRef>
 `;
