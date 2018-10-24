@@ -90,7 +90,7 @@ class DatePicker extends React.Component<Props, State> {
   calendarWrapperNode: ?React.Ref<*>; // should be typeof div
 
   render() {
-    const { date, minDate, maxDate, disabledDates, placeholder } = this.props;
+    const { minDate, maxDate, disabledDates, placeholder } = this.props;
 
     const { calendarVisible, selected } = this.state;
 

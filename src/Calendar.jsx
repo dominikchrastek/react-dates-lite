@@ -83,11 +83,11 @@ const StyledMonth = styled(CalendarMonth)`
   }
 `;
 
-const PrevBtn = NavBtn.extend`
+const PrevBtn = styled(NavBtn)`
   left: 0;
 `;
 
-const NextBtn = NavBtn.extend`
+const NextBtn = styled(NavBtn)`
   right: 0;
 `;
 
