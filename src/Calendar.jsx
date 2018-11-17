@@ -310,8 +310,6 @@ class Calendar extends React.PureComponent<Props, State> {
     const mergedColors = R.merge(defaultColors, colors);
     const months = utils.getMonths(firstMonth, lastMonth);
 
-    console.log(firstWeekDay);
-
     return (
       <CalendarWrapper
         className={className}

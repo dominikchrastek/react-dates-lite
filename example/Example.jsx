@@ -82,7 +82,6 @@ export default class Example extends React.PureComponent<Props, State> {
       rangeSelect,
       visibleMonths
     } = this.props;
-    console.log();
     const { selectedDates, disabledDates } = this.state;
     return (
       <Container>
