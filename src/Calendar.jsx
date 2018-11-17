@@ -110,7 +110,8 @@ class Calendar extends React.PureComponent<Props, State> {
     showWeekDayNames: true,
     customClasses: {},
     weekDayFormat: "E",
-    width: 301
+    width: 301,
+    firstWeekDay: 0
   };
 
   constructor(props: Props) {
@@ -300,13 +301,16 @@ class Calendar extends React.PureComponent<Props, State> {
       CustomTd,
       width,
       buttonBack,
-      buttonForward
+      buttonForward,
+      firstWeekDay
     } = this.props;
 
     const { currentMonth, hoveredDates, isFocused } = this.state;
 
     const mergedColors = R.merge(defaultColors, colors);
     const months = utils.getMonths(firstMonth, lastMonth);
+
+    console.log(firstWeekDay);
 
     return (
       <CalendarWrapper
@@ -384,6 +388,7 @@ class Calendar extends React.PureComponent<Props, State> {
                   endOfMonth(month)
                 )(customClasses)}
                 width={width}
+                firstWeekDay={firstWeekDay}
               />
             ),
             utils.calendarMonthsToRender(visibleMonths, currentMonth, months)

@@ -21,6 +21,8 @@ export type CalendarDayProps = ButtonProps & {
   classes: string[]
 };
 
+export type WeekDay = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
 export type CalendarProps = {|
   selectDates: (Date[]) => any,
   selectedDates: Date[],
@@ -44,7 +46,8 @@ export type CalendarProps = {|
   monthNameFormatter?: Date => string,
   width?: number,
   buttonBack?: React.Node,
-  buttonForward?: React.Node
+  buttonForward?: React.Node,
+  firstWeekDay?: WeekDay
 |};
 
 export type CalendarState = {|

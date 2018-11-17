@@ -1,14 +1,14 @@
 /* @flow */
-import MockDate from 'mockdate';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import startOfMonth from 'date-fns/startOfMonth';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import MockDate from "mockdate";
+import lastDayOfMonth from "date-fns/lastDayOfMonth";
+import startOfMonth from "date-fns/startOfMonth";
+import eachDayOfInterval from "date-fns/eachDayOfInterval";
 
-import * as utils from '..';
+import * as utils from "..";
 
-describe('#dayHelpers', () => {
+describe("#dayHelpers", () => {
   beforeEach(() => {
-    MockDate.set('1/31/2018');
+    MockDate.set("1/31/2018");
   });
   afterEach(() => {
     MockDate.reset();
@@ -18,30 +18,31 @@ describe('#dayHelpers', () => {
   const prevMonth = new Date(2018, 0, 1);
   const nextMonth = new Date(2018, 2, 3);
 
-  it('lastDayOfPrevMonth', () => {
+  it("lastDayOfPrevMonth", () => {
     expect(utils.lastDayOfPrevMonth(month)).toEqual(lastDayOfMonth(prevMonth));
     expect(utils.lastDayOfPrevMonth(month)).not.toEqual(lastDayOfMonth(month));
   });
 
-  it('daysFromPrevMonth', () => {
+  it("daysFromPrevMonth", () => {
     expect(
-      utils.daysFromPrevMonth(month, utils.lastDayOfPrevMonth(month)).length
+      utils.daysFromPrevMonth(month, utils.lastDayOfPrevMonth(month), 0).length
     ).toEqual(5);
     expect(
-      utils.daysFromPrevMonth(new Date(2017, 0, 1), new Date(2017, 0, 1)).length
+      utils.daysFromPrevMonth(new Date(2017, 0, 1), new Date(2017, 0, 1), 0)
+        .length
     ).toEqual(0);
     expect(
-      utils.daysFromPrevMonth(prevMonth, utils.lastDayOfPrevMonth(prevMonth))
+      utils.daysFromPrevMonth(prevMonth, utils.lastDayOfPrevMonth(prevMonth), 0)
         .length
     ).toEqual(1);
   });
 
-  it('calendarDaysToRender', () => {
-    expect(utils.calendarDaysToRender(month).length).toEqual(32);
-    expect(utils.calendarDaysToRender(prevMonth).length).toEqual(32);
+  it("calendarDaysToRender", () => {
+    expect(utils.calendarDaysToRender(0, month).length).toEqual(32);
+    expect(utils.calendarDaysToRender(0, prevMonth).length).toEqual(32);
   });
 
-  it('calendarDayNames', () => {
+  it("calendarDayNames", () => {
     expect(
       utils.calendarDayNames([
         date,
@@ -58,7 +59,7 @@ describe('#dayHelpers', () => {
     ).toEqual(7);
   });
 
-  it('getMonths', () => {
+  it("getMonths", () => {
     expect(utils.getMonths(prevMonth, month).length).toEqual(2);
     expect(utils.getMonths(prevMonth, nextMonth).length).toEqual(3);
     expect(utils.getMonths(prevMonth, nextMonth)).toEqual([
@@ -68,7 +69,7 @@ describe('#dayHelpers', () => {
     ]);
   });
 
-  it('getCurrentMonthIndex', () => {
+  it("getCurrentMonthIndex", () => {
     expect(utils.getCurrentMonthIndex(prevMonth, nextMonth, [], false, 1)).toBe(
       0
     );
@@ -107,7 +108,7 @@ describe('#dayHelpers', () => {
     ).toBe(0);
   });
 
-  it('calendarMonthsToRender', () => {
+  it("calendarMonthsToRender", () => {
     expect(
       utils.calendarMonthsToRender(3, 0, utils.getMonths(prevMonth, nextMonth))
         .length
@@ -132,20 +133,18 @@ describe('#dayHelpers', () => {
     ).toEqual([startOfMonth(month), startOfMonth(nextMonth)]);
   });
 
-  it.only('filterCustomClasses', () => {
+  it.only("filterCustomClasses", () => {
     const classNames = {
       name: eachDayOfInterval({
         start: new Date(2010, 1, 1),
         end: new Date(2010, 1, 10)
       })
     };
-    expect(
-      utils.filterCustomClasses(new Date(2010, 1, 1))(
-        classNames
-      )
-    ).toEqual({
-      name: [new Date(2010, 1, 1)]
-    });
+    expect(utils.filterCustomClasses(new Date(2010, 1, 1))(classNames)).toEqual(
+      {
+        name: [new Date(2010, 1, 1)]
+      }
+    );
     expect(
       utils.filterCustomClasses(new Date(2010, 1, 1), new Date(2010, 1, 10))(
         classNames

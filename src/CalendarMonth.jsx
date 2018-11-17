@@ -8,7 +8,7 @@ import getDate from "date-fns/getDate";
 import isSameMonth from "date-fns/isSameMonth";
 
 import CalendarDay from "./CalendarDay";
-import type { CalendarDayProps } from ".";
+import type { CalendarDayProps, WeekDay } from ".";
 
 import * as utils from "./utils";
 import * as dayHelpers from "./utils/dayHelpers";
@@ -34,7 +34,8 @@ type Props = {|
   weekDayFormat: string,
   weekDayFormatter: Date => string,
   monthNameFormatter: Date => string,
-  width: number
+  width: number,
+  firstWeekDay: WeekDay
 |};
 
 const Week = styled.div`
@@ -87,9 +88,10 @@ const CalendarMonth = ({
   weekDayFormat,
   weekDayFormatter,
   monthNameFormatter,
-  width
+  width,
+  firstWeekDay
 }: Props) => {
-  const toRender = utils.calendarDaysToRender(month);
+  const toRender = utils.calendarDaysToRender(firstWeekDay, month);
   const Day = CustomTd || CalendarDay;
   return (
     <div className={`${classes.month && classes.month} ${className}`}>

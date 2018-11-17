@@ -10,8 +10,9 @@ import format from "date-fns/format";
 import addDays from "date-fns/addDays";
 import startOfDay from "date-fns/startOfDay";
 import addMonths from "date-fns/addMonths";
-
+import type { WeekDay } from "../src/";
 import Calendar from "../src";
+import { number } from "@storybook/addon-knobs/dist/react";
 // import CalendarDay from '../src/CustomDay';
 
 const Container = styled.div`
@@ -32,8 +33,12 @@ const Column = styled.div`
 type Props = {|
   allowedDates?: boolean,
   showMonthName?: boolean,
-  showWeekDayNames?: boolean
+  showWeekDayNames?: boolean,
+  firstWeekDay?: WeekDay,
+  rangeSelect?: boolean,
+  visibleMonths?: number
 |};
+
 type State = {|
   selectedDates: Date[],
   disabledDates: Date[]
@@ -69,7 +74,15 @@ export default class Example extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { allowedDates, showWeekDayNames, showMonthName } = this.props;
+    const {
+      allowedDates,
+      showWeekDayNames,
+      showMonthName,
+      firstWeekDay,
+      rangeSelect,
+      visibleMonths
+    } = this.props;
+    console.log();
     const { selectedDates, disabledDates } = this.state;
     return (
       <Container>
@@ -87,7 +100,7 @@ export default class Example extends React.PureComponent<Props, State> {
             borders: "#e4e7e7",
             hover: "#e4e7e7"
           }}
-          visibleMonths={2}
+          visibleMonths={visibleMonths}
           selectedDates={selectedDates}
           disabledDates={disabledDates}
           allowedDates={
@@ -95,7 +108,7 @@ export default class Example extends React.PureComponent<Props, State> {
           }
           selectDates={this.handleSelectDates}
           // CustomTd={CalendarDay}
-          rangeSelect
+          rangeSelect={rangeSelect}
           showWeekDayNames={showWeekDayNames}
           showMonthName={showMonthName}
           firstMonth={subMonths(new Date(), 1)}
@@ -104,6 +117,7 @@ export default class Example extends React.PureComponent<Props, State> {
             class1: [new Date()],
             class2: [new Date(), addDays(new Date(), 2)]
           }}
+          firstWeekDay={Number(firstWeekDay)}
         />
 
         <Column>

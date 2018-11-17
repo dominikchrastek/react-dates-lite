@@ -4,64 +4,8 @@ exports[`#CalendarMonth should render correctly 1`] = `
 <div
   className="undefined "
 >
-  <ForwardRef>
-    <ForwardRef>
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={28}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-28T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={29}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-29T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={30}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-30T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={31}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-31T00:00:00.000Z}
-      />
+  <styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -104,8 +48,6 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-03T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -162,6 +104,8 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-07T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -204,8 +148,6 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-10T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -262,6 +204,8 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-14T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -304,8 +248,6 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-17T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -362,6 +304,8 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-21T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -404,8 +348,6 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-24T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -462,8 +404,8 @@ exports[`#CalendarMonth should render correctly 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-28T00:00:00.000Z}
       />
-    </ForwardRef>
-  </ForwardRef>
+    </styled.div>
+  </styled.div>
 </div>
 `;
 
@@ -471,64 +413,8 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
 <div
   className="undefined "
 >
-  <ForwardRef>
-    <ForwardRef>
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={true}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={28}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-28T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={true}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={29}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-29T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={true}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={30}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-30T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={true}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={31}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-31T00:00:00.000Z}
-      />
+  <styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -571,8 +457,6 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-03T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -629,6 +513,8 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-07T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -671,8 +557,6 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-10T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -729,6 +613,8 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-14T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -771,8 +657,6 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-17T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -829,6 +713,8 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-21T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -871,8 +757,6 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-24T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -929,8 +813,8 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-28T00:00:00.000Z}
       />
-    </ForwardRef>
-  </ForwardRef>
+    </styled.div>
+  </styled.div>
 </div>
 `;
 
@@ -938,64 +822,8 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
 <div
   className="monthClass class"
 >
-  <ForwardRef>
-    <ForwardRef>
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={28}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-28T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={29}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-29T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={30}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-30T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={31}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-31T00:00:00.000Z}
-      />
+  <styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1038,8 +866,6 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-03T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1096,6 +922,8 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-07T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1138,8 +966,6 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-10T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1196,6 +1022,8 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-14T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1238,8 +1066,6 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-17T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1296,6 +1122,8 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-21T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1338,8 +1166,6 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-24T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1396,8 +1222,8 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-28T00:00:00.000Z}
       />
-    </ForwardRef>
-  </ForwardRef>
+    </styled.div>
+  </styled.div>
 </div>
 `;
 
@@ -1405,64 +1231,8 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
 <div
   className="undefined "
 >
-  <ForwardRef>
-    <ForwardRef>
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={28}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-28T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={29}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-29T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={30}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-30T00:00:00.000Z}
-      />
-      <CalendarDay
-        classes={Array []}
-        colors={Object {}}
-        isDisabled={false}
-        isFuture={false}
-        isHidden={true}
-        isHovered={false}
-        isPast={false}
-        isSelected={false}
-        number={31}
-        onHover={[MockFunction]}
-        selectDate={[MockFunction]}
-        value={2018-01-31T00:00:00.000Z}
-      />
+  <styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1505,8 +1275,6 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-03T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1563,6 +1331,8 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-07T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1605,8 +1375,6 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-10T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1663,6 +1431,8 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-14T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1705,8 +1475,6 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-17T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1763,6 +1531,8 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-21T00:00:00.000Z}
       />
+    </styled.div>
+    <styled.div>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1805,8 +1575,6 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-24T00:00:00.000Z}
       />
-    </ForwardRef>
-    <ForwardRef>
       <CalendarDay
         classes={Array []}
         colors={Object {}}
@@ -1863,7 +1631,7 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         selectDate={[MockFunction]}
         value={2018-02-28T00:00:00.000Z}
       />
-    </ForwardRef>
-  </ForwardRef>
+    </styled.div>
+  </styled.div>
 </div>
 `;

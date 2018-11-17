@@ -1,43 +1,51 @@
 /* @flow */
 /* eslint-disable import/prefer-default-export */
-import * as R from 'ramda';
+import * as R from "ramda";
 
-import startOfMonth from 'date-fns/startOfMonth';
-import endOfMonth from 'date-fns/endOfMonth';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import subDays from 'date-fns/subDays';
-import getDay from 'date-fns/getDay';
-import addMonths from 'date-fns/addMonths';
-import subMonths from 'date-fns/subMonths';
-import isSameMonth from 'date-fns/isSameMonth';
-import differenceInCalendarMonths from 'date-fns/differenceInCalendarMonths';
-import isBefore from 'date-fns/isBefore';
-import isAfter from 'date-fns/isAfter';
-import isSameDay from 'date-fns/isSameDay';
-
+import startOfMonth from "date-fns/startOfMonth";
+import endOfMonth from "date-fns/endOfMonth";
+import eachDayOfInterval from "date-fns/eachDayOfInterval";
+import lastDayOfMonth from "date-fns/lastDayOfMonth";
+import subDays from "date-fns/subDays";
+import getDay from "date-fns/getDay";
+import addMonths from "date-fns/addMonths";
+import subMonths from "date-fns/subMonths";
+import isSameMonth from "date-fns/isSameMonth";
+import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
+import isBefore from "date-fns/isBefore";
+import isAfter from "date-fns/isAfter";
+import isSameDay from "date-fns/isSameDay";
+import type { WeekDay } from "../";
 // TODO: separate util files
 // CalendarMonth utils
 
 // return days to prepend (these days are from previous month)
 export const daysFromPrevMonth = (
   start: Date,
-  lastDayOfPrevMonth: Date
-): Date[] =>
-  // if it's first day in the month, no need to prepend days
-  getDay(start) === 0
-    ? []
-    : // otherwise prepend days from previous month
-      eachDayOfInterval({
-        start: subDays(lastDayOfPrevMonth, getDay(start) - 1),
-        end: lastDayOfPrevMonth
-      });
+  lastDayOfPrevMonth: Date,
+  firstDay: WeekDay
+): Date[] => {
+  // it's firtst day of the month, no need to prepend
+  if (getDay(start) === firstDay) {
+    return [];
+  }
+  // otherwise prepend days from previous month
+  const prevMonthDays = eachDayOfInterval({
+    start: subDays(lastDayOfPrevMonth, 5),
+    end: lastDayOfPrevMonth
+  });
+
+  return R.dropWhile(date => getDay(date) !== firstDay, prevMonthDays);
+};
 
 export const lastDayOfPrevMonth = (month: Date): Date =>
   lastDayOfMonth(subMonths(month, 1));
 
 // render prepended days from previous month + days from current month
-export const calendarDaysToRender = (month: Date): Date[] => {
+export const calendarDaysToRender = (
+  firstDay: WeekDay,
+  month: Date
+): Date[] => {
   // start of month
   const start = startOfMonth(month);
   // end of month
@@ -45,7 +53,7 @@ export const calendarDaysToRender = (month: Date): Date[] => {
 
   // concant days from previous month and days from current month
   return R.concat(
-    daysFromPrevMonth(start, lastDayOfPrevMonth(month)),
+    daysFromPrevMonth(start, lastDayOfPrevMonth(month), firstDay),
     eachDayOfInterval({ start, end })
   );
 };
@@ -106,15 +114,15 @@ export const calendarMonthsToRender = (
   if (visibleMonths >= months.length) {
     return months;
   }
-  return R.compose(R.take(visibleMonths), R.drop(currentMonth))(months);
+  return R.compose(
+    R.take(visibleMonths),
+    R.drop(currentMonth)
+  )(months);
 };
 
-export const filterCustomClasses = (
-  from: Date,
-  to?: Date
-) =>
+export const filterCustomClasses = (from: Date, to?: Date) =>
   R.compose(
-    R.pickBy(R.prop('length')),
+    R.pickBy(R.prop("length")),
     R.mapObjIndexed((dates: Date[]) =>
       dates.filter(
         date =>

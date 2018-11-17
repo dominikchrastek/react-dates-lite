@@ -29,7 +29,7 @@ export const formatMonth = (date: Date): string => format(date, "MMMM yyyy");
 export const formatDate = (date: Date): string => format(date, "E d MMM");
 
 type Props = {
-  date: ?Date,
+  date: Date,
   minDate: Date,
   maxDate: Date,
   disabledDates?: ?(Date[]),
@@ -83,7 +83,7 @@ class DatePicker extends React.Component<Props, State> {
     this.setState({ calendarVisible: !calendarVisible });
   };
 
-  handleChangeDate = (date: Date) => {
+  handleChangeDate = (date: Date[]) => {
     this.setState({ selected: date });
   };
 

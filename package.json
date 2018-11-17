@@ -23,6 +23,7 @@
     "test": "TZ=UTC jest",
     "test:watch": "TZ=UTC jest --watch",
     "test:coverage": "TZ=UTC jest --coverage",
+    "test:u": "TZ=UTC jest --u",
     "storybook": "start-storybook -p 6006",
     "flow": "flow",
     "deploy-storybook": "storybook-to-ghpages",
