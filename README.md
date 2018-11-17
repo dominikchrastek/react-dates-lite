@@ -72,6 +72,7 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 - `width?: number` - custom base width of a single calendar (excluding margins)
 - `buttonBack?: React.Node` - custom back button (will receive disabled prop)
 - `buttonForward?: React.Node` - custom forwrad button (will receive disabled prop)
+- `firstWeekDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6` - set day that will be displayed first (`0` is `sunday` and also default value)
 
 ## License
 

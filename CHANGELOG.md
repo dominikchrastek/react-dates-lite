@@ -1,3 +1,9 @@
+# 0.0.43 (2018-11-17)
+
+new prop:
+
+- `firstWeekDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6` - set day that will be displayed first (`0` is `sunday`)
+
 # 0.0.42 (2018-10-24)
 
 update styled components to `4.0.2`
