@@ -10,9 +10,8 @@ import format from "date-fns/format";
 import addDays from "date-fns/addDays";
 import startOfDay from "date-fns/startOfDay";
 import addMonths from "date-fns/addMonths";
-import type { WeekDay } from "../src/";
+import type { WeekDay } from "../src";
 import Calendar from "../src";
-import { number } from "@storybook/addon-knobs/dist/react";
 // import CalendarDay from '../src/CustomDay';
 
 const Container = styled.div`
@@ -48,7 +47,10 @@ export default class Example extends React.PureComponent<Props, State> {
   static defaultProps = {
     allowedDates: false,
     showMonthName: true,
-    showWeekDayNames: true
+    showWeekDayNames: true,
+    firstWeekDay: 0,
+    rangeSelect: false,
+    visibleMonths: 1
   };
 
   state = {

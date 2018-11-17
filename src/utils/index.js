@@ -15,7 +15,7 @@ import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
 import isBefore from "date-fns/isBefore";
 import isAfter from "date-fns/isAfter";
 import isSameDay from "date-fns/isSameDay";
-import type { WeekDay } from "../";
+import type { WeekDay } from "..";
 // TODO: separate util files
 // CalendarMonth utils
 

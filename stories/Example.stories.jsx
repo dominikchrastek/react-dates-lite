@@ -2,10 +2,10 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { boolean, select, number } from "@storybook/addon-knobs/react";
+import { boolean, select } from "@storybook/addon-knobs/react";
+import Calendar from "../example/Example";
 
 const weekDays = [0, 1, 2, 3, 4, 5, 6];
-import Calendar from "../example/Example";
 
 storiesOf("Calendar - Example", module)
   .add("default", () => (
