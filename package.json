@@ -1,6 +1,6 @@
 {
   "name": "react-dates-lite",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "React calendar component for selecting dates",
   "main": "lib/index.js",
   "author": "Dominik Chrastek",

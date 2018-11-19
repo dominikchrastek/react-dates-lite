@@ -2,7 +2,6 @@
 
 exports[`#CalendarDay methods should render correctly 1`] = `
 <ForwardRef
-  className=""
   colors={Object {}}
   isHidden={false}
 >
@@ -25,7 +24,6 @@ exports[`#CalendarDay methods should render correctly 1`] = `
 
 exports[`#CalendarDay methods should render hidden 1`] = `
 <ForwardRef
-  className=""
   colors={Object {}}
   isHidden={true}
 >
@@ -49,6 +47,52 @@ exports[`#CalendarDay methods should render hidden 1`] = `
 exports[`#CalendarDay methods should render joined classes 1`] = `
 <ForwardRef
   className="hey hou"
+  colors={Object {}}
+  isHidden={false}
+>
+  <ForwardRef
+    colors={Object {}}
+    isFuture={false}
+    isHidden={false}
+    isHovered={false}
+    isPast={false}
+    isSelected={false}
+    number={1}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    1
+  </ForwardRef>
+</ForwardRef>
+`;
+
+exports[`#CalendarDay methods should render with class day 1`] = `
+<ForwardRef
+  className="day"
+  colors={Object {}}
+  isHidden={false}
+>
+  <ForwardRef
+    colors={Object {}}
+    isFuture={false}
+    isHidden={false}
+    isHovered={false}
+    isPast={false}
+    isSelected={false}
+    number={1}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOver={[Function]}
+  >
+    1
+  </ForwardRef>
+</ForwardRef>
+`;
+
+exports[`#CalendarDay methods should render with joined & class day 1`] = `
+<ForwardRef
+  className="hey hou day"
   colors={Object {}}
   isHidden={false}
 >

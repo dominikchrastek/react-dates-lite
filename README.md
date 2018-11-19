@@ -58,9 +58,13 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
     disabled: "gray"
   };
   ```
-- `classes?: { [string]: string }` - will provide colors to these stuff: \* `button` - class for buttons
+- `classes?: { [string]: string }` - will provide colors to these stuff:
+  - `button` - class for buttons
   - `calendarWrapper` - class for calendar wrapper
   - `month` - class for single month wrapper
+  - `day` - class for day
+  - `weekDay` - class for weekDay
+  - `monthName` - class for monthName
   - default value: `{}`
 - `customClasses?: { [className: string]: Date[] }` - add `className` to specified dates
 - `CustomTd?: React.ComponentType<CalendarDayProps>` - custom day component (original `CalendarDay`)

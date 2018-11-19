@@ -1,3 +1,11 @@
+# 0.0.44 (2018-11-19)
+
+`classes` prop was extended
+
+- `day` - class for day
+- `weekDay` - class for weekDay
+- `monthName` - class for monthName
+
 # 0.0.43 (2018-11-17)
 
 new prop:

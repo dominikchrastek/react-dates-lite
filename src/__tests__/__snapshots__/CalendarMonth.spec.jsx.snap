@@ -7,8 +7,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
   <ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -21,8 +22,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-01T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -35,8 +37,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-02T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -49,8 +52,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-03T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -63,8 +67,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-04T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -77,8 +82,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-05T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -91,8 +97,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-06T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -107,8 +114,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -121,8 +129,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-08T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -135,8 +144,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-09T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -149,8 +159,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-10T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -163,8 +174,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-11T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -177,8 +189,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-12T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -191,8 +204,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-13T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -207,8 +221,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -221,8 +236,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-15T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -235,8 +251,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-16T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -249,8 +266,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-17T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -263,8 +281,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-18T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -277,8 +296,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-19T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -291,8 +311,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-20T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -307,8 +328,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -321,8 +343,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-22T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -335,8 +358,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-23T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -349,8 +373,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-24T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -363,8 +388,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-25T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -377,8 +403,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-26T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -391,8 +418,9 @@ exports[`#CalendarMonth should render correctly 1`] = `
         value={2018-02-27T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -416,8 +444,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
   <ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -430,8 +459,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-01T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -444,8 +474,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-02T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -458,8 +489,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-03T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -472,8 +504,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-04T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -486,8 +519,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-05T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -500,8 +534,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-06T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -516,8 +551,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -530,8 +566,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-08T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -544,8 +581,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-09T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -558,8 +596,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-10T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -572,8 +611,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-11T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -586,8 +626,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-12T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -600,8 +641,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-13T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -616,8 +658,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -630,8 +673,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-15T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -644,8 +688,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-16T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -658,8 +703,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-17T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -672,8 +718,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-18T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -686,8 +733,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-19T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -700,8 +748,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-20T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -716,8 +765,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -730,8 +780,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-22T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -744,8 +795,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-23T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -758,8 +810,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-24T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -772,8 +825,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-25T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -786,8 +840,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-26T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -800,8 +855,9 @@ exports[`#CalendarMonth should render correctly with allowedDates 1`] = `
         value={2018-02-27T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={true}
         isFuture={false}
         isHidden={false}
@@ -825,8 +881,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
   <ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -839,8 +900,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-01T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -853,8 +919,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-02T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -867,8 +938,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-03T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -881,8 +957,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-04T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -895,8 +976,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-05T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -909,8 +995,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-06T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -925,8 +1016,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -939,8 +1035,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-08T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -953,8 +1054,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-09T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -967,8 +1073,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-10T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -981,8 +1092,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-11T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -995,8 +1111,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-12T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1009,8 +1130,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-13T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1025,8 +1151,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1039,8 +1170,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-15T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1053,8 +1189,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-16T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1067,8 +1208,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-17T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1081,8 +1227,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-18T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1095,8 +1246,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-19T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1109,8 +1265,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-20T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1125,8 +1286,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1139,8 +1305,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-22T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1153,8 +1324,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-23T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1167,8 +1343,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-24T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1181,8 +1362,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-25T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1195,8 +1381,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-26T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1209,8 +1400,13 @@ exports[`#CalendarMonth should render correctly with classes 1`] = `
         value={2018-02-27T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={
+          Object {
+            "month": "monthClass",
+          }
+        }
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1234,8 +1430,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
   <ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1248,8 +1445,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-01T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1262,8 +1460,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-02T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1276,8 +1475,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-03T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1290,8 +1490,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-04T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1304,8 +1505,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-05T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1318,8 +1520,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-06T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1334,8 +1537,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1348,8 +1552,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-08T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1362,8 +1567,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-09T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1376,8 +1582,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-10T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1390,8 +1597,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-11T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1404,8 +1612,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-12T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1418,8 +1627,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-13T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1434,8 +1644,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1448,8 +1659,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-15T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1462,8 +1674,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-16T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1476,8 +1689,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-17T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1490,8 +1704,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-18T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1504,8 +1719,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-19T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1518,8 +1734,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-20T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1534,8 +1751,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
     </ForwardRef>
     <ForwardRef>
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1548,8 +1766,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-22T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1562,8 +1781,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-23T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1576,8 +1796,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-24T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1590,8 +1811,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-25T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1604,8 +1826,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-26T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}
@@ -1618,8 +1841,9 @@ exports[`#CalendarMonth should render correctly with formatter 1`] = `
         value={2018-02-27T00:00:00.000Z}
       />
       <CalendarDay
-        classes={Array []}
+        classes={Object {}}
         colors={Object {}}
+        customClasses={Array []}
         isDisabled={false}
         isFuture={false}
         isHidden={false}

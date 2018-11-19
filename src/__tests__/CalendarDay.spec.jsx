@@ -41,7 +41,29 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={[]}
+          customClasses={[]}
+          classes={{}}
+        />
+      );
+      expect(wrapper.getElement()).toMatchSnapshot();
+    });
+    it("should render with class day", () => {
+      const wrapper = shallow(
+        <CalendarDay
+          isHidden={false}
+          number={getDate(date)}
+          value={date}
+          selectDate={jest.fn()}
+          onHover={jest.fn()}
+          isHovered={false}
+          isSelected={false}
+          isPast={false}
+          isFuture={false}
+          colors={{}}
+          customClasses={[]}
+          classes={{
+            day: "day"
+          }}
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -59,7 +81,29 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={["hey", "hou"]}
+          customClasses={["hey", "hou"]}
+          classes={{}}
+        />
+      );
+      expect(wrapper.getElement()).toMatchSnapshot();
+    });
+    it("should render with joined & class day", () => {
+      const wrapper = shallow(
+        <CalendarDay
+          isHidden={false}
+          number={getDate(date)}
+          value={date}
+          selectDate={jest.fn()}
+          onHover={jest.fn()}
+          isHovered={false}
+          isSelected={false}
+          isPast={false}
+          isFuture={false}
+          colors={{}}
+          customClasses={["hey", "hou"]}
+          classes={{
+            day: "day"
+          }}
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -77,7 +121,8 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={[]}
+          customClasses={[]}
+          classes={{}}
         />
       );
       expect(wrapper.getElement()).toMatchSnapshot();
@@ -97,7 +142,8 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={[]}
+          customClasses={[]}
+          classes={{}}
         />
       );
 
@@ -121,7 +167,8 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={[]}
+          customClasses={[]}
+          classes={{}}
         />
       );
 
@@ -145,7 +192,8 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={[]}
+          customClasses={[]}
+          classes={{}}
         />
       );
 
@@ -169,7 +217,8 @@ describe("#CalendarDay", () => {
           isPast={false}
           isFuture={false}
           colors={{}}
-          classes={[]}
+          customClasses={[]}
+          classes={{}}
         />
       );
 

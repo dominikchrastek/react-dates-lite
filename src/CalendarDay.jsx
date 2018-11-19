@@ -84,6 +84,7 @@ const Button = styled.button`
   color: ${props => buttonColor(props)};
   background: ${props => buttonBg(props)};
   border: none;
+  font-size: inherit;
 
   ${props => !props.isHidden && "cursor: pointer;"};
   border-radius: 0;
@@ -137,14 +138,24 @@ export default class CalendarDay extends React.PureComponent<Props> {
       isHovered,
       colors,
       isFocused,
+      customClasses,
       classes
     } = this.props;
+
+    if (classes.day) {
+      customClasses.push(classes.day);
+    }
 
     return (
       <Td
         isHidden={isHidden}
         colors={colors}
-        className={classes && (!isHovered && !isSelected) && classes.join(" ")}
+        className={
+          (customClasses &&
+            (!isHovered && !isSelected) &&
+            customClasses.join(" ")) ||
+          classes.day
+        }
       >
         <Button
           // className={getClasses(this.props)}

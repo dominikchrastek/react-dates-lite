@@ -93,21 +93,21 @@ const CalendarMonth = ({
 }: Props) => {
   const toRender = utils.calendarDaysToRender(firstWeekDay, month);
   const Day = CustomTd || CalendarDay;
+
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
       {showMonthName && (
-        <MonthName>
+        <MonthName className={classes.monthName}>
           {monthNameFormatter
             ? monthNameFormatter(month)
             : format(month, "MMMM yyyy")}
         </MonthName>
       )}
-
       {showWeekDayNames && (
         <DayNameList>
           {R.map(
             day => (
-              <DayName key={day}>
+              <DayName key={day} className={classes.weekDay}>
                 {weekDayFormatter
                   ? weekDayFormatter(day)
                   : format(day, weekDayFormat)}
@@ -141,10 +141,11 @@ const CalendarMonth = ({
                     isPast={dayHelpers.isPast(day, new Date()) && !past}
                     isFuture={dayHelpers.isFuture(day, new Date()) && !future}
                     isFocused={isFocused}
-                    classes={R.keys(
+                    customClasses={R.keys(
                       utils.filterCustomClasses(day)(customClasses)
                     )}
                     colors={colors}
+                    classes={classes}
                   />
                 ),
                 week
