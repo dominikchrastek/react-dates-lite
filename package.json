@@ -3,6 +3,7 @@
   "version": "0.0.44",
   "description": "React calendar component for selecting dates",
   "main": "lib/index.js",
+  "typings": "lib/typings.d.ts",
   "author": "Dominik Chrastek",
   "license": "MIT",
   "keywords": [

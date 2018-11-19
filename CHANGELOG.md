@@ -1,3 +1,7 @@
+# 0.0.45 (2018-11-19)
+
+add `typescript definitions`
+
 # 0.0.44 (2018-11-19)
 
 `classes` prop was extended
