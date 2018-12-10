@@ -1,5 +1,5 @@
-// flow-typed signature: d869098d1e7c7ccd5477ac7f10a9148d
-// flow-typed version: 8e2ca848b1/@storybook/addon-links_v3.x.x/flow_>=v0.53.x
+// flow-typed signature: 6228614f4cefdb3846493aaa7a03baac
+// flow-typed version: bfd22d4eee/@storybook/addon-links_v3.x.x/flow_>=v0.53.x
 
 declare module '@storybook/addon-links' {
   declare type LinkToFunction = (...args: Array<any>) => string;
@@ -8,7 +8,7 @@ declare module '@storybook/addon-links' {
     linkTo<T>(
       book: string | LinkToFunction,
       kind?: string | LinkToFunction
-    ): SyntheticMouseEvent<T>,
+    ): (evt: SyntheticEvent<T>) => void,
     hrefTo(kind: string, story: string): Promise<string>,
   };
 }
