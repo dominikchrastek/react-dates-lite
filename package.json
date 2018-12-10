@@ -17,7 +17,6 @@
   "scripts": {
     "clean": "rimraf lib && rimraf es",
     "start": "webpack-dev-server --config etc/webpack.dev.js --inline --hot",
-    "build:webpack": "webpack --config etc/webpack.build.js -p",
     "build": "gulp build",
     "eslint": "eslint --ext .js --ext .jsx .",
     "eslint:fix": "eslint --fix --ext .js --ext .jsx .",
@@ -68,7 +67,6 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
-    "extract-text-webpack-plugin": "^3.0.2",
     "flow-bin": "^0.87.0",
     "flow-typed": "^2.5.1",
     "gulp": "gulpjs/gulp#4.0",
@@ -81,8 +79,9 @@
     "react-dom": "^16.6.3",
     "regenerator-runtime": "^0.13.1",
     "styled-components": "^4.0.2",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3"
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
   "files": [
     "lib",

@@ -1,44 +1,22 @@
-const path = require('path');
-const ExtractText = require('extract-text-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-
-const babelOptions = {
-  // presets: ['react', ['es2015', { modules: false, loose: true }], 'stage-2'],
-  // plugins: ['ramda']
-  babelrc: true,
-};
+const path = require("path");
 
 module.exports = {
   entry: {
-    bundle: path.resolve(__dirname, '../example/')
+    bundle: path.resolve(__dirname, "../example/")
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css']
+    extensions: [".js", ".jsx"]
   },
-  jsClient: {
-    test: /\.jsx?$/,
-    use: [
+  module: {
+    rules: [
       {
-        loader: 'babel-loader',
-        options: babelOptions
-      }
-    ],
-    exclude: /node_modules/
-  },
-  cssShared: {
-    test: /\.css$/,
-    use: ExtractText.extract({
-      fallback: 'style-loader',
-      use: [
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true
-          }
+        test: /\.js$|\.jsx$/,
+        loader: "babel-loader",
+        options: {
+          babelrc: true
         },
-        {
-          loader: 'postcss-loader'
-        }
-      ]
-    })
+        exclude: /node_modules/
+      }
+    ]
   }
 };
