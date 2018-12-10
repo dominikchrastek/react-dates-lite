@@ -78,6 +78,13 @@ see this [Example](https://github.com/dominikchrastek/react-dates-lite/blob/mast
 - `buttonForward?: React.Node` - custom forwrad button (will receive disabled prop)
 - `firstWeekDay?: 0 | 1 | 2 | 3 | 4 | 5 | 6` - set day that will be displayed first (`0` is `sunday` and also default value)
 
+## Contributing
+
+PRs are welcome.
+
+1. install dependencies: `yarn`
+2. develop with storybook: `yarn storybook`, or with webpack-dev-server: `yarn start`
+
 ## License
 
 MIT
