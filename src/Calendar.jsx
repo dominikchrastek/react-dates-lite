@@ -77,7 +77,9 @@ const NavBtn = styled.button`
 `;
 
 const StyledMonth = styled(CalendarMonth)`
-  margin-right: 10px;
+  margin-top: ${props =>
+    !props.showWeekDayNames && !props.showMonthName ? "60px" : "0"}
+  margin-right: 10px
   &:last-child {
     margin-right: 0;
   }

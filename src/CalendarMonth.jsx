@@ -52,7 +52,7 @@ const DayNameList = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 0 10px;
+  margin: ${props => (!props.showMonthName ? "70px" : "40px")} 0 10px;
 `;
 
 const DayName = styled.span`
@@ -62,6 +62,7 @@ const DayName = styled.span`
 
 const MonthName = styled.span`
   height: 30px;
+  margin-bottom: ${props => (!props.showWeekDayNames ? "30px" : "0")};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,14 +98,17 @@ const CalendarMonth = ({
   return (
     <div className={`${classes.month && classes.month} ${className}`}>
       {showMonthName && (
-        <MonthName className={classes.monthName}>
+        <MonthName
+          className={classes.monthName}
+          showWeekDayNames={showWeekDayNames}
+        >
           {monthNameFormatter
             ? monthNameFormatter(month)
             : format(month, "MMMM yyyy")}
         </MonthName>
       )}
       {showWeekDayNames && (
-        <DayNameList>
+        <DayNameList showMonthName={showMonthName}>
           {R.map(
             day => (
               <DayName key={day} className={classes.weekDay}>
