@@ -1,24 +1,20 @@
-// const webpack = require('webpack');
-const ExtractText = require('extract-text-webpack-plugin');
-const shared = require('./webpack.shared.js');
+const shared = require("./webpack.shared.js");
 
 const config = {
   entry: shared.entry,
   resolve: shared.resolve,
+  module: shared.module,
+  mode: "development",
   output: {
-    filename: 'output.js',
-    publicPath: '/'
-  },
-  module: {
-    rules: [shared.jsClient, shared.cssShared]
+    filename: "output.js",
+    publicPath: "/"
   },
   devServer: {
-    contentBase: 'static/',
+    contentBase: "static/",
     inline: true,
     historyApiFallback: true
   },
-  devtool: 'eval-source-map',
-  plugins: [new ExtractText({ disable: true })]
+  devtool: "eval-source-map"
 };
 
 module.exports = config;
