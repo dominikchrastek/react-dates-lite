@@ -35,7 +35,7 @@
     "styled-components": "^4.0.0"
   },
   "dependencies": {
-    "date-fns": "~2.0.0-alpha.25",
+    "date-fns": "~2.4.1",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
@@ -78,7 +78,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "regenerator-runtime": "^0.13.1",
-    "styled-components": "^4.1.2",
+    "styled-components": "^4.4.0",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
