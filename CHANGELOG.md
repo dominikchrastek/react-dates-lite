@@ -1,3 +1,8 @@
+# 0.0.46 (2019-9-30)
+
+upgrade `date-fns` to `v2.4.1`
+upgrade `styled-components` to `v4.4.0`
+
 # 0.0.45 (2018-11-19)
 
 add `typescript definitions`
