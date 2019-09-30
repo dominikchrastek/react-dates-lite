@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#Calendar methods should render correctly 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="wrapper"
   visibleMonths={3}
   width={301}
 >
-  <ForwardRef
+  <ForwardRef(styled.div)
     className=""
   >
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -38,7 +38,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -67,7 +67,7 @@ exports[`#Calendar methods should render correctly 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -96,20 +96,20 @@ exports[`#Calendar methods should render correctly 1`] = `
       weekDayFormat="E"
       width={301}
     />
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.div)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#Calendar methods should render correctly with allowedDates 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="wrapper"
   visibleMonths={3}
   width={301}
 >
-  <ForwardRef
+  <ForwardRef(styled.div)
     className=""
   >
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -142,7 +142,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -175,7 +175,7 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={
         Array [
           2018-03-10T00:00:00.000Z,
@@ -208,20 +208,20 @@ exports[`#Calendar methods should render correctly with allowedDates 1`] = `
       weekDayFormat="E"
       width={301}
     />
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.div)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#Calendar methods should render correctly with custom icons 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="wrapper"
   visibleMonths={3}
   width={301}
 >
-  <ForwardRef
+  <ForwardRef(styled.div)
     className=""
   >
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -250,7 +250,7 @@ exports[`#Calendar methods should render correctly with custom icons 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -279,7 +279,7 @@ exports[`#Calendar methods should render correctly with custom icons 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -308,20 +308,20 @@ exports[`#Calendar methods should render correctly with custom icons 1`] = `
       weekDayFormat="E"
       width={301}
     />
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.div)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#Calendar methods should render correctly with future enabled 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="wrapper"
   visibleMonths={3}
   width={301}
 >
-  <ForwardRef
+  <ForwardRef(styled.div)
     className=""
   >
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -350,7 +350,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -379,7 +379,7 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -408,20 +408,20 @@ exports[`#Calendar methods should render correctly with future enabled 1`] = `
       weekDayFormat="E"
       width={301}
     />
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.div)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#Calendar methods should render without month and week days names 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="wrapper"
   visibleMonths={3}
   width={301}
 >
-  <ForwardRef
+  <ForwardRef(styled.div)
     className=""
   >
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -450,7 +450,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -479,7 +479,7 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       weekDayFormat="E"
       width={301}
     />
-    <ForwardRef
+    <ForwardRef(Styled(CalendarMonth))
       allowedDates={Array []}
       classes={Object {}}
       colors={
@@ -508,6 +508,6 @@ exports[`#Calendar methods should render without month and week days names 1`] =
       weekDayFormat="E"
       width={301}
     />
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.div)>
+</ForwardRef(styled.div)>
 `;

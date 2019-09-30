@@ -1,11 +1,13 @@
 // @flow strict
 import React from "react";
 import styled from "styled-components";
-import addMonths from "date-fns/addMonths";
-import addDays from "date-fns/addDays";
-import eachDayOfInterval from "date-fns/eachDayOfInterval";
-import startOfMonth from "date-fns/startOfMonth";
-import endOfMonth from "date-fns/endOfMonth";
+import {
+  subDays,
+  startOfMonth,
+  addMonths,
+  endOfMonth,
+  eachDayOfInterval
+} from "date-fns";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import DatePicker from "../example/DatePicker";
@@ -20,11 +22,14 @@ const stories = storiesOf("DatePicker", module);
 
 stories.add("default", () => {
   const today = new Date();
-  const minDate = addDays(today, 1);
+  const minDate = today;
   const maxDate = addMonths(minDate, 1);
 
   const disabledDates: Date[] = [
-    ...eachDayOfInterval({ start: startOfMonth(minDate), end: today }),
+    ...eachDayOfInterval({
+      start: startOfMonth(today),
+      end: subDays(today, 1)
+    }),
     ...eachDayOfInterval({ start: maxDate, end: endOfMonth(maxDate) })
   ];
 

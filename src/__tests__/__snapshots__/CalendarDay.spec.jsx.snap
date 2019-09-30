@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`#CalendarDay methods should render correctly 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   colors={Object {}}
   isHidden={false}
 >
-  <ForwardRef
+  <ForwardRef(styled.button)
     colors={Object {}}
     isFuture={false}
     isHidden={false}
@@ -18,16 +18,16 @@ exports[`#CalendarDay methods should render correctly 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.button)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#CalendarDay methods should render hidden 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   colors={Object {}}
   isHidden={true}
 >
-  <ForwardRef
+  <ForwardRef(styled.button)
     colors={Object {}}
     isFuture={false}
     isHidden={true}
@@ -40,17 +40,17 @@ exports[`#CalendarDay methods should render hidden 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.button)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#CalendarDay methods should render joined classes 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="hey hou"
   colors={Object {}}
   isHidden={false}
 >
-  <ForwardRef
+  <ForwardRef(styled.button)
     colors={Object {}}
     isFuture={false}
     isHidden={false}
@@ -63,17 +63,17 @@ exports[`#CalendarDay methods should render joined classes 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.button)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#CalendarDay methods should render with class day 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="day"
   colors={Object {}}
   isHidden={false}
 >
-  <ForwardRef
+  <ForwardRef(styled.button)
     colors={Object {}}
     isFuture={false}
     isHidden={false}
@@ -86,17 +86,17 @@ exports[`#CalendarDay methods should render with class day 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.button)>
+</ForwardRef(styled.div)>
 `;
 
 exports[`#CalendarDay methods should render with joined & class day 1`] = `
-<ForwardRef
+<ForwardRef(styled.div)
   className="hey hou day"
   colors={Object {}}
   isHidden={false}
 >
-  <ForwardRef
+  <ForwardRef(styled.button)
     colors={Object {}}
     isFuture={false}
     isHidden={false}
@@ -109,6 +109,6 @@ exports[`#CalendarDay methods should render with joined & class day 1`] = `
     onMouseOver={[Function]}
   >
     1
-  </ForwardRef>
-</ForwardRef>
+  </ForwardRef(styled.button)>
+</ForwardRef(styled.div)>
 `;
